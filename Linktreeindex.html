@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Halo, Selamat datang</title>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #000, #0d0014);
+      color: #eee;
+      overflow-x: hidden;
+      text-align: center;
+      padding: 40px 20px 60px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    label.tab-link {
+      background: linear-gradient(135deg, #6a0dad, #8a2be2);
+      padding: 10px;
+      border-radius: 50%;
+      color: white;
+      font-weight: 600;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(138, 43, 226, 0.5);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    label.tab-link:hover {
+      background: #bb86fc;
+      color: #1d003d;
+      box-shadow: 0 0 20px #a970f7;
+      transform: translateY(-2px);
+    }
+    label.tab-link::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -25px;
+      background: #6a0dad;
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    label.tab-link:hover::after {
+      opacity: 1;
+    }
+
+    label.tab-link i {
+      pointer-events: none;
+    }
+
+    section.tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    #tab-opening:checked ~ .tabs label[for="tab-opening"],
+    #tab-about:checked ~ .tabs label[for="tab-about"],
+    #tab-experience:checked ~ .tabs label[for="tab-experience"],
+    #tab-toplink:checked ~ .tabs label[for="tab-toplink"] {
+      background: #bb86fc;
+      color: #1d003d;
+      box-shadow: 0 0 25px #a970f7;
+      transform: translateY(-3px);
+    }
+
+    #tab-opening:checked ~ #opening,
+    #tab-about:checked ~ #about,
+    #tab-experience:checked ~ #experience,
+    #tab-toplink:checked ~ #toplink {
+      display: block;
+    }
+
+    .profile-img {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 4px solid #ffffff33;
+      object-fit: cover;
+      box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+      margin: 0 auto 25px;
+      transition: all 0.3s ease;
+    }
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(138, 43, 226, 0.9);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 10px 0 5px;
+      text-shadow: 0 0 6px #6a0dadaa;
+    }
+    p.subtitle {
+      font-size: 16px;
+      color: #d8c4f7;
+      margin-top: 0;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #4b006e;
+      margin: 40px auto 40px;
+      width: 60%;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #b08aff;
+      font-family: Georgia, serif;
+      text-shadow: 0 0 10px #6a0dadcc;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      font-family: 'Opening', serif;
+      font-size: 16px;
+      text-shadow: 0 0 8px #bb99ff;
+    }
+
+    .link {
+      display: block;
+      background: linear-gradient(135deg, #6a0dad, #8a2be2);
+      color: white;
+      margin: 16px auto;
+      padding: 22px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 4px 14px rgba(138, 43, 226, 0.5);
+      width: 60%;
+      max-width: 400px;
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+    }
+    .link:hover {
+      background: #c5a3f7;
+      color: #2a004d;
+      box-shadow: 0 0 20px #bb99ff;
+      transform: scale(1.03);
+    }
+
+    .footer {
+      font-size: 14px;
+      margin-top: 60px;
+      color: #bbb;
+      text-shadow: 0 0 4px #4a2f77;
+    }
+
+    /* Data Project Accordion */
+    label.link[data-project]::after {
+      content: '▼';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    #toggle-project:checked + label[data-project]::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    #project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    #toggle-project:checked ~ #project-details {
+      max-height: 400px;
+      padding: 10px 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
+      .link {
+        font-size: 16px;
+        padding: 12px 18px;
+        width: 90%;
+      }
+      /* White */
+    #project-details li span {
+      color: white !important;
+      }
+    #project-details {
+      max-width: 90%;
+      margin: 0 auto;
+      text-align: left;
+      padding: 10px 0 0;
+      }
+    #project-details ul {
+      padding-left: 15px;
+      margin: 0 auto;
+      max-width: 100%;
+      word-wrap: break-word;
+      white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Radio Tabs -->
+  <input type="radio" name="tabs" id="tab-opening" checked>
+  <input type="radio" name="tabs" id="tab-about">
+  <input type="radio" name="tabs" id="tab-experience">
+  <input type="radio" name="tabs" id="tab-toplink">
+
+  <!-- Tab Navigasi -->
+  <div class="tabs">
+    <label for="tab-opening" class="tab-link" title="Opening"><i data-lucide="book-open"></i></label>
+    <label for="tab-about" class="tab-link" title="About Me"><i data-lucide="user"></i></label>
+    <label for="tab-experience" class="tab-link" title="Experience"><i data-lucide="briefcase"></i></label>
+    <label for="tab-toplink" class="tab-link" title="Top Link"><i data-lucide="link"></i></label>
+  </div>
+
+  <!-- Profil -->
+  <img src="images1.jpg" alt="Foto Profil" class="profile-img" />
+  <h1>Modern Artist | UI UX</h1>
+  <p class="subtitle">Welcome! Exploring creativity & inspiration. Join the journey!</p>
+  <hr />
+
+  <!-- Konten Tab -->
+  <section id="opening" class="tab-content">
+    <h2>Opening</h2>
+    <p class="opening">Hello. I'm Yudha Sanjaya, you can call me Yudha.</p>
+  </section>
+
+  <section id="about" class="tab-content">
+    <h2>About Me</h2>
+    <p>I'm a 6th semester student at Muhammadiyah University of Surakarta, admin for buying and selling games on Facebook and an intern in the marketing department at PLN.</p>
+  </section>
+
+  <section id="experience" class="tab-content">
+    <h2>Experience</h2>
+    <p>Organizing at IMM FKI for 2 years, teaching mentoring at UMS, admin for buying and selling games, and many more</p>
+  </section>
+
+  <section id="toplink" class="tab-content">
+    <input type="checkbox" id="toggle-project" hidden>
+    <label for="toggle-project" class="link" data-project>Data Project</label>
+
+   <div id="project-details">
+  <h3 style="color:#bb99ff;">My Data Projects</h3>
+  <ul style="list-style: disc; font-size: 15px; line-height: 1.6; text-align: left; margin: 0 30px;">
+    <li><strong style="color: #bb99ff;">Project A:</strong> <span style="color: white;">Create a demo game finding nemo through greenfoot.</span></li>
+    <li><strong style="color: #bb99ff;">Project B:</strong> <span style="color: white;">Implementing database from MyPhp to visual studio code to become a marketing website.</span></li>
+    <li><strong style="color: #bb99ff;">Project C:</strong> <span style="color: white;">Launching of a film work in the framework of the anniversary of Sumbawa Besar, West Nusa Tenggara.</span></li>
+    <li><strong style="color: #bb99ff;">Project D:</strong> <span style="color: white;">Designing a company profile in PT Setiawan Jaya Usaha magazine.</span></li>
+  </ul>
+  <a href="#" class="link" style="margin-top: 10px;">See All Projects</a>
+</div>
+
+    <a href="https://www.instagram.com/yudhas4njaya" class="link" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.linkedin.com/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://wa.me/6282331914644" class="link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="mailto:yudhasanjaya411@gmail.com" class="link">Send Email</a>
+  </section>
+
+  <div class="footer">YUDHA SANJAYA PORTOFOLIO</div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
