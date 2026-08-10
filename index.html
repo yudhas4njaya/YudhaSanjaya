@@ -239,37 +239,38 @@
       margin: 10px 4px 0;
     }
 
-    /* Carousel foto: swipe manual halus + efek zoom in-out (Ken Burns) */
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: 8px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .carousel::-webkit-scrollbar {
-      display: none;
-    }
+    /* Foto project: berganti otomatis tiap 2 detik + efek zoom in-out (Ken Burns) */
     .photo-frame {
-      flex: 0 0 100%;
-      scroll-snap-align: center;
+      position: relative;
       height: 180px;
       overflow: hidden;
       border-radius: 14px;
       box-shadow: 0 4px 14px rgba(138, 43, 226, 0.4);
     }
     .photo-frame img {
+      position: absolute;
+      top: 0;
+      left: 0;
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      animation: kenBurns 2.5s ease-in-out infinite alternate;
-      will-change: transform;
+      will-change: transform, opacity;
+      animation:
+        kenBurns 2.5s ease-in-out infinite alternate,
+        fadeCycle 4s ease-in-out infinite;
     }
-    .photo-frame:nth-child(2) img {
-      animation-delay: 0.25s;
+    .photo-frame img.ph1 {
+      animation-delay: 0s, 0s;
+    }
+    .photo-frame img.ph2 {
+      animation-delay: 0.25s, 2s;
+    }
+
+    @keyframes fadeCycle {
+      0%, 42%   { opacity: 1; }
+      50%, 92%  { opacity: 0; }
+      100%      { opacity: 1; }
     }
 
     @keyframes kenBurns {
@@ -362,25 +363,25 @@
       <h3 style="color:#bb99ff; text-align:center;">My Data Projects</h3>
 
       <div class="project-item">
-        <div class="carousel">
-          <div class="photo-frame"><img src="project-a-1.jpg" alt="Project A - foto 1" /></div>
-          <div class="photo-frame"><img src="project-a-2.jpg" alt="Project A - foto 2" /></div>
+        <div class="photo-frame">
+          <img class="ph1" src="project-a-1.jpg" alt="Project A - foto 1" />
+          <img class="ph2" src="project-a-2.jpg" alt="Project A - foto 2" />
         </div>
         <p><strong style="color:#bb99ff;">Project A:</strong> <span style="color:white;">Updating the website appearance and creating a company profile for PT Setiawan Jaya Usaha.</span></p>
       </div>
 
       <div class="project-item">
-        <div class="carousel">
-          <div class="photo-frame"><img src="project-b-1.jpg" alt="Project B - foto 1" /></div>
-          <div class="photo-frame"><img src="project-b-2.jpg" alt="Project B - foto 2" /></div>
+        <div class="photo-frame">
+          <img class="ph1" src="project-b-1.jpg" alt="Project B - foto 1" />
+          <img class="ph2" src="project-b-2.jpg" alt="Project B - foto 2" />
         </div>
         <p><strong style="color:#bb99ff;">Project B:</strong> <span style="color:white;">Managed social media for the Udang Kedjuu brand in the Surakarta area as a creator admin for 6 months.</span></p>
       </div>
 
       <div class="project-item">
-        <div class="carousel">
-          <div class="photo-frame"><img src="project-c-1.jpg" alt="Project C - foto 1" /></div>
-          <div class="photo-frame"><img src="project-c-2.jpg" alt="Project C - foto 2" /></div>
+        <div class="photo-frame">
+          <img class="ph1" src="project-c-1.jpg" alt="Project C - foto 1" />
+          <img class="ph2" src="project-c-2.jpg" alt="Project C - foto 2" />
         </div>
         <p><strong style="color:#bb99ff;">Project C:</strong> <span style="color:white;">As an Admin, I have been buying and selling Roblox games for 6 months, earning tens of millions.</span></p>
       </div>
