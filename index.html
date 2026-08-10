@@ -208,8 +208,73 @@
     }
 
     #toggle-project:checked ~ #project-details {
-      max-height: 400px;
+      max-height: 520px;
+      overflow-y: auto;
+      overflow-x: hidden;
       padding: 10px 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Scrollbar tipis & rapi untuk area project */
+    #project-details::-webkit-scrollbar {
+      width: 6px;
+    }
+    #project-details::-webkit-scrollbar-thumb {
+      background: #6a0dad;
+      border-radius: 10px;
+    }
+    #project-details {
+      scrollbar-width: thin;
+      scrollbar-color: #6a0dad transparent;
+    }
+
+    /* Setiap blok project */
+    .project-item {
+      text-align: left;
+      margin-bottom: 26px;
+    }
+    .project-item p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 10px 4px 0;
+    }
+
+    /* Carousel foto: swipe manual halus + efek zoom in-out (Ken Burns) */
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+    .photo-frame {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(138, 43, 226, 0.4);
+    }
+    .photo-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: kenBurns 2.5s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    .photo-frame:nth-child(2) img {
+      animation-delay: 0.25s;
+    }
+
+    @keyframes kenBurns {
+      0%   { transform: scale(1); }
+      100% { transform: scale(1.12); }
     }
 
     /* Responsive */
@@ -239,8 +304,14 @@
       word-wrap: break-word;
       white-space: normal;
       }
-    #toggle-project:checked ~ #project-details {
-      max-height: 700px;
+
+      /* Area project di-scroll di HP, bukan dipotong */
+      #toggle-project:checked ~ #project-details {
+        max-height: 440px;
+        overflow-y: auto;
+      }
+      .photo-frame {
+        height: 160px;
       }
     }
   </style>
@@ -287,16 +358,35 @@
     <input type="checkbox" id="toggle-project" hidden>
     <label for="toggle-project" class="link" data-project>Data Project</label>
 
-   <div id="project-details">
-  <h3 style="color:#bb99ff;">My Data Projects</h3>
-  <ul style="list-style: disc; font-size: 15px; line-height: 1.6; text-align: left; margin: 0 30px;">
-    <li><strong style="color: #bb99ff;">Project A:</strong> <span style="color: white;">Updating the website appearance and creating a company profile for PT Setiawan Jaya Usaha.</span></li>
-    <li><strong style="color: #bb99ff;">Project B:</strong> <span style="color: white;">Managed social media for the Udang Kedjuu brand in the Surakarta area as a creator admin for 6 months.</span></li>
-    <li><strong style="color: #bb99ff;">Project C:</strong> <span style="color: white;">As an Admin, I have been buying and selling Roblox games for 6 months, earning tens of millions.</span></li>
-    <li><strong style="color: #bb99ff;">Project D:</strong> <span style="color: white;">Handling various types of customers through Shopee Food Driver orders for 6 months.</span></li>
-  </ul>
-  <a href="#" class="link" style="margin-top: 10px;">See All Projects</a>
-</div>
+    <div id="project-details">
+      <h3 style="color:#bb99ff; text-align:center;">My Data Projects</h3>
+
+      <div class="project-item">
+        <div class="carousel">
+          <div class="photo-frame"><img src="project-a-1.jpg" alt="Project A - foto 1" /></div>
+          <div class="photo-frame"><img src="project-a-2.jpg" alt="Project A - foto 2" /></div>
+        </div>
+        <p><strong style="color:#bb99ff;">Project A:</strong> <span style="color:white;">Updating the website appearance and creating a company profile for PT Setiawan Jaya Usaha.</span></p>
+      </div>
+
+      <div class="project-item">
+        <div class="carousel">
+          <div class="photo-frame"><img src="project-b-1.jpg" alt="Project B - foto 1" /></div>
+          <div class="photo-frame"><img src="project-b-2.jpg" alt="Project B - foto 2" /></div>
+        </div>
+        <p><strong style="color:#bb99ff;">Project B:</strong> <span style="color:white;">Managed social media for the Udang Kedjuu brand in the Surakarta area as a creator admin for 6 months.</span></p>
+      </div>
+
+      <div class="project-item">
+        <div class="carousel">
+          <div class="photo-frame"><img src="project-c-1.jpg" alt="Project C - foto 1" /></div>
+          <div class="photo-frame"><img src="project-c-2.jpg" alt="Project C - foto 2" /></div>
+        </div>
+        <p><strong style="color:#bb99ff;">Project C:</strong> <span style="color:white;">As an Admin, I have been buying and selling Roblox games for 6 months, earning tens of millions.</span></p>
+      </div>
+
+      <a href="#" class="link" style="margin-top: 10px;">See All Projects</a>
+    </div>
 
     <a href="https://www.instagram.com/yudhas4njaya" class="link" target="_blank" rel="noopener noreferrer">Instagram</a>
     <a href="https://www.linkedin.com/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -309,6 +399,5 @@
   <script>
     lucide.createIcons();
   </script>
-
 </body>
 </html>
