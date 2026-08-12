@@ -170,15 +170,32 @@
       text-align: center;
     }
 
-    .timeline::before {
+    .timeline-track {
       content: '';
       position: absolute;
       top: 0;
       bottom: 0;
       left: 50%;
       width: 2px;
-      background: linear-gradient(180deg, #6a0dad, #8a2be2);
+      background: rgba(138, 43, 226, 0.2);
       transform: translateX(-50%);
+    }
+
+    .timeline-fill {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 0%;
+      background: linear-gradient(180deg, #6a0dad, #bb86fc);
+      box-shadow: 0 0 8px #a970f7;
+      transform: translateX(-50%);
+      animation: growLine 3.2s ease forwards;
+    }
+
+    @keyframes growLine {
+      from { height: 0%; }
+      to   { height: 100%; }
     }
 
     .timeline-item {
@@ -194,12 +211,26 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: #bb86fc;
-      box-shadow: 0 0 10px #a970f7;
+      background: rgba(187, 134, 252, 0.2);
+      box-shadow: none;
       margin: 0 auto 10px;
       position: relative;
       z-index: 1;
+      animation: dotLight 0.6s ease forwards;
     }
+
+    @keyframes dotLight {
+      0%   { background: rgba(187, 134, 252, 0.2); box-shadow: none; transform: scale(0.8); }
+      60%  { background: #bb86fc; box-shadow: 0 0 16px #d9b3ff; transform: scale(1.3); }
+      100% { background: #bb86fc; box-shadow: 0 0 10px #a970f7; transform: scale(1); }
+    }
+
+    .timeline-items .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0s; }
+    .timeline-items .timeline-item:nth-child(2) .timeline-dot { animation-delay: 0.55s; }
+    .timeline-items .timeline-item:nth-child(3) .timeline-dot { animation-delay: 1.1s; }
+    .timeline-items .timeline-item:nth-child(4) .timeline-dot { animation-delay: 1.65s; }
+    .timeline-items .timeline-item:nth-child(5) .timeline-dot { animation-delay: 2.2s; }
+    .timeline-items .timeline-item:nth-child(6) .timeline-dot { animation-delay: 2.75s; }
 
     .timeline-date {
       color: #bb99ff;
@@ -303,6 +334,15 @@
       font-size: 15px;
       line-height: 1.6;
       margin: 10px 4px 0;
+    }
+
+    .project-problem {
+      font-style: italic;
+      font-size: 13px !important;
+      color: #a58fce !important;
+      border-left: 2px solid #6a0dad;
+      padding-left: 10px;
+      margin-bottom: 4px !important;
     }
 
     /* Foto project: berganti otomatis tiap 2 detik + efek zoom in-out (Ken Burns) */
@@ -423,46 +463,50 @@
   <section id="experience" class="tab-content">
     <h2>Experience</h2>
     <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2024–Present</div>
-        <div class="timeline-org">Universitas Muhammadiyah Surakarta</div>
-        <div class="timeline-role">Student — Informatics</div>
-      </div>
+      <div class="timeline-track"></div>
+      <div class="timeline-fill"></div>
+      <div class="timeline-items">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022–Present</div>
+          <div class="timeline-org">Muhammadiyah University of Surakarta</div>
+          <div class="timeline-role">Student — Informatics</div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2 Years</div>
-        <div class="timeline-org">IMM FKI UMS</div>
-        <div class="timeline-role">Organization Division Member</div>
-      </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022-2024</div>
+          <div class="timeline-org">IMM FKI UMS</div>
+          <div class="timeline-role">Organization Division Member</div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2 Years</div>
-        <div class="timeline-org">UMS</div>
-        <div class="timeline-role">Religious Guidance Mentor</div>
-      </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022-2024</div>
+          <div class="timeline-org">Mentor UMS</div>
+          <div class="timeline-role">Religious Guidance Mentor</div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">6 Months</div>
-        <div class="timeline-org">Roblox Trading</div>
-        <div class="timeline-role">Game Trading Administrator</div>
-      </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">July 2025-December 2025</div> 
+          <div class="timeline-org">Items Roblox</div>
+          <div class="timeline-role">Game Trading Administrator</div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">6 Months</div>
-        <div class="timeline-org">Online Ride-Hailing</div>
-        <div class="timeline-role">Motorcycle Taxi Driver</div>
-      </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">February 2026-July 2026</div>
+          <div class="timeline-org">Online Ride-Hailing</div>
+          <div class="timeline-role">ShopeeFood Online Motorcycle Taxi Driver Partner</div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">6 Months</div>
-        <div class="timeline-org">Udang Kedjuu</div>
-        <div class="timeline-role">Social Media Manager</div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">March 2026-August 2026</div>
+          <div class="timeline-org">Udang Kedjuu</div>
+          <div class="timeline-role">Social Media Managerr</div>
+        </div>
       </div>
     </div>
   </section>
@@ -479,6 +523,7 @@
           <img class="ph1" src="project-a-1.jpg" alt="Project A - foto 1" />
           <img class="ph2" src="project-a-2.jpg" alt="Project A - foto 2" />
         </div>
+        <p class="project-problem">Initial concern: the previous design was too monotonous and outdated.</p>
         <p><strong style="color:#bb99ff;">Project A:</strong> <span style="color:white;">Updating the website appearance and creating a company profile for PT Setiawan Jaya Usaha.</span></p>
       </div>
 
@@ -487,6 +532,7 @@
           <img class="ph1" src="project-b-1.jpg" alt="Project B - foto 1" />
           <img class="ph2" src="project-b-2.jpg" alt="Project B - foto 2" />
         </div>
+        <p class="project-problem">Initial concern: content was unplanned and the feed looked messy.</p>
         <p><strong style="color:#bb99ff;">Project B:</strong> <span style="color:white;">Managed social media for the Udang Kedjuu brand in the Surakarta area as a creator admin for 6 months.</span></p>
       </div>
 
@@ -495,7 +541,8 @@
           <img class="ph1" src="project-c-1.jpg" alt="Project C - foto 1" />
           <img class="ph2" src="project-c-2.jpg" alt="Project C - foto 2" />
         </div>
-        <p><strong style="color:#bb99ff;">Project C:</strong> <span style="color:white;">As an Admin, I have been buying and selling Roblox games for 6 months, earning tens of millions.</span></p>
+        <p class="project-problem">Initial concern: many buyers have fallen victim to fraud, making the use of a third party for transactions a necessity.</p>
+        <p><strong style="color:#bb99ff;">Project C:</strong> <span style="color:white;">As an admin, I use the SociaBuzz platform and conduct face-to-face live streams to build buyer trust. I have been trading Roblox game items for six months and have generated revenue reaching tens of millions.</span></p>
       </div>
 
       <a href="#" class="link" style="margin-top: 10px;">See All Projects</a>
