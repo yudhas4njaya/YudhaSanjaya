@@ -77,6 +77,33 @@
       pointer-events: none;
     }
 
+    .translate-icon {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    .translate-icon .char-jp {
+      position: absolute;
+      top: -3px;
+      left: -2px;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 700;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+    }
+    .translate-icon .char-en {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+    }
+
     input[type="radio"],
     input[type="checkbox"] {
       display: none;
@@ -341,6 +368,14 @@
       color: #bb99ff;
     }
 
+    .collab-line {
+      font-size: 15px;
+      color: #d8c4f7;
+      line-height: 1.6;
+      margin: 0 auto 24px;
+      max-width: 360px;
+    }
+
     /* Data Project Accordion */
     label.link[data-project]::after {
       content: '▼';
@@ -496,28 +531,33 @@
     <label for="tab-about" class="tab-link" title="About Me" data-title-en="About Me" data-title-id="Tentang Saya"><i data-lucide="user"></i></label>
     <label for="tab-experience" class="tab-link" title="Experience" data-title-en="Experience" data-title-id="Pengalaman"><i data-lucide="briefcase"></i></label>
     <label for="tab-toplink" class="tab-link" title="Top Link" data-title-en="Top Link" data-title-id="Tautan"><i data-lucide="link"></i></label>
-    <div class="lang-toggle" onclick="toggleLang()" title="Translate" data-title-en="Translate" data-title-id="Terjemahan" tabindex="0"><i data-lucide="Translate"></i></div>
+    <div class="lang-toggle" onclick="toggleLang()" title="Translate" data-title-en="Translate" data-title-id="Terjemahan" tabindex="0">
+      <span class="translate-icon">
+        <span class="char-jp">文</span>
+        <span class="char-en">A</span>
+      </span>
+    </div>
   </div>
 
   <!-- Profil -->
   <img src="images1.jpg" alt="Foto Profil" class="profile-img" />
   <h1 data-en="UI/UX Designer | Social Media Management | Digital Content Creator" data-id="Desainer UI/UX | Manajemen Sosisal Media | Kreator Konten Digital">UI/UX Designer | Social Media Management | Digital Content Creator</h1>
-  <p class="subtitle" data-en="Let's collab! Sleek visuals plus the latest trend insights, ready to make your project stand out." data-id="Yuk kolaborasi bareng gue! Visualisasi kece dan insight tren terbaru, siap bikin project lo makin stand out.">Let's collab! Sleek visuals plus the latest trend insights, ready to make your project stand out.</p>
+  <p class="subtitle" data-en="Let's team up and cook up some design ideas nobody's ever done before. We're gonna break the internet with this project." data-id="Ayo kita berkolaborasi dan menciptakan ide desain yang belum pernah ada sebelumnya. Kita akan menghancurkan timeline dengan proyek ini.">Let's team up and cook up some design ideas nobody's ever done before. We're gonna break the internet with this project.</p>
   <hr />
 
   <!-- Konten Tab -->
   <section id="opening" class="tab-content">
     <h2 data-en="Opening" data-id="Pembuka">Opening</h2>
-    <p class="opening" data-en="UI/UX Designer, Social Media Management and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content." data-id="Desainer UI/UX, Manajemen Sosial Media dan Kreator Konten yang berbasis di Sukoharjo, Indonesia. Saya membantu bisnis dan organisasi membangun pengalaman digital yang lebih baik dan konten yang menarik.">UI/UX Designer, Social Media Management and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content.</p>
+    <p class="opening" data-en="UI/UX Designer, Social Media Management and Content Creator, based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content." data-id="Desainer UI/UX, Manajemen Sosial Media dan Kreator Konten, berbasis di Sukoharjo, Indonesia. Saya membantu bisnis dan organisasi membangun pengalaman digital yang lebih baik serta konten yang menarik.">UI/UX Designer, Social Media Management and Content Creator, based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content.</p>
   </section>
 
   <section id="about" class="tab-content">
     <h2 data-en="About Me" data-id="Tentang Saya">About Me</h2>
-    <p data-en="Im Yudha Sanjaya, a UI/UX Designer, Social Media Management and Digital Content Creator. Im currently a 9th semester student at Muhammadiyah University of Surakarta." data-id="Saya Yudha Sanjaya, seorang Desainer UI/UX, Manajemen Media Sosial dan Kreator Konten Digital. Saat ini saya menempuh semester 9 di Universitas Muhammadiyah Surakarta.">Im Yudha Sanjaya, a UI/UX Designer, Social Media Management and Digital Content Creator. Im currently a 9th semester student at Muhammadiyah University of Surakarta.</p>
+    <p data-en="I'm Yudha Sanjaya, a UI/UX Designer, Social Media Management and Digital Content Creator. Right now I am a student of Informatics Engineering at Muhammadiyah Universitas Muhammadiyah Surakarta." data-id="Saya Yudha Sanjaya, seorang Desainer UI/UX, Manajemen Media Sosial dan Kreator Konten Digital. Saat ini saya adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.">I'm Yudha Sanjaya, a UI/UX Designer, Social Media Management and Digital Content Creator. Right now I am a student of Informatics Engineering at Muhammadiyah Universitas Muhammadiyah Surakarta.</p>
 
-    <p data-en="I live in Sukoharjo, Nguter. I focus on designing interfaces that are easy to use and visually appealing. I also create digital content for various promotional and branding needs." data-id="Saya tinggal di Sukoharjo, Nguter. Saya fokus merancang antarmuka yang mudah digunakan dan enak dilihat. Saya juga membuat konten digital untuk berbagai kebutuhan promosi dan branding.">I live in Sukoharjo, Nguter. I focus on designing interfaces that are easy to use and visually appealing. I also create digital content for various promotional and branding needs.</p>
+    <p data-en="I'm good at designing interfaces that are easy to use and visually appealing, create digital content for marketing also branding brands." data-id="Saya mahir merancang antarmuka yang mudah digunakan dan menarik secara visual, serta membuat konten digital untuk marketing dan branding brand.">I'm good at designing interfaces that are easy to use and visually appealing, create digital content for marketing also branding brands.</p>
 
-    <p data-en="I am available for part time work. I am open to collaboration and new projects. Feel free to reach out if you need help with design or digital content." data-id="Saya siap bekerja paruh waktu. Saya terbuka untuk kolaborasi dan proyek baru. Silakan hubungi saya jika butuh bantuan desain atau konten digital.">I am available for part time work. I am open to collaboration and new projects. Feel free to reach out if you need help with design or digital content.</p>
+    <p data-en="I'm available for part time work. I am open to collaboration and new projects. Feel free to reach out if you need help with design or digital content." data-id="Saya tersedia untuk kerja part time. Saya terbuka untuk kolaborasi dan proyek baru. Jangan ragu untuk menghubungi saya jika membutuhkan bantuan desain atau konten digital.">I'm available for part time work. I am open to collaboration and new projects. Feel free to reach out if you need help with design or digital content.</p>
   </section>
 
   <section id="experience" class="tab-content">
