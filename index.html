@@ -29,22 +29,20 @@
     }
 
     .lang-toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
+      background: linear-gradient(135deg, #6a0dad, #8a2be2);
+      padding: 10px;
+      border-radius: 50%;
+      color: white;
+      font-weight: 600;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, #6a0dad, #8a2be2);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
+      justify-content: center;
       box-shadow: 0 3px 10px rgba(138, 43, 226, 0.5);
+      cursor: pointer;
+      position: relative;
       transition: all 0.3s ease;
-      z-index: 30;
     }
     .lang-toggle:hover {
       background: #bb86fc;
@@ -52,9 +50,30 @@
       box-shadow: 0 0 20px #a970f7;
       transform: translateY(-2px);
     }
+    .lang-toggle::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -25px;
+      background: #6a0dad;
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .lang-toggle:hover::after,
+    .lang-toggle:active::after,
+    .lang-toggle:focus::after {
+      opacity: 1;
+    }
     .lang-toggle i {
-      width: 15px;
-      height: 15px;
+      width: 20px;
+      height: 20px;
       pointer-events: none;
     }
 
@@ -428,12 +447,6 @@
       h1 {
         font-size: 20px;
       }
-      .lang-toggle {
-        top: 10px;
-        right: 10px;
-        padding: 6px 10px;
-        font-size: 12px;
-      }
       .link {
         font-size: 16px;
         padding: 12px 18px;
@@ -471,11 +484,6 @@
 </head>
 <body>
 
-  <div class="lang-toggle" onclick="toggleLang()" title="Switch language">
-    <i data-lucide="languages"></i>
-    <span id="langLabel">ID</span>
-  </div>
-
   <!-- Radio Tabs -->
   <input type="radio" name="tabs" id="tab-opening" checked>
   <input type="radio" name="tabs" id="tab-about">
@@ -488,23 +496,24 @@
     <label for="tab-about" class="tab-link" title="About Me" data-title-en="About Me" data-title-id="Tentang Saya"><i data-lucide="user"></i></label>
     <label for="tab-experience" class="tab-link" title="Experience" data-title-en="Experience" data-title-id="Pengalaman"><i data-lucide="briefcase"></i></label>
     <label for="tab-toplink" class="tab-link" title="Top Link" data-title-en="Top Link" data-title-id="Tautan"><i data-lucide="link"></i></label>
+    <div class="lang-toggle" onclick="toggleLang()" title="Translate" data-title-en="Translate" data-title-id="Terjemahan" tabindex="0"><i data-lucide="Translate"></i></div>
   </div>
 
   <!-- Profil -->
   <img src="images1.jpg" alt="Foto Profil" class="profile-img" />
-  <h1 data-en="UI/UX Designer & Digital Content Creator" data-id="Desainer UI/UX & Kreator Konten Digital">UI/UX Designer & Digital Content Creator</h1>
-  <p class="subtitle" data-en="Welcome! Contact me if you need any help." data-id="Selamat datang! Hubungi saya jika Anda butuh bantuan.">Welcome! Contact me if you need any help.</p>
+  <h1 data-en="UI/UX Designer | Social Media Management | Digital Content Creator" data-id="Desainer UI/UX | Manajemen Sosisal Media | Kreator Konten Digital">UI/UX Designer | Social Media Management | Digital Content Creator</h1>
+  <p class="subtitle" data-en="Let's collab! Sleek visuals plus the latest trend insights, ready to make your project stand out." data-id="Yuk kolaborasi bareng gue! Visualisasi kece dan insight tren terbaru, siap bikin project lo makin stand out.">Let's collab! Sleek visuals plus the latest trend insights, ready to make your project stand out.</p>
   <hr />
 
   <!-- Konten Tab -->
   <section id="opening" class="tab-content">
     <h2 data-en="Opening" data-id="Pembuka">Opening</h2>
-    <p class="opening" data-en="UI/UX Designer and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content." data-id="Desainer UI/UX dan Kreator Konten yang berbasis di Sukoharjo, Indonesia. Saya membantu bisnis dan organisasi membangun pengalaman digital yang lebih baik dan konten yang menarik.">UI/UX Designer and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content.</p>
+    <p class="opening" data-en="UI/UX Designer, Social Media Management and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content." data-id="Desainer UI/UX, Manajemen Sosial Media dan Kreator Konten yang berbasis di Sukoharjo, Indonesia. Saya membantu bisnis dan organisasi membangun pengalaman digital yang lebih baik dan konten yang menarik.">UI/UX Designer, Social Media Management and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content.</p>
   </section>
 
   <section id="about" class="tab-content">
     <h2 data-en="About Me" data-id="Tentang Saya">About Me</h2>
-    <p data-en="Hi, my name is Yudha Sanjaya, usually called Yudha. I am a UI/UX Designer and Digital Content Creator. I am currently a 3rd semester student at Universitas Muhammadiyah Surakarta." data-id="Halo, nama saya Yudha Sanjaya, biasa dipanggil Yudha. Saya seorang Desainer UI/UX dan Kreator Konten Digital. Saat ini saya menempuh semester 3 di Universitas Muhammadiyah Surakarta.">Hi, my name is Yudha Sanjaya, usually called Yudha. I am a UI/UX Designer and Digital Content Creator. I am currently a 3rd semester student at Universitas Muhammadiyah Surakarta.</p>
+    <p data-en="Im Yudha Sanjaya, a UI/UX Designer, Social Media Management and Digital Content Creator. Im currently a 9th semester student at Muhammadiyah University of Surakarta." data-id="Saya Yudha Sanjaya, seorang Desainer UI/UX, Manajemen Media Sosial dan Kreator Konten Digital. Saat ini saya menempuh semester 9 di Universitas Muhammadiyah Surakarta.">Im Yudha Sanjaya, a UI/UX Designer, Social Media Management and Digital Content Creator. Im currently a 9th semester student at Muhammadiyah University of Surakarta.</p>
 
     <p data-en="I live in Sukoharjo, Nguter. I focus on designing interfaces that are easy to use and visually appealing. I also create digital content for various promotional and branding needs." data-id="Saya tinggal di Sukoharjo, Nguter. Saya fokus merancang antarmuka yang mudah digunakan dan enak dilihat. Saya juga membuat konten digital untuk berbagai kebutuhan promosi dan branding.">I live in Sukoharjo, Nguter. I focus on designing interfaces that are easy to use and visually appealing. I also create digital content for various promotional and branding needs.</p>
 
@@ -547,16 +556,9 @@
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-date">February 2026-July 2026</div>
-          <div class="timeline-org" data-en="Online Ride-Hailing" data-id="Ojek Online">Online Ride-Hailing</div>
-          <div class="timeline-role" data-en="ShopeeFood Online Motorcycle Taxi Driver Partner" data-id="Mitra Pengemudi Ojek Online ShopeeFood">ShopeeFood Online Motorcycle Taxi Driver Partner</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
           <div class="timeline-date">March 2026-August 2026</div>
           <div class="timeline-org">Udang Kedjuu</div>
-          <div class="timeline-role" data-en="Social Media Manager" data-id="Manajer Media Sosial">Social Media Manager</div>
+          <div class="timeline-role" data-en="Social Media Management" data-id="Manajemen Media Sosial">Social Media Management</div>
         </div>
       </div>
     </div>
@@ -622,7 +624,6 @@
       document.querySelectorAll('[data-title-en]').forEach(function (el) {
         el.setAttribute('title', lang === 'en' ? el.getAttribute('data-title-en') : el.getAttribute('data-title-id'));
       });
-      document.getElementById('langLabel').textContent = lang === 'en' ? 'ID' : 'EN';
       currentLang = lang;
     }
 
