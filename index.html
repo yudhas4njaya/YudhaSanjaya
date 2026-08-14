@@ -28,6 +28,36 @@
       margin-bottom: 30px;
     }
 
+    .lang-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #6a0dad, #8a2be2);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(138, 43, 226, 0.5);
+      transition: all 0.3s ease;
+      z-index: 30;
+    }
+    .lang-toggle:hover {
+      background: #bb86fc;
+      color: #1d003d;
+      box-shadow: 0 0 20px #a970f7;
+      transform: translateY(-2px);
+    }
+    .lang-toggle i {
+      width: 15px;
+      height: 15px;
+      pointer-events: none;
+    }
+
     input[type="radio"],
     input[type="checkbox"] {
       display: none;
@@ -281,6 +311,15 @@
       margin-top: 60px;
       color: #bbb;
       text-shadow: 0 0 4px #4a2f77;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .footer i {
+      width: 14px;
+      height: 14px;
+      color: #bb99ff;
     }
 
     /* Data Project Accordion */
@@ -389,6 +428,12 @@
       h1 {
         font-size: 20px;
       }
+      .lang-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 12px;
+      }
       .link {
         font-size: 16px;
         padding: 12px 18px;
@@ -426,6 +471,11 @@
 </head>
 <body>
 
+  <div class="lang-toggle" onclick="toggleLang()" title="Switch language">
+    <i data-lucide="languages"></i>
+    <span id="langLabel">ID</span>
+  </div>
+
   <!-- Radio Tabs -->
   <input type="radio" name="tabs" id="tab-opening" checked>
   <input type="radio" name="tabs" id="tab-about">
@@ -434,35 +484,35 @@
 
   <!-- Tab Navigasi -->
   <div class="tabs">
-    <label for="tab-opening" class="tab-link" title="Opening"><i data-lucide="book-open"></i></label>
-    <label for="tab-about" class="tab-link" title="About Me"><i data-lucide="user"></i></label>
-    <label for="tab-experience" class="tab-link" title="Experience"><i data-lucide="briefcase"></i></label>
-    <label for="tab-toplink" class="tab-link" title="Top Link"><i data-lucide="link"></i></label>
+    <label for="tab-opening" class="tab-link" title="Opening" data-title-en="Opening" data-title-id="Pembuka"><i data-lucide="book-open"></i></label>
+    <label for="tab-about" class="tab-link" title="About Me" data-title-en="About Me" data-title-id="Tentang Saya"><i data-lucide="user"></i></label>
+    <label for="tab-experience" class="tab-link" title="Experience" data-title-en="Experience" data-title-id="Pengalaman"><i data-lucide="briefcase"></i></label>
+    <label for="tab-toplink" class="tab-link" title="Top Link" data-title-en="Top Link" data-title-id="Tautan"><i data-lucide="link"></i></label>
   </div>
 
   <!-- Profil -->
   <img src="images1.jpg" alt="Foto Profil" class="profile-img" />
-  <h1>UI/UX Designer & Digital Content Creator</h1>
-  <p class="subtitle">Welcome! Contact me if you need any help.</p>
+  <h1 data-en="UI/UX Designer & Digital Content Creator" data-id="Desainer UI/UX & Kreator Konten Digital">UI/UX Designer & Digital Content Creator</h1>
+  <p class="subtitle" data-en="Welcome! Contact me if you need any help." data-id="Selamat datang! Hubungi saya jika Anda butuh bantuan.">Welcome! Contact me if you need any help.</p>
   <hr />
 
   <!-- Konten Tab -->
   <section id="opening" class="tab-content">
-    <h2>Opening</h2>
-    <p class="opening">UI/UX Designer and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content.</p>
+    <h2 data-en="Opening" data-id="Pembuka">Opening</h2>
+    <p class="opening" data-en="UI/UX Designer and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content." data-id="Desainer UI/UX dan Kreator Konten yang berbasis di Sukoharjo, Indonesia. Saya membantu bisnis dan organisasi membangun pengalaman digital yang lebih baik dan konten yang menarik.">UI/UX Designer and Content Creator based in Sukoharjo, Indonesia. I help businesses and organizations build better digital experiences and engaging content.</p>
   </section>
 
   <section id="about" class="tab-content">
-    <h2>About Me</h2>
-    <p>Hi, my name is Yudha Sanjaya, usually called Yudha. I am a UI/UX Designer and Digital Content Creator. I am currently a 3rd semester student at Universitas Muhammadiyah Surakarta.</p>
+    <h2 data-en="About Me" data-id="Tentang Saya">About Me</h2>
+    <p data-en="Hi, my name is Yudha Sanjaya, usually called Yudha. I am a UI/UX Designer and Digital Content Creator. I am currently a 3rd semester student at Universitas Muhammadiyah Surakarta." data-id="Halo, nama saya Yudha Sanjaya, biasa dipanggil Yudha. Saya seorang Desainer UI/UX dan Kreator Konten Digital. Saat ini saya menempuh semester 3 di Universitas Muhammadiyah Surakarta.">Hi, my name is Yudha Sanjaya, usually called Yudha. I am a UI/UX Designer and Digital Content Creator. I am currently a 3rd semester student at Universitas Muhammadiyah Surakarta.</p>
 
-    <p>I live in Sukoharjo, Nguter. I focus on designing interfaces that are easy to use and visually appealing. I also create digital content for various promotional and branding needs.</p>
+    <p data-en="I live in Sukoharjo, Nguter. I focus on designing interfaces that are easy to use and visually appealing. I also create digital content for various promotional and branding needs." data-id="Saya tinggal di Sukoharjo, Nguter. Saya fokus merancang antarmuka yang mudah digunakan dan enak dilihat. Saya juga membuat konten digital untuk berbagai kebutuhan promosi dan branding.">I live in Sukoharjo, Nguter. I focus on designing interfaces that are easy to use and visually appealing. I also create digital content for various promotional and branding needs.</p>
 
-    <p>I am available for part time work. I am open to collaboration and new projects. Feel free to reach out if you need help with design or digital content.</p>
+    <p data-en="I am available for part time work. I am open to collaboration and new projects. Feel free to reach out if you need help with design or digital content." data-id="Saya siap bekerja paruh waktu. Saya terbuka untuk kolaborasi dan proyek baru. Silakan hubungi saya jika butuh bantuan desain atau konten digital.">I am available for part time work. I am open to collaboration and new projects. Feel free to reach out if you need help with design or digital content.</p>
   </section>
 
   <section id="experience" class="tab-content">
-    <h2>Experience</h2>
+    <h2 data-en="Experience" data-id="Pengalaman">Experience</h2>
     <div class="timeline">
       <div class="timeline-track"></div>
       <div class="timeline-fill"></div>
@@ -470,43 +520,43 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2022–Present</div>
-          <div class="timeline-org">Muhammadiyah University of Surakarta</div>
-          <div class="timeline-role">Informatics Engineering Student</div>
+          <div class="timeline-org" data-en="Muhammadiyah University of Surakarta" data-id="Universitas Muhammadiyah Surakarta">Muhammadiyah University of Surakarta</div>
+          <div class="timeline-role" data-en="Informatics Engineering Student" data-id="Mahasiswa Teknik Informatika">Informatics Engineering Student</div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2022-2024</div>
           <div class="timeline-org">IMM FKI UMS</div>
-          <div class="timeline-role">Member of the Organization Division</div>
+          <div class="timeline-role" data-en="Member of the Organization Division" data-id="Anggota Divisi Organisasi">Member of the Organization Division</div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2022-2024</div>
           <div class="timeline-org">Mentor UMS</div>
-          <div class="timeline-role">Religious Guidance Mentor</div>
+          <div class="timeline-role" data-en="Religious Guidance Mentor" data-id="Mentor Bimbingan Keagamaan">Religious Guidance Mentor</div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">July 2025-December 2025</div>
-          <div class="timeline-org">Selling Items Roblox</div>
-          <div class="timeline-role">Game Trading Administrator</div>
+          <div class="timeline-org" data-en="Items Roblox" data-id="Item Roblox">Items Roblox</div>
+          <div class="timeline-role" data-en="Game Trading Administrator" data-id="Admin Jual Beli Game">Game Trading Administrator</div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">February 2026-July 2026</div>
-          <div class="timeline-org">Online Ride Hailing</div>
-          <div class="timeline-role">ShopeeFood Online Motorcycle Taxi Driver Partner</div>
+          <div class="timeline-org" data-en="Online Ride-Hailing" data-id="Ojek Online">Online Ride-Hailing</div>
+          <div class="timeline-role" data-en="ShopeeFood Online Motorcycle Taxi Driver Partner" data-id="Mitra Pengemudi Ojek Online ShopeeFood">ShopeeFood Online Motorcycle Taxi Driver Partner</div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">March 2026-August 2026</div>
           <div class="timeline-org">Udang Kedjuu</div>
-          <div class="timeline-role">Social Media Manager</div>
+          <div class="timeline-role" data-en="Social Media Manager" data-id="Manajer Media Sosial">Social Media Manager</div>
         </div>
       </div>
     </div>
@@ -514,18 +564,18 @@
 
   <section id="toplink" class="tab-content">
     <input type="checkbox" id="toggle-project" hidden>
-    <label for="toggle-project" class="link" data-project>Data Project</label>
+    <label for="toggle-project" class="link" data-project data-en="Data Project" data-id="Proyek Data">Data Project</label>
 
     <div id="project-details">
-      <h3 style="color:#bb99ff; text-align:center;">My Data Projects</h3>
+      <h3 style="color:#bb99ff; text-align:center;" data-en="My Data Projects" data-id="Proyek Data Saya">My Data Projects</h3>
 
       <div class="project-item">
         <div class="photo-frame">
           <img class="ph1" src="project-a-1.jpg" alt="Project A - foto 1" />
           <img class="ph2" src="project-a-2.jpg" alt="Project A - foto 2" />
         </div>
-        <p class="project-problem">Initial concern: the previous design was too monotonous and outdated.</p>
-        <p><strong style="color:#bb99ff;">Project A:</strong> <span style="color:white;">Updating the website's appearance to be more dynamic and modern in line with current trends, though not yet officially launched and compiling the company profile and product catalog for PT Setiawan Jaya Usaha.</span></p>
+        <p class="project-problem" data-en="Initial concern: the previous design was too monotonous and outdated." data-id="Keluhan awal: desain sebelumnya terlalu monoton dan ketinggalan zaman.">Initial concern: the previous design was too monotonous and outdated.</p>
+        <p><strong style="color:#bb99ff;" data-en="Project A:" data-id="Proyek A:">Project A:</strong> <span style="color:white;" data-en="Updating the website's appearance to be more dynamic and modern in line with current trends, though not yet officially launched and compiling the company profile and product catalog for PT Setiawan Jaya Usaha." data-id="Memperbarui tampilan website agar lebih dinamis dan modern sesuai tren terkini, meski belum resmi diluncurkan, serta menyusun company profile dan katalog produk untuk PT Setiawan Jaya Usaha.">Updating the website's appearance to be more dynamic and modern in line with current trends, though not yet officially launched and compiling the company profile and product catalog for PT Setiawan Jaya Usaha.</span></p>
       </div>
 
       <div class="project-item">
@@ -533,8 +583,8 @@
           <img class="ph1" src="project-b-1.jpg" alt="Project B - foto 1" />
           <img class="ph2" src="project-b-2.jpg" alt="Project B - foto 2" />
         </div>
-        <p class="project-problem">Initial concern: content was unplanned and the feed looked messy.</p>
-        <p><strong style="color:#bb99ff;">Project B:</strong> <span style="color:white;">Strategically managed social media maintaining a polished, professional feed and producing hundreds of viral videos while driving rapid revenue growth for the Udang Kedjuu brand in the Surakarta region during a 6 month tenure as an creator manager.</span></p>
+        <p class="project-problem" data-en="Initial concern: content was unplanned and the feed looked messy." data-id="Keluhan awal: konten tidak terencana dan feed terlihat berantakan.">Initial concern: content was unplanned and the feed looked messy.</p>
+        <p><strong style="color:#bb99ff;" data-en="Project B:" data-id="Proyek B:">Project B:</strong> <span style="color:white;" data-en="Strategically managed social media maintaining a polished, professional feed and producing hundreds of viral videos while driving rapid revenue growth for the Udang Kedjuu brand in the Surakarta region during a 6 month tenure as an creator manager." data-id="Mengelola media sosial secara strategis, menjaga feed tetap rapi dan profesional, memproduksi ratusan video viral, serta mendorong pertumbuhan pendapatan yang cepat untuk brand Udang Kedjuu di wilayah Surakarta selama 6 bulan menjabat sebagai creator manager.">Strategically managed social media maintaining a polished, professional feed and producing hundreds of viral videos while driving rapid revenue growth for the Udang Kedjuu brand in the Surakarta region during a 6 month tenure as an creator manager.</span></p>
       </div>
 
       <div class="project-item">
@@ -542,23 +592,43 @@
           <img class="ph1" src="project-c-1.jpg" alt="Project C - foto 1" />
           <img class="ph2" src="project-c-2.jpg" alt="Project C - foto 2" />
         </div>
-        <p class="project-problem">Initial concern: many buyers have fallen victim to fraud, making the use of a third party for transactions a necessity.</p>
-        <p><strong style="color:#bb99ff;">Project C:</strong> <span style="color:white;">As an admin, I use the SociaBuzz platform and conduct face-to-face live streams to build buyer trust. I have been trading Roblox game items for six months and have generated revenue reaching tens of millions.</span></p>
+        <p class="project-problem" data-en="Initial concern: many buyers have fallen victim to fraud, making the use of a third party for transactions a necessity." data-id="Keluhan awal: banyak pembeli menjadi korban penipuan, sehingga penggunaan pihak ketiga untuk transaksi menjadi kebutuhan.">Initial concern: many buyers have fallen victim to fraud, making the use of a third party for transactions a necessity.</p>
+        <p><strong style="color:#bb99ff;" data-en="Project C:" data-id="Proyek C:">Project C:</strong> <span style="color:white;" data-en="As an admin, I use the SociaBuzz platform and conduct face-to-face live streams to build buyer trust. I have been trading Roblox game items for six months and have generated revenue reaching tens of millions." data-id="Sebagai admin, saya menggunakan platform SociaBuzz dan melakukan live streaming tatap muka untuk membangun kepercayaan pembeli. Saya telah berjualan item game Roblox selama enam bulan dan menghasilkan pendapatan hingga puluhan juta rupiah.">As an admin, I use the SociaBuzz platform and conduct face-to-face live streams to build buyer trust. I have been trading Roblox game items for six months and have generated revenue reaching tens of millions.</span></p>
       </div>
 
-      <a href="#" class="link" style="margin-top: 10px;">See All Projects</a>
+      <a href="#" class="link" style="margin-top: 10px;" data-en="See All Projects" data-id="Lihat Semua Proyek">See All Projects</a>
     </div>
 
     <a href="https://www.instagram.com/yudhas4njaya" class="link" target="_blank" rel="noopener noreferrer">Instagram</a>
     <a href="https://www.linkedin.com/in/yudha-sanjaya-3a76a0428/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="https://wa.me/6282230725472" class="link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="mailto:yudhasanjaya411@gmail.com" class="link">Send Email</a>
+    <a href="mailto:yudhasanjaya411@gmail.com" class="link" data-en="Send Email" data-id="Kirim Email">Send Email</a>
   </section>
 
-  <div class="footer">YUDHA SANJAYA PORTOFOLIO</div>
+  <div class="footer">
+    <i data-lucide="sparkles"></i>
+    <span data-en="YUDHA SANJAYA PORTFOLIO" data-id="YUDHA SANJAYA PORTOFOLIO">YUDHA SANJAYA PORTOFOLIO</span>
+  </div>
 
   <script>
     lucide.createIcons();
+
+    let currentLang = 'en';
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+      });
+      document.querySelectorAll('[data-title-en]').forEach(function (el) {
+        el.setAttribute('title', lang === 'en' ? el.getAttribute('data-title-en') : el.getAttribute('data-title-id'));
+      });
+      document.getElementById('langLabel').textContent = lang === 'en' ? 'ID' : 'EN';
+      currentLang = lang;
+    }
+
+    function toggleLang() {
+      applyLang(currentLang === 'en' ? 'id' : 'en');
+    }
   </script>
 </body>
 </html>
