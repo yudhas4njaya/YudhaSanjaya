@@ -245,6 +245,19 @@
       line-height: 1.6;
     }
 
+    /* Smooth language transition */
+    [data-en] {
+      transition: opacity 0.35s ease, filter 0.35s ease;
+    }
+    .lang-fade-out {
+      opacity: 0;
+      filter: blur(2px);
+    }
+    .lang-fade-in {
+      opacity: 1;
+      filter: blur(0);
+    }
+
     /* Timeline Experience */
     .timeline {
       position: relative;
@@ -709,12 +722,30 @@
     let currentLang = 'en';
 
     function applyLang(lang) {
-      document.querySelectorAll('[data-en]').forEach(function (el) {
-        el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+      var textEls = document.querySelectorAll('[data-en]');
+
+      textEls.forEach(function (el) {
+        el.classList.add('lang-fade-out');
       });
+
+      window.setTimeout(function () {
+        textEls.forEach(function (el) {
+          el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+          el.classList.remove('lang-fade-out');
+          el.classList.add('lang-fade-in');
+        });
+
+        window.setTimeout(function () {
+          textEls.forEach(function (el) {
+            el.classList.remove('lang-fade-in');
+          });
+        }, 350);
+      }, 350);
+
       document.querySelectorAll('[data-title-en]').forEach(function (el) {
         el.setAttribute('title', lang === 'en' ? el.getAttribute('data-title-en') : el.getAttribute('data-title-id'));
       });
+
       currentLang = lang;
     }
 
