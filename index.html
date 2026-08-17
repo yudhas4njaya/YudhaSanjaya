@@ -1066,22 +1066,22 @@
   }
 
 
-  .figma-mark{
-    width:20px;
-    height:26px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:repeat(3,1fr);
-    gap:1px;
+  /* Figma skill icon: same clean white treatment as other skill icons */
+  .skill-detail-name .skill-icon-white,
+  .skill-detail-name i[data-lucide="layout-grid"]{
+    width:18px;
+    height:18px;
+    color:#ffffff !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    padding:0 !important;
+    border-radius:0 !important;
   }
-  .figma-mark span{
-    display:block;
-    border-radius:50%;
-    background:currentColor;
-  }
-  .figma-mark span:nth-child(5){
-    grid-column:2;
-    grid-row:3;
+  .skill-detail-name .skill-icon-white svg,
+  .skill-detail-name i[data-lucide="layout-grid"] svg{
+    color:#ffffff !important;
+    stroke:#ffffff !important;
   }
 
 </style>
@@ -1117,8 +1117,8 @@
     <a href="#skills" class="menu-row"><span class="m-icon"><i data-lucide="sparkles"></i></span><span data-en="Skills" data-id="Keahlian">Keahlian</span></a>
     <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="My Journey" data-id="Perjalanan Saya">Perjalanan Saya</span></a>
     <a href="#project" class="menu-row"><span class="m-icon"><i data-lucide="layout-grid"></i></span><span data-en="Data Project" data-id="Proyek Data">Proyek Data</span></a>
-    <a href="#education" class="menu-row"><span class="m-icon"><i data-lucide="graduation-cap"></i></span><span data-en="Education" data-id="Pendidikan">Pendidikan</span></a>
-    <a href="#organization" class="menu-row"><span class="m-icon"><i data-lucide="users"></i></span><span data-en="Organization" data-id="Organisasi">Organisasi</span></a>
+    
+    
     <a href="#contact" class="menu-row"><span class="m-icon"><i data-lucide="mail"></i></span><span data-en="Contact" data-id="Kontak">Kontak</span></a>
   </div>
 </div>
@@ -1268,33 +1268,10 @@
 </section>
 
 <!-- EDUCATION -->
-<section class="block reveal" id="education">
-  <div class="eyebrow" data-en="Education" data-id="Pendidikan">Pendidikan</div>
-  <h2 data-en="My academic background" data-id="Latar belakang pendidikan">Latar belakang pendidikan</h2>
-  <div class="simple-item">
-    <div class="t-org" data-en="Bachelor of Science, Informatics Engineering" data-id="Sarjana Teknik Informatika">Sarjana Teknik Informatika</div>
-    <div class="t-role">Universitas Muhammadiyah Surakarta | IPK 3.05</div>
-    <p data-en="Aug 2022 – Aug 2028 (Expected). I am currently a student of Informatics Engineering at Universitas Muhammadiyah Surakarta." data-id="Agu 2022 – Agu 2028 (Perkiraan). Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.">Agu 2022 – Agu 2028 (Perkiraan). Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.</p>
-  </div>
-</section>
+
 
 <!-- ORGANIZATION -->
-<section class="block panel-bg reveal" id="organization">
-  <div class="inner">
-    <div class="eyebrow" data-en="Organization" data-id="Organisasi">Organisasi</div>
-    <h2 data-en="Beyond academics" data-id="Di luar akademik">Di luar akademik</h2>
-    <div class="simple-item">
-      <div class="t-org" data-en="Organizational Affairs Member" data-id="Anggota Bidang Organisasi">Anggota Bidang Organisasi</div>
-      <div class="t-role">Ikatan Mahasiswa Muhammadiyah (IMM) | 2022–2024</div>
-      <p data-en="Involved in organizational division activities, helping plan and execute work programs." data-id="Terlibat dalam kegiatan divisi organisasi, membantu merencanakan dan menjalankan program kerja.">Terlibat dalam kegiatan divisi organisasi, membantu merencanakan dan menjalankan program kerja.</p>
-    </div>
-    <div class="simple-item">
-      <div class="t-org" data-en="Religious Mentor (Pementor Agama)" data-id="Pementor Agama">Pementor Agama</div>
-      <div class="t-role">Universitas Muhammadiyah Surakarta | 2022–2024</div>
-      <p data-en="Guided fellow students in regular religious activities and mentoring sessions." data-id="Membimbing sesama mahasiswa dalam kegiatan keagamaan rutin dan sesi mentoring.">Membimbing sesama mahasiswa dalam kegiatan keagamaan rutin dan sesi mentoring.</p>
-    </div>
-  </div>
-</section>
+
 
 <!-- CONTACT -->
 <section class="block reveal" id="contact">
@@ -1547,7 +1524,7 @@
       return '<div class="skill-detail-item">' +
         '<div class="skill-detail-name">' +
           (item[1] === 'figma'
-            ? '<i aria-hidden="true"><span class="figma-mark"><span></span><span></span><span></span><span></span><span></span></span></i>'
+            ? '<i data-lucide="layout-grid" class="skill-icon-white"></i>'
             : '<i data-lucide="'+item[1]+'"></i>') +
           '<span>'+item[0]+'</span>' +
         '</div>' +
