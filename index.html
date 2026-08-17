@@ -226,12 +226,24 @@
   }
 
   .hero h1{
-    margin-top:40px;
-    padding:0 24px;
-    font-size:clamp(26px, 4vw, 38px);
+    margin:40px 18px 0;
+    padding:28px 24px;
+    width:min(640px, calc(100% - 36px));
+    background:var(--orange);
+    color:#2a0f00;
+    border-radius:18px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.28);
+    font-size:clamp(25px, 4vw, 38px);
     font-weight:700;
-    max-width:640px;
     line-height:1.25;
+    opacity:0;
+    transform:scale(1.08);
+    transition:opacity .75s ease, transform .75s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .hero h1.hero-title-visible{
+    opacity:1;
+    transform:scale(1);
   }
   .hero p.tagline{
     margin-top:16px;
@@ -242,24 +254,30 @@
     line-height:1.7;
   }
   .hero-ctas{
-    margin-top:34px;
-    padding:0 24px;
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
+    margin-top:26px;
+    padding:0 18px;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:10px;
+    width:min(640px, 100%);
     justify-content:center;
   }
   .btn{
     font-family:'Space Grotesk',sans-serif;
     font-weight:700;
-    font-size:14px;
-    letter-spacing:0.5px;
-    padding:15px 26px;
-    border-radius:30px;
+    font-size:clamp(10px, 2.8vw, 14px);
+    letter-spacing:0.3px;
+    padding:14px 8px;
+    min-height:48px;
+    border-radius:14px;
     border:none;
     cursor:pointer;
     transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-    display:inline-block;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    white-space:nowrap;
+    text-align:center;
   }
   .btn-orange{ background:var(--orange); color:#2a0f00; }
   .btn-orange:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,122,69,0.35); }
@@ -454,6 +472,27 @@
   @media (max-width:600px){
     header{ padding:14px 16px; }
     .hero{ padding:130px 0 70px; }
+    .photo-wrap{ width:200px; height:200px; margin-bottom:46px; }
+    .photo-wrap img{ width:200px; height:200px; }
+    .marquee-bar{ padding:14px 0; }
+    .marquee-item span{ font-size:15px; }
+    .hero h1{
+      margin-top:34px;
+      padding:24px 20px;
+      border-radius:16px;
+      font-size:25px;
+    }
+    .hero-ctas{
+      margin-top:22px;
+      padding:0 16px;
+      gap:8px;
+    }
+    .btn{
+      min-height:46px;
+      padding:12px 5px;
+      font-size:11px;
+      border-radius:12px;
+    }
     section.block{ padding:70px 18px; }
   }
   @media (max-width:400px){
@@ -463,6 +502,19 @@
     .icon-btn svg{ width:16px; height:16px; }
     .translate-icon{ font-size:17px; }
     .logo{ font-size:16px; }
+    .hero h1{
+      padding:22px 18px;
+      font-size:23px;
+    }
+    .hero-ctas{
+      padding:0 12px;
+      gap:6px;
+    }
+    .btn{
+      font-size:10px;
+      padding-left:3px;
+      padding-right:3px;
+    }
   }
 </style>
 </head>
@@ -734,6 +786,20 @@
       });
     }, { threshold: 0.25 });
     tIo.observe(timeline);
+  }
+
+  // hero headline: appears with a subtle zoom-out when the hero is first visited
+  const heroTitle = document.querySelector('.hero h1');
+  if(heroTitle){
+    const heroTitleIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          heroTitle.classList.add('hero-title-visible');
+          heroTitleIo.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    heroTitleIo.observe(heroTitle);
   }
 
   // profile photo: lit and zoomed by default, turns off once scrolled out of view
