@@ -21,13 +21,14 @@
     --white:#ffffff;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
   body{
     margin:0;
     background:var(--void);
     color:var(--text);
     font-family:'Inter',sans-serif;
     overflow-x:hidden;
+    width:100%;
   }
   h1,h2,h3,.display{
     font-family:'Space Grotesk',sans-serif;
@@ -62,7 +63,7 @@
     letter-spacing:0.4px;
   }
   .logo span{color:var(--orange);}
-  .header-actions{display:flex; align-items:center; gap:10px;}
+  .header-actions{display:flex; align-items:center; gap:10px; flex-shrink:0;}
   .icon-btn{
     width:42px; height:42px;
     border-radius:50%;
@@ -73,6 +74,7 @@
     color:var(--text);
     transition:background .25s ease, transform .25s ease, border-color .25s ease;
     position:relative;
+    flex-shrink:0;
   }
   .icon-btn:hover{background:var(--violet); border-color:var(--violet); transform:translateY(-2px);}
   .icon-btn svg{width:19px; height:19px; pointer-events:none;}
@@ -154,7 +156,6 @@
     position:relative;
     width:230px; height:230px;
     margin-bottom:56px;
-    cursor:pointer;
   }
   .photo-wrap::before{
     content:'';
@@ -184,12 +185,10 @@
     border-color:rgba(255,255,255,0.4);
   }
 
-  /* Full-screen running icon + text ticker, sits below the photo with clear space */
+  /* Full-width running icon + text ticker, sits below the photo with clear space */
   .marquee-bar{
     position:relative;
-    width:100vw;
-    left:50%;
-    margin-left:-50vw;
+    width:100%;
     overflow:hidden;
     background:var(--white);
     padding:16px 0;
@@ -200,14 +199,14 @@
     display:flex;
     align-items:center;
     width:max-content;
-    animation:marqueeRun 24s linear infinite;
+    animation:marqueeRun 16s linear infinite;
   }
   .marquee-item{
     display:flex;
     align-items:center;
     gap:10px;
     white-space:nowrap;
-    padding-right:100vw;
+    padding-right:40px;
   }
   .marquee-item svg{
     width:20px; height:20px;
@@ -453,9 +452,17 @@
   .cv-download-row a svg{ width:15px; height:15px; }
 
   @media (max-width:600px){
-    header{ padding:14px 18px; }
+    header{ padding:14px 16px; }
     .hero{ padding:130px 0 70px; }
     section.block{ padding:70px 18px; }
+  }
+  @media (max-width:400px){
+    header{ padding:12px 12px; }
+    .header-actions{ gap:6px; }
+    .icon-btn{ width:38px; height:38px; }
+    .icon-btn svg{ width:16px; height:16px; }
+    .translate-icon{ font-size:17px; }
+    .logo{ font-size:16px; }
   }
 </style>
 </head>
@@ -491,7 +498,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="photo-wrap" id="photo-wrap">
+  <div class="photo-wrap lit" id="photo-wrap">
     <img src="images1.jpg" alt="YS" />
   </div>
 
@@ -729,12 +736,16 @@
     tIo.observe(timeline);
   }
 
-  // profile photo: click to light up and zoom, click again to reset
+  // profile photo: lit and zoomed by default, turns off once scrolled out of view
   const photoWrap = document.getElementById('photo-wrap');
   if(photoWrap){
-    photoWrap.addEventListener('click', function(){
-      this.classList.toggle('lit');
-    });
+    const photoIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ photoWrap.classList.add('lit'); }
+        else{ photoWrap.classList.remove('lit'); }
+      });
+    }, { threshold: 0.3 });
+    photoIo.observe(photoWrap);
   }
 
   // translate: Indonesian is the default language, the button switches to English
