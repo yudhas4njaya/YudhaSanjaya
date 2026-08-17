@@ -6,7 +6,7 @@
 <title>Yudha Sanjaya — Portofolio</title>
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --void:#120821;
@@ -757,6 +757,189 @@
       font-family: "Plus Jakarta Sans", "Inter", "Segoe UI", Arial, sans-serif;
     }
     
+
+  /* Bree Serif for descriptive text */
+  body p,
+  .tagline,
+  .skill-card p,
+  .skill-detail-item,
+  .skill-level-label,
+  .t-role,
+  .simple-item p,
+  .project-problem,
+  .project-card p.desc,
+  .journey-card p,
+  .journey-modal-description {
+    font-family:'Bree Serif',serif;
+  }
+
+  /* Re-triggerable section animations */
+  .reveal{ opacity:0; transform:translateY(26px); }
+  .reveal.in-view{ opacity:1; transform:translateY(0); transition:opacity .7s ease, transform .7s ease; }
+
+  .hero h1.hero-title-visible{ animation:heroHookZoomIn 1.25s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes heroHookZoomIn{
+    0%{opacity:0; transform:scale(.82);}
+    65%{opacity:1; transform:scale(1.025);}
+    100%{opacity:1; transform:scale(1);}
+  }
+
+  .about-box.in-view p{ animation:aboutParagraphIn 1.05s cubic-bezier(.2,.75,.25,1) forwards; }
+  .about-box.in-view p:nth-child(1){ animation-delay:.15s; }
+  .about-box.in-view p:nth-child(2){ animation-delay:1.25s; }
+  .about-box.in-view p:nth-child(3){ animation-delay:2.35s; }
+
+  /* Journey tabs */
+  .journey-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 22px;}
+  .journey-tab{border:1px solid var(--line);background:var(--panel-2);color:var(--text);border-radius:16px;padding:18px 20px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:transform .25s ease,border-color .25s ease,background .25s ease,color .25s ease;}
+  .journey-tab:hover{transform:translateY(-3px);border-color:var(--orange);}
+  .journey-tab.active{background:var(--orange);color:#2a0f00;border-color:var(--orange);}
+  .journey-panel{display:none;}
+  .journey-panel.active{display:grid;gap:14px;}
+  .journey-card{width:100%;min-height:112px;background:var(--panel-2);border:1px solid var(--line);border-radius:17px;padding:20px 22px;text-align:left;cursor:pointer;position:relative;overflow:hidden;transition:transform .3s ease,border-color .3s ease,background .3s ease;}
+  .journey-card::after{content:'';position:absolute;inset:auto 0 0;height:2px;background:linear-gradient(90deg,transparent,var(--violet),var(--orange),transparent);opacity:.75;}
+  .journey-card:hover{transform:translateX(5px);border-color:var(--orange);}
+  .journey-card .journey-year{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--orange);margin-bottom:6px;}
+  .journey-card h3{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 7px;color:var(--text);}
+  .journey-card p{font-size:14px;line-height:1.55;color:#fff;margin:0;padding-right:55px;}
+  .journey-more{position:absolute;right:20px;bottom:18px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--orange);letter-spacing:.4px;}
+
+  /* Journey modal */
+  .journey-overlay{position:fixed;inset:0;background:rgba(9,4,18,.82);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;z-index:220;opacity:0;pointer-events:none;transition:opacity .35s ease;padding:18px;}
+  .journey-overlay.open{opacity:1;pointer-events:auto;}
+  .journey-modal{width:min(680px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:18px;position:relative;transform:translateY(22px) scale(.96);transition:transform .4s cubic-bezier(.2,.8,.2,1);}
+  .journey-overlay.open .journey-modal{transform:translateY(0) scale(1);}
+  .journey-close{position:absolute;top:13px;right:13px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--panel-2);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;}
+  .journey-close:hover{background:var(--orange);color:#2a0f00;}
+  .journey-slideshow{position:relative;height:310px;border-radius:16px;overflow:hidden;background:var(--panel-2);margin-bottom:20px;}
+  .journey-slide{position:absolute;inset:0;opacity:0;transform:scale(1.025);transition:opacity .8s ease,transform 4.5s ease;}
+  .journey-slide.active{opacity:1;transform:scale(1);}
+  .journey-slide img{width:100%;height:100%;object-fit:cover;}
+  .journey-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(9,4,18,.58));}
+  .journey-slide-count{position:absolute;left:16px;bottom:14px;z-index:2;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:#fff;letter-spacing:.7px;}
+  .journey-modal-year{font-family:'Space Grotesk',sans-serif;color:var(--orange);font-size:12px;font-weight:700;letter-spacing:.7px;margin-bottom:5px;}
+  .journey-modal h3{font-family:'Space Grotesk',sans-serif;font-size:27px;margin:0 0 10px;padding-right:45px;}
+  .journey-modal-description{font-size:15px;line-height:1.75;color:#fff;margin:0;}
+  .journey-dots{display:flex;gap:6px;justify-content:center;margin-top:13px;}
+  .journey-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .3s ease;}
+  .journey-dot.active{width:22px;border-radius:10px;background:var(--orange);}
+
+  /* Flowing journey line */
+  .journey-flow{position:relative;padding-left:32px;}
+  .journey-flow::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--violet),var(--orange),var(--violet),transparent);opacity:.35;}
+  .journey-flow::after{content:'';position:absolute;left:2px;top:0;width:10px;height:72px;border-radius:20px;background:linear-gradient(180deg,transparent,var(--orange),rgba(255,255,255,.95),transparent);filter:blur(1px);animation:journeyWater 3.8s ease-in-out infinite alternate;}
+  @keyframes journeyWater{0%{top:0;opacity:.2;}45%{opacity:1;}100%{top:calc(100% - 72px);opacity:.18;}}
+  .journey-card::before{content:'';position:absolute;left:-32px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--panel-2);border:2px solid rgba(255,255,255,.22);box-shadow:none;transition:background .25s ease,box-shadow .25s ease,opacity .5s ease;}
+  .journey-card.flow-active::before{background:#fff;border-color:#fff;box-shadow:0 0 6px #fff,0 0 14px var(--orange);}
+  .journey-card.flow-dim::before{opacity:.16;}
+
+  @media(max-width:600px){
+    .journey-tabs{gap:9px;}
+    .journey-tab{padding:15px 10px;font-size:13px;}
+    .journey-card{padding:17px 16px;min-height:105px;}
+    .journey-card h3{font-size:17px;}
+    .journey-card p{font-size:13px;padding-right:40px;}
+    .journey-slideshow{height:230px;}
+    .journey-modal h3{font-size:23px;}
+    .journey-modal-description{font-size:14px;}
+  }
+
+
+/* Codec Pro typography */
+@font-face{
+  font-family:'Codec Pro';
+  src:local('Codec Pro'), local('CodecPro');
+  font-display:swap;
+}
+:root{
+  --codec-pro:'Codec Pro','CodecPro','Inter','Segoe UI',Arial,sans-serif;
+}
+body, p, .tagline, .about p, .skill-card p, .skill-box p,
+.timeline-card p, .journey-card p, .modal p, .description,
+.project-card p, .experience-card p, .academic-card p {
+  font-family:var(--codec-pro) !important;
+}
+
+
+/* Language switch: rectangular ID / ENG control */
+.lang-toggle, .language-toggle, #lang-toggle, #language-toggle{
+  border-radius:10px !important;
+  min-width:74px !important;
+  width:auto !important;
+  height:42px !important;
+  padding:0 12px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+}
+.header-actions{
+  gap:10px !important;
+}
+.lang-label{
+  font-family:var(--codec-pro,'Inter',sans-serif);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+
+
+/* Theme switch */
+.theme-toggle{
+  width:74px;
+  height:42px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--panel-2);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  cursor:pointer;
+  transition:.3s ease;
+}
+.theme-toggle:hover{
+  transform:translateY(-2px);
+  border-color:var(--violet-soft);
+}
+.theme-toggle .theme-icon{width:17px;height:17px;}
+.theme-toggle .theme-text{
+  font-family:var(--codec-pro,'Inter',sans-serif);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+body.light-mode{
+  --void:#DCE8F7;
+  --panel:#C9D9EE;
+  --panel-2:#B8CCE5;
+  --line:rgba(18,35,76,.15);
+  --violet:#4C65A8;
+  --violet-soft:#6079BD;
+  --orange:#D66A3A;
+  --text:#17233F;
+  --muted:#425574;
+  --white:#ffffff;
+}
+body.light-mode header{
+  background:rgba(201,217,238,.94);
+  border-bottom-color:rgba(18,35,76,.14);
+}
+body.light-mode .theme-toggle,
+body.light-mode .icon-btn{
+  background:var(--panel-2);
+  color:var(--text);
+}
+
+
+.skill-icon{
+  width:24px;
+  height:24px;
+  color:var(--orange);
+  flex:0 0 auto;
+}
+
 </style>
 </head>
 <body>
@@ -781,7 +964,7 @@
   <div class="mega-menu-inner">
     <a href="#about" class="menu-row"><span class="m-icon"><i data-lucide="user"></i></span><span data-en="About Me" data-id="Tentang Saya">Tentang Saya</span></a>
     <a href="#skills" class="menu-row"><span class="m-icon"><i data-lucide="sparkles"></i></span><span data-en="Skills" data-id="Keahlian">Keahlian</span></a>
-    <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="Work Experience" data-id="Pengalaman Kerja">Pengalaman Kerja</span></a>
+    <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="My Journey" data-id="Perjalanan Saya">Perjalanan Saya</span></a>
     <a href="#project" class="menu-row"><span class="m-icon"><i data-lucide="layout-grid"></i></span><span data-en="Data Project" data-id="Proyek Data">Proyek Data</span></a>
     <a href="#education" class="menu-row"><span class="m-icon"><i data-lucide="graduation-cap"></i></span><span data-en="Education" data-id="Pendidikan">Pendidikan</span></a>
     <a href="#organization" class="menu-row"><span class="m-icon"><i data-lucide="users"></i></span><span data-en="Organization" data-id="Organisasi">Organisasi</span></a>
@@ -797,10 +980,10 @@
 
   <div class="marquee-bar">
     <div class="marquee-track">
-      <div class="marquee-item"><i data-lucide="layout"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
+      <div class="marquee-item"><i data-lucide="layout"></i><i data-lucide="palette" class="skill-icon"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
       <div class="marquee-item"><i data-lucide="share-2"></i><span data-en="Social Media Management" data-id="Manajemen Media Sosial">Manajemen Media Sosial</span></div>
       <div class="marquee-item"><i data-lucide="video"></i><span data-en="Digital Content Creator" data-id="Kreator Konten Digital">Kreator Konten Digital</span></div>
-      <div class="marquee-item" aria-hidden="true"><i data-lucide="layout"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
+      <div class="marquee-item" aria-hidden="true"><i data-lucide="layout"></i><i data-lucide="palette" class="skill-icon"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
       <div class="marquee-item" aria-hidden="true"><i data-lucide="share-2"></i><span data-en="Social Media Management" data-id="Manajemen Media Sosial">Manajemen Media Sosial</span></div>
       <div class="marquee-item" aria-hidden="true"><i data-lucide="video"></i><span data-en="Digital Content Creator" data-id="Kreator Konten Digital">Kreator Konten Digital</span></div>
     </div>
@@ -834,7 +1017,7 @@
     <div class="skill-grid">
       <button class="skill-card" type="button" data-skill="uiux">
         <span class="skill-card-icon"><i data-lucide="figma"></i></span>
-        <h3 data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</h3>
+        <i data-lucide="palette" class="skill-icon"></i><h3 data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</h3>
         <p data-en="Interface, user flow, wireframe and prototype." data-id="Interface, alur pengguna, wireframe dan prototype.">Interface, alur pengguna, wireframe dan prototype.</p>
       </button>
       <button class="skill-card" type="button" data-skill="content">
@@ -848,7 +1031,7 @@
         <p data-en="Planning, scheduling, engagement and analytics." data-id="Perencanaan, penjadwalan, engagement dan analitik.">Perencanaan, penjadwalan, engagement dan analitik.</p>
       </button>
       <button class="skill-card" type="button" data-skill="self">
-        <span class="skill-card-icon"><i data-lucide="briefcase-business"></i></span>
+        <span class="skill-card-icon"><i data-lucide="briefcase"></i></span>
         <h3 data-en="Self Employed" data-id="Self Employed">Self Employed</h3>
         <p data-en="Sales, negotiation, customer service and business handling." data-id="Penjualan, negosiasi, layanan pelanggan dan pengelolaan usaha.">Penjualan, negosiasi, layanan pelanggan dan pengelolaan usaha.</p>
       </button>
@@ -856,47 +1039,51 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- EXPERIENCE / JOURNEY -->
 <section class="block reveal" id="experience">
-  <div class="eyebrow" data-en="Work Experience" data-id="Pengalaman Kerja">Pengalaman Kerja</div>
-  <h2 data-en="Where I've grown" data-id="Perjalanan saya sejauh ini">Perjalanan saya sejauh ini</h2>
-  <div class="timeline">
-    <div class="timeline-track"></div>
-    <div class="timeline-fill"></div>
+  <div class="eyebrow" data-en="My Journey" data-id="Perjalanan Saya">Perjalanan Saya</div>
+  <h2 data-en="Academic and professional journey" data-id="Perjalanan akademik dan profesional">Perjalanan akademik dan profesional</h2>
 
-    <div class="t-item">
-      <div class="t-dot"></div>
-      <div class="t-date">2022–Sekarang</div>
-      <div class="t-org" data-en="Universitas Muhammadiyah Surakarta" data-id="Universitas Muhammadiyah Surakarta">Universitas Muhammadiyah Surakarta</div>
-      <div class="t-role" data-en="Informatics Engineering Student" data-id="Mahasiswa Teknik Informatika">Mahasiswa Teknik Informatika</div>
+  <div class="journey-tabs" role="tablist">
+    <button class="journey-tab active" type="button" data-panel="academic" data-en="Academic" data-id="Akademik">Akademik</button>
+    <button class="journey-tab" type="button" data-panel="work" data-en="Work Experience" data-id="Pengalaman Kerja">Pengalaman Kerja</button>
+  </div>
+
+  <div class="journey-flow">
+    <div class="journey-panel active" id="journey-academic">
+      <button class="journey-card" type="button" data-journey="academic">
+        <span class="journey-year">2022–Sekarang</span>
+        <h3>Universitas Muhammadiyah Surakarta</h3>
+        <p data-en="Informatics Engineering student building a foundation in technology, design, and digital problem solving." data-id="Mahasiswa Teknik Informatika yang membangun dasar di bidang teknologi, desain, dan pemecahan masalah digital.">Mahasiswa Teknik Informatika yang membangun dasar di bidang teknologi, desain, dan pemecahan masalah digital.</p>
+        <span class="journey-more">MORE...</span>
+      </button>
     </div>
 
-    <div class="t-item">
-      <div class="t-dot"></div>
-      <div class="t-date">2022–2024</div>
-      <div class="t-org">IMM FKI UMS</div>
-      <div class="t-role" data-en="Member of the Organization Division" data-id="Anggota Divisi Organisasi">Anggota Divisi Organisasi</div>
-    </div>
-
-    <div class="t-item">
-      <div class="t-dot"></div>
-      <div class="t-date">2022–2024</div>
-      <div class="t-org">Mentor UMS</div>
-      <div class="t-role" data-en="Religious Guidance Mentor" data-id="Mentor Bimbingan Keagamaan">Mentor Bimbingan Keagamaan</div>
-    </div>
-
-    <div class="t-item">
-      <div class="t-dot"></div>
-      <div class="t-date">Jul 2025–Des 2025</div>
-      <div class="t-org" data-en="Roblox Items" data-id="Item Roblox">Item Roblox</div>
-      <div class="t-role" data-en="Marketplace Admin" data-id="Admin Marketplace">Admin Marketplace</div>
-    </div>
-
-    <div class="t-item">
-      <div class="t-dot"></div>
-      <div class="t-date">Mar 2026–Agu 2026</div>
-      <div class="t-org">Udang Kedjuu Indonesia</div>
-      <div class="t-role" data-en="Content Creator & Social Media Management" data-id="Content Creator & Manajemen Media Sosial">Content Creator & Manajemen Media Sosial</div>
+    <div class="journey-panel" id="journey-work">
+      <button class="journey-card" type="button" data-journey="imm">
+        <span class="journey-year">2022–2024</span>
+        <h3><span class="journey-category academic-item">IMM FKI</span> UMS</h3>
+        <p data-en="Organization division experience focused on teamwork, program execution, and organizational communication." data-id="Pengalaman di divisi organisasi yang berfokus pada kerja sama tim, pelaksanaan program, dan komunikasi organisasi.">Pengalaman di divisi organisasi yang berfokus pada kerja sama tim, pelaksanaan program, dan komunikasi organisasi.</p>
+        <span class="journey-more">MORE...</span>
+      </button>
+      <button class="journey-card" type="button" data-journey="mentor">
+        <span class="journey-year">2022–2024</span>
+        <h3><span class="journey-category academic-item">Mentor UMS</span></h3>
+        <p data-en="Mentoring experience that strengthened communication, presentation, and guidance skills." data-id="Pengalaman mentoring yang mengembangkan kemampuan komunikasi, presentasi, dan pendampingan.">Pengalaman mentoring yang mengembangkan kemampuan komunikasi, presentasi, dan pendampingan.</p>
+        <span class="journey-more">MORE...</span>
+      </button>
+      <button class="journey-card" type="button" data-journey="roblox">
+        <span class="journey-year">Jul 2025–Des 2025</span>
+        <h3>Item Roblox</h3>
+        <p data-en="Marketplace administration experience covering customer communication, negotiation, and transaction flow." data-id="Pengalaman administrasi marketplace yang mencakup komunikasi pelanggan, negosiasi, dan alur transaksi.">Pengalaman administrasi marketplace yang mencakup komunikasi pelanggan, negosiasi, dan alur transaksi.</p>
+        <span class="journey-more">MORE...</span>
+      </button>
+      <button class="journey-card" type="button" data-journey="udang">
+        <span class="journey-year">Mar 2026–Agu 2026</span>
+        <h3>Udang Kedjuu Indonesia</h3>
+        <p data-en="Content creation and social media management experience from planning and production to audience growth." data-id="Pengalaman sebagai content creator dan manajemen media sosial dari perencanaan hingga produksi dan pertumbuhan audiens.">Pengalaman sebagai content creator dan manajemen media sosial dari perencanaan hingga produksi dan pertumbuhan audiens.</p>
+        <span class="journey-more">MORE...</span>
+      </button>
     </div>
   </div>
 </section>
@@ -974,13 +1161,25 @@
   <span data-en="YS PORTFOLIO" data-id="YS PORTOFOLIO">YS PORTOFOLIO</span>
 </footer>
 
+<!-- JOURNEY DETAIL MODAL -->
+<div class="journey-overlay" id="journey-overlay" aria-hidden="true">
+  <div class="journey-modal" role="dialog" aria-modal="true" aria-labelledby="journey-modal-title">
+    <button class="journey-close" id="journey-close" type="button" aria-label="Tutup"><i data-lucide="x"></i></button>
+    <div class="journey-slideshow" id="journey-slideshow"></div>
+    <div class="journey-modal-year" id="journey-modal-year"></div>
+    <h3 id="journey-modal-title"></h3>
+    <p class="journey-modal-description" id="journey-modal-description"></p>
+    <div class="journey-dots" id="journey-dots"></div>
+  </div>
+</div>
+
 <!-- SKILL DETAIL MODAL -->
 <div class="skill-detail-overlay" id="skill-detail-overlay" aria-hidden="true">
   <div class="skill-detail-card" role="dialog" aria-modal="true" aria-labelledby="skill-detail-title">
     <button class="skill-detail-close" id="skill-detail-close" type="button" aria-label="Tutup"><i data-lucide="x"></i></button>
     <div class="skill-detail-head">
       <div class="eyebrow" data-en="Main Skills" data-id="Keahlian Utama">Keahlian Utama</div>
-      <h3 id="skill-detail-title">Desainer UI/UX</h3>
+      <i data-lucide="palette" class="skill-icon"></i><h3 id="skill-detail-title">Desainer UI/UX</h3>
     </div>
     <div class="skill-list" id="skill-list"></div>
   </div>
@@ -996,7 +1195,13 @@
     <input type="radio" name="cv-lang" id="cv-lang-id" checked hidden>
     <input type="radio" name="cv-lang" id="cv-lang-en" hidden>
     <div class="cv-lang-tabs">
-      <label for="cv-lang-id" class="cv-lang-tab">ID</label>
+      
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ubah mode terang dan gelap">
+  <i data-lucide="sun" class="theme-icon"></i>
+  <span class="theme-text">LIGHT</span>
+</button>
+
+<label for="cv-lang-id" class="cv-lang-tab">ID</label>
       <label for="cv-lang-en" class="cv-lang-tab">EN</label>
     </div>
 
@@ -1031,34 +1236,27 @@
     });
   });
 
-  // scroll reveal
+  // Repeatable reveal: animate when entering the viewport, reset when leaving.
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){ entry.target.classList.add('in-view'); }
+      else{ entry.target.classList.remove('in-view'); }
     });
   }, { threshold: 0.15 });
   revealEls.forEach(function(el){ io.observe(el); });
 
-  // timeline scroll trigger
-  const timeline = document.querySelector('.timeline');
-  if(timeline){
-    const tIo = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){ timeline.classList.add('in-view'); tIo.disconnect(); }
-      });
-    }, { threshold: 0.25 });
-    tIo.observe(timeline);
-  }
-
-  // hero headline: appears with a subtle zoom-out when the hero is first visited
+  // Hero hook zooms in every time the hero hook is revisited.
   const heroTitle = document.querySelector('.hero h1');
   if(heroTitle){
     const heroTitleIo = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
+          heroTitle.classList.remove('hero-title-visible');
+          void heroTitle.offsetWidth;
           heroTitle.classList.add('hero-title-visible');
-          heroTitleIo.disconnect();
+        } else {
+          heroTitle.classList.remove('hero-title-visible');
         }
       });
     }, { threshold: 0.25 });
@@ -1077,16 +1275,89 @@
     photoIo.observe(photoWrap);
   }
 
-  // About paragraphs enter one by one from right to left.
+  // About paragraphs replay their right-to-left entrance whenever the box is revisited.
   const aboutBox = document.getElementById('about-box');
   if(aboutBox){
     const aboutIo = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
-        if(entry.isIntersecting){ aboutBox.classList.add('in-view'); aboutIo.disconnect(); }
+        if(entry.isIntersecting){
+          aboutBox.classList.remove('in-view');
+          aboutBox.querySelectorAll('p').forEach(function(p){ p.style.animation='none'; });
+          void aboutBox.offsetWidth;
+          aboutBox.querySelectorAll('p').forEach(function(p){ p.style.animation=''; });
+          aboutBox.classList.add('in-view');
+        } else {
+          aboutBox.classList.remove('in-view');
+        }
       });
     }, { threshold:0.22 });
     aboutIo.observe(aboutBox);
   }
+
+  // Journey tabs and detail modal with an automatic three-slide gallery.
+  const journeyData = {
+    academic:{title:'Universitas Muhammadiyah Surakarta',year:'2022–Sekarang',description:'Perjalanan akademik sebagai mahasiswa Teknik Informatika yang membangun kemampuan di bidang teknologi, desain, dan pemecahan masalah digital.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    imm:{title:'<span class="journey-category academic-item">IMM FKI</span> UMS',year:'2022–2024',description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    mentor:{title:'<span class="journey-category academic-item">Mentor UMS</span>',year:'2022–2024',description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    roblox:{title:'Item Roblox',year:'Jul 2025–Des 2025',description:'Pengalaman sebagai admin marketplace dengan fokus pada komunikasi pelanggan, negosiasi, transaksi, dan pengelolaan pesanan.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    udang:{title:'Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',description:'Pengalaman sebagai content creator dan social media management yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',images:['images1.jpg','images1.jpg','images1.jpg']}
+  };
+  const journeyOverlay=document.getElementById('journey-overlay');
+  const journeySlideshow=document.getElementById('journey-slideshow');
+  const journeyDots=document.getElementById('journey-dots');
+  const journeyYear=document.getElementById('journey-modal-year');
+  const journeyTitle=document.getElementById('journey-modal-title');
+  const journeyDescription=document.getElementById('journey-modal-description');
+  const journeyClose=document.getElementById('journey-close');
+  let journeyTimer=null, journeyIndex=0;
+
+  document.querySelectorAll('.journey-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.journey-tab').forEach(function(t){t.classList.remove('active');});
+      document.querySelectorAll('.journey-panel').forEach(function(panel){panel.classList.remove('active');});
+      tab.classList.add('active');
+      document.getElementById('journey-'+tab.getAttribute('data-panel')).classList.add('active');
+    });
+  });
+
+  function renderJourneySlide(index){
+    const slides=journeySlideshow.querySelectorAll('.journey-slide');
+    const dots=journeyDots.querySelectorAll('.journey-dot');
+    slides.forEach(function(slide,i){slide.classList.toggle('active',i===index);});
+    dots.forEach(function(dot,i){dot.classList.toggle('active',i===index);});
+  }
+  function openJourney(key){
+    const data=journeyData[key]; if(!data) return;
+    clearInterval(journeyTimer); journeyIndex=0;
+    journeySlideshow.innerHTML=data.images.map(function(src,i){return '<div class="journey-slide '+(i===0?'active':'')+'"><img src="'+src+'" alt="'+data.title+' slide '+(i+1)+'"></div>';}).join('')+'<span class="journey-slide-count">01 / 03</span>';
+    journeyDots.innerHTML=data.images.map(function(_,i){return '<span class="journey-dot '+(i===0?'active':'')+'"></span>';}).join('');
+    journeyYear.textContent=data.year; journeyTitle.textContent=data.title; journeyDescription.textContent=data.description;
+    journeyOverlay.classList.add('open'); journeyOverlay.setAttribute('aria-hidden','false');
+    lucide.createIcons();
+    journeyTimer=setInterval(function(){journeyIndex=(journeyIndex+1)%3;renderJourneySlide(journeyIndex);journeySlideshow.querySelector('.journey-slide-count').textContent=String(journeyIndex+1).padStart(2,'0')+' / 03';},4200);
+  }
+  function closeJourney(){clearInterval(journeyTimer);journeyOverlay.classList.remove('open');journeyOverlay.setAttribute('aria-hidden','true');}
+  document.querySelectorAll('.journey-card').forEach(function(card){card.addEventListener('click',function(){openJourney(card.getAttribute('data-journey'));});});
+  journeyClose.addEventListener('click',closeJourney);
+  journeyOverlay.addEventListener('click',function(e){if(e.target===journeyOverlay)closeJourney();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeJourney();});
+
+  // The journey light travels up and down. Dots dim after the light passes them.
+  const journeyFlow=document.querySelector('.journey-flow');
+  function animateJourneyDots(){
+    if(!journeyFlow) return;
+    const cards=journeyFlow.querySelectorAll('.journey-panel.active .journey-card');
+    cards.forEach(function(card){card.classList.remove('flow-active');card.classList.add('flow-dim');});
+    if(!cards.length) return;
+    cards.forEach(function(card,i){
+      setTimeout(function(){
+        card.classList.remove('flow-dim'); card.classList.add('flow-active');
+        setTimeout(function(){card.classList.remove('flow-active');card.classList.add('flow-dim');},650);
+      },i*850);
+    });
+  }
+  animateJourneyDots();
+  setInterval(animateJourneyDots,4300);
 
   // Skill detail data. Percentages are presentation levels and can be edited easily.
   const skillData = {
@@ -1105,7 +1376,7 @@
     social:{
       titleId:'Manajemen Sosial Media', titleEn:'Social Media Management',
       skills:[
-        ['Content Strategy','strategy',88],['Scheduling','calendar-check',90],['Engagement','message-circle',86],['Analytics','chart-no-axes-combined',82]
+        ['Content Strategy','route',88],['Scheduling','calendar-check',90],['Engagement','message-circle',86],['Analytics','chart-no-axes-combined',82]
       ]
     },
     self:{
@@ -1165,5 +1436,30 @@
     applyLang(currentLang === 'id' ? 'en' : 'id');
   }
 </script>
+
+<script>
+(function(){
+  const toggle = document.getElementById('theme-toggle');
+  if(!toggle) return;
+
+  const applyTheme = (light) => {
+    document.body.classList.toggle('light-mode', light);
+    const icon = toggle.querySelector('.theme-icon');
+    const text = toggle.querySelector('.theme-text');
+    if(icon) icon.setAttribute('data-lucide', light ? 'moon' : 'sun');
+    if(text) text.textContent = light ? 'DARK' : 'LIGHT';
+    if(window.lucide) lucide.createIcons();
+    localStorage.setItem('portfolio-theme', light ? 'light' : 'dark');
+  };
+
+  const saved = localStorage.getItem('portfolio-theme');
+  applyTheme(saved === 'light');
+
+  toggle.addEventListener('click', () => {
+    applyTheme(!document.body.classList.contains('light-mode'));
+  });
+})();
+</script>
+
 </body>
 </html>
