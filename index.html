@@ -446,8 +446,8 @@
     margin-bottom:18px;
   }
   .skill-card-icon svg{ width:27px; height:27px; }
-  .skill-card h3{ font-size:20px; line-height:1.2; margin-bottom:9px; }
-  .skill-card p{ color:var(--muted); font-size:13px; line-height:1.55; margin:0; }
+  .skill-card h3{ font-size:20px; line-height:1.2; margin-bottom:9px; color:var(--orange); }
+  .skill-card p{ color:#ffffff; font-size:13px; line-height:1.55; margin:0; }
 
   /* Timeline */
   .timeline{ position:relative; padding-left:32px; margin-top:10px; }
@@ -770,7 +770,7 @@
   .project-card p.desc,
   .journey-card p,
   .journey-modal-description {
-    font-family:'Bree Serif',serif;
+    font-family:'Codec Pro','CodecPro','Arial',sans-serif;
   }
 
   /* Re-triggerable section animations */
@@ -845,100 +845,244 @@
   }
 
 
-/* Codec Pro typography */
-@font-face{
-  font-family:'Codec Pro';
-  src:local('Codec Pro'), local('CodecPro');
-  font-display:swap;
-}
-:root{
-  --codec-pro:'Codec Pro','CodecPro','Inter','Segoe UI',Arial,sans-serif;
-}
-body, p, .tagline, .about p, .skill-card p, .skill-box p,
-.timeline-card p, .journey-card p, .modal p, .description,
-.project-card p, .experience-card p, .academic-card p {
-  font-family:var(--codec-pro) !important;
-}
+  /* Codec Pro is used for descriptive/body copy */
+  p,
+  .tagline,
+  .about-box p,
+  .skill-card p,
+  .skill-detail-item,
+  .skill-level-label,
+  .journey-card p,
+  .journey-modal-description,
+  .project-problem,
+  .project-card p.desc,
+  .simple-item p,
+  .t-role {
+    font-family:'Codec Pro','CodecPro','Arial',sans-serif;
+  }
 
 
-/* Language switch: rectangular ID / ENG control */
-.lang-toggle, .language-toggle, #lang-toggle, #language-toggle{
-  border-radius:10px !important;
-  min-width:74px !important;
-  width:auto !important;
-  height:42px !important;
-  padding:0 12px !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:6px !important;
-}
-.header-actions{
-  gap:10px !important;
-}
-.lang-label{
-  font-family:var(--codec-pro,'Inter',sans-serif);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.08em;
-}
+  /* Theme system */
+  :root{
+    --light-void:#f3f0eb;
+    --light-panel:#ffffff;
+    --light-panel-2:#e9e4dc;
+    --light-line:rgba(24,32,51,0.14);
+    --light-violet:#6f5ce7;
+    --light-violet-soft:#6552d5;
+    --light-orange:#ef7542;
+    --light-text:#182033;
+    --light-muted:#596276;
+  }
+
+  body.light-mode{
+    background:var(--light-void);
+    color:var(--light-text);
+  }
+  body.light-mode header{
+    background:var(--light-panel);
+    border-bottom-color:var(--light-line);
+  }
+  body.light-mode header.scrolled{
+    background:rgba(243,240,235,.78);
+    border-color:rgba(24,32,51,.08);
+  }
+  body.light-mode .mega-menu,
+  body.light-mode .modal-card,
+  body.light-mode .skill-detail-card,
+  body.light-mode .journey-modal{
+    background:var(--light-void);
+    color:var(--light-text);
+  }
+  body.light-mode .mega-menu-top{
+    border-bottom-color:var(--light-line);
+  }
+  body.light-mode .icon-btn,
+  body.light-mode .journey-tab,
+  body.light-mode .journey-card,
+  body.light-mode .skill-card,
+  body.light-mode .skill-detail-item,
+  body.light-mode .project-card,
+  body.light-mode .contact-links a,
+  body.light-mode .contact-links .link-btn,
+  body.light-mode .modal-close,
+  body.light-mode .skill-detail-close{
+    background:var(--light-panel);
+    color:var(--light-text);
+    border-color:var(--light-line);
+  }
+  body.light-mode .panel-bg{
+    background:var(--light-panel-2);
+  }
+  body.light-mode .skill-card:hover,
+  body.light-mode .journey-card:hover{
+    border-color:var(--light-orange);
+    background:linear-gradient(145deg,var(--light-panel),rgba(239,117,66,.08));
+  }
+  body.light-mode .skill-card-icon,
+  body.light-mode .skill-detail-name i{
+    background:var(--light-orange);
+    color:#ffffff;
+  }
+  body.light-mode .skill-card h3,
+  body.light-mode .skill-detail-head h3,
+  body.light-mode .journey-card h3,
+  body.light-mode .modal-card h3,
+  body.light-mode .journey-modal h3{
+    color:var(--light-text);
+  }
+  body.light-mode .skill-card p,
+  body.light-mode .journey-card p,
+  body.light-mode .journey-modal-description,
+  body.light-mode .project-card p.desc,
+  body.light-mode .simple-item p,
+  body.light-mode .tagline,
+  body.light-mode .about-box p{
+    color:var(--light-text) !important;
+  }
+  body.light-mode .skill-level-label,
+  body.light-mode .t-role,
+  body.light-mode footer{
+    color:var(--light-muted);
+  }
+  body.light-mode .journey-tab.active{
+    background:var(--light-orange);
+    color:#ffffff;
+    border-color:var(--light-orange);
+  }
+  body.light-mode .logo span,
+  body.light-mode .journey-year,
+  body.light-mode .t-date,
+  body.light-mode .journey-more,
+  body.light-mode .skill-percent{
+    color:var(--light-orange);
+  }
+  body.light-mode .skill-level span{
+    background:linear-gradient(90deg,var(--light-violet),var(--light-orange));
+  }
+  body.light-mode .skill-detail-overlay,
+  body.light-mode .journey-overlay,
+  body.light-mode .modal-overlay{
+    background:rgba(24,32,51,.48);
+  }
+  body.light-mode .cv-lang-tab{
+    background:var(--light-panel);
+    color:var(--light-text);
+    border-color:var(--light-line);
+  }
+  body.light-mode #cv-lang-id:checked ~ .cv-lang-tabs label[for="cv-lang-id"],
+  body.light-mode #cv-lang-en:checked ~ .cv-lang-tabs label[for="cv-lang-en"]{
+    background:var(--light-orange);
+    border-color:var(--light-orange);
+    color:#ffffff;
+  }
+
+  /* Header language and theme controls */
+  .header-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .header-control{
+    height:42px;
+    min-width:76px;
+    padding:0 11px;
+    border-radius:12px;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    cursor:pointer;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.3px;
+    transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s ease;
+  }
+  .header-control:hover{
+    transform:translateY(-2px);
+    border-color:var(--orange);
+  }
+  .header-control svg{
+    width:16px;
+    height:16px;
+    pointer-events:none;
+  }
+  .lang-switch{
+    min-width:92px;
+    justify-content:space-between;
+    padding:4px 7px;
+  }
+  .lang-switch span{
+    min-width:35px;
+    height:32px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background .25s ease,color .25s ease;
+  }
+  .lang-switch span.active{
+    background:var(--orange);
+    color:#ffffff;
+  }
+  .theme-switch{
+    min-width:112px;
+  }
+  .theme-switch .theme-label{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+  }
+  body.light-mode .header-control{
+    background:var(--light-panel);
+    color:var(--light-text);
+    border-color:var(--light-line);
+  }
+  body.light-mode .lang-switch span.active{
+    background:var(--light-orange);
+    color:#ffffff;
+  }
+  body.light-mode .theme-switch svg{
+    color:var(--light-orange);
+  }
+
+  @media(max-width:600px){
+    .header-actions{gap:5px;}
+    .header-control{
+      height:38px;
+      min-width:0;
+      padding:0 8px;
+      font-size:10px;
+    }
+    .lang-switch{min-width:78px;}
+    .lang-switch span{min-width:29px;height:28px;}
+    .theme-switch{min-width:92px;}
+    .theme-switch .theme-label{gap:3px;}
+    .theme-switch .theme-label span{min-width:0;height:auto;background:none !important;color:inherit !important;}
+  }
 
 
-/* Theme switch */
-.theme-toggle{
-  width:74px;
-  height:42px;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:var(--panel-2);
-  color:var(--text);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  cursor:pointer;
-  transition:.3s ease;
-}
-.theme-toggle:hover{
-  transform:translateY(-2px);
-  border-color:var(--violet-soft);
-}
-.theme-toggle .theme-icon{width:17px;height:17px;}
-.theme-toggle .theme-text{
-  font-family:var(--codec-pro,'Inter',sans-serif);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.06em;
-}
-body.light-mode{
-  --void:#DCE8F7;
-  --panel:#C9D9EE;
-  --panel-2:#B8CCE5;
-  --line:rgba(18,35,76,.15);
-  --violet:#4C65A8;
-  --violet-soft:#6079BD;
-  --orange:#D66A3A;
-  --text:#17233F;
-  --muted:#425574;
-  --white:#ffffff;
-}
-body.light-mode header{
-  background:rgba(201,217,238,.94);
-  border-bottom-color:rgba(18,35,76,.14);
-}
-body.light-mode .theme-toggle,
-body.light-mode .icon-btn{
-  background:var(--panel-2);
-  color:var(--text);
-}
-
-
-.skill-icon{
-  width:24px;
-  height:24px;
-  color:var(--orange);
-  flex:0 0 auto;
-}
+  .figma-mark{
+    width:20px;
+    height:26px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:repeat(3,1fr);
+    gap:1px;
+  }
+  .figma-mark span{
+    display:block;
+    border-radius:50%;
+    background:currentColor;
+  }
+  .figma-mark span:nth-child(5){
+    grid-column:2;
+    grid-row:3;
+  }
 
 </style>
 </head>
@@ -949,9 +1093,16 @@ body.light-mode .icon-btn{
 <header id="site-header">
   <div class="logo">YS<span>.</span></div>
   <div class="header-actions">
-    <div class="icon-btn" onclick="toggleLang()" title="Terjemahan" data-title-en="Translate" data-title-id="Terjemahan">
-      <i data-lucide="globe-2"></i>
-    </div>
+    <button class="header-control lang-switch" id="lang-switch" type="button" aria-label="Ganti bahasa">
+      <span id="lang-id" class="active">ID</span>
+      <span id="lang-en">ENG</span>
+    </button>
+
+    <button class="header-control theme-switch" id="theme-switch" type="button" aria-label="Ganti mode tampilan">
+      <i data-lucide="moon" id="theme-icon"></i>
+      <span class="theme-label"><span id="theme-text">Dark</span></span>
+    </button>
+
     <label for="menu-toggle" class="icon-btn"><i data-lucide="menu"></i></label>
   </div>
 </header>
@@ -980,10 +1131,10 @@ body.light-mode .icon-btn{
 
   <div class="marquee-bar">
     <div class="marquee-track">
-      <div class="marquee-item"><i data-lucide="layout"></i><i data-lucide="palette" class="skill-icon"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
+      <div class="marquee-item"><i data-lucide="layout"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
       <div class="marquee-item"><i data-lucide="share-2"></i><span data-en="Social Media Management" data-id="Manajemen Media Sosial">Manajemen Media Sosial</span></div>
       <div class="marquee-item"><i data-lucide="video"></i><span data-en="Digital Content Creator" data-id="Kreator Konten Digital">Kreator Konten Digital</span></div>
-      <div class="marquee-item" aria-hidden="true"><i data-lucide="layout"></i><i data-lucide="palette" class="skill-icon"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
+      <div class="marquee-item" aria-hidden="true"><i data-lucide="layout"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
       <div class="marquee-item" aria-hidden="true"><i data-lucide="share-2"></i><span data-en="Social Media Management" data-id="Manajemen Media Sosial">Manajemen Media Sosial</span></div>
       <div class="marquee-item" aria-hidden="true"><i data-lucide="video"></i><span data-en="Digital Content Creator" data-id="Kreator Konten Digital">Kreator Konten Digital</span></div>
     </div>
@@ -1016,8 +1167,8 @@ body.light-mode .icon-btn{
     <h2 data-en="What I bring to the table" data-id="Apa yang saya kuasai">Apa yang saya kuasai</h2>
     <div class="skill-grid">
       <button class="skill-card" type="button" data-skill="uiux">
-        <span class="skill-card-icon"><i data-lucide="figma"></i></span>
-        <i data-lucide="palette" class="skill-icon"></i><h3 data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</h3>
+        <span class="skill-card-icon"><i data-lucide="panels-top-left"></i></span>
+        <h3 data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</h3>
         <p data-en="Interface, user flow, wireframe and prototype." data-id="Interface, alur pengguna, wireframe dan prototype.">Interface, alur pengguna, wireframe dan prototype.</p>
       </button>
       <button class="skill-card" type="button" data-skill="content">
@@ -1057,21 +1208,23 @@ body.light-mode .icon-btn{
         <p data-en="Informatics Engineering student building a foundation in technology, design, and digital problem solving." data-id="Mahasiswa Teknik Informatika yang membangun dasar di bidang teknologi, desain, dan pemecahan masalah digital.">Mahasiswa Teknik Informatika yang membangun dasar di bidang teknologi, desain, dan pemecahan masalah digital.</p>
         <span class="journey-more">MORE...</span>
       </button>
-    </div>
 
-    <div class="journey-panel" id="journey-work">
       <button class="journey-card" type="button" data-journey="imm">
         <span class="journey-year">2022–2024</span>
-        <h3><span class="journey-category academic-item">IMM FKI</span> UMS</h3>
+        <h3>IMM FKI UMS</h3>
         <p data-en="Organization division experience focused on teamwork, program execution, and organizational communication." data-id="Pengalaman di divisi organisasi yang berfokus pada kerja sama tim, pelaksanaan program, dan komunikasi organisasi.">Pengalaman di divisi organisasi yang berfokus pada kerja sama tim, pelaksanaan program, dan komunikasi organisasi.</p>
         <span class="journey-more">MORE...</span>
       </button>
+
       <button class="journey-card" type="button" data-journey="mentor">
         <span class="journey-year">2022–2024</span>
-        <h3><span class="journey-category academic-item">Mentor UMS</span></h3>
+        <h3>Mentor UMS</h3>
         <p data-en="Mentoring experience that strengthened communication, presentation, and guidance skills." data-id="Pengalaman mentoring yang mengembangkan kemampuan komunikasi, presentasi, dan pendampingan.">Pengalaman mentoring yang mengembangkan kemampuan komunikasi, presentasi, dan pendampingan.</p>
         <span class="journey-more">MORE...</span>
       </button>
+    </div>
+
+    <div class="journey-panel" id="journey-work">
       <button class="journey-card" type="button" data-journey="roblox">
         <span class="journey-year">Jul 2025–Des 2025</span>
         <h3>Item Roblox</h3>
@@ -1179,7 +1332,7 @@ body.light-mode .icon-btn{
     <button class="skill-detail-close" id="skill-detail-close" type="button" aria-label="Tutup"><i data-lucide="x"></i></button>
     <div class="skill-detail-head">
       <div class="eyebrow" data-en="Main Skills" data-id="Keahlian Utama">Keahlian Utama</div>
-      <i data-lucide="palette" class="skill-icon"></i><h3 id="skill-detail-title">Desainer UI/UX</h3>
+      <h3 id="skill-detail-title">Desainer UI/UX</h3>
     </div>
     <div class="skill-list" id="skill-list"></div>
   </div>
@@ -1195,13 +1348,7 @@ body.light-mode .icon-btn{
     <input type="radio" name="cv-lang" id="cv-lang-id" checked hidden>
     <input type="radio" name="cv-lang" id="cv-lang-en" hidden>
     <div class="cv-lang-tabs">
-      
-<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ubah mode terang dan gelap">
-  <i data-lucide="sun" class="theme-icon"></i>
-  <span class="theme-text">LIGHT</span>
-</button>
-
-<label for="cv-lang-id" class="cv-lang-tab">ID</label>
+      <label for="cv-lang-id" class="cv-lang-tab">ID</label>
       <label for="cv-lang-en" class="cv-lang-tab">EN</label>
     </div>
 
@@ -1297,8 +1444,8 @@ body.light-mode .icon-btn{
   // Journey tabs and detail modal with an automatic three-slide gallery.
   const journeyData = {
     academic:{title:'Universitas Muhammadiyah Surakarta',year:'2022–Sekarang',description:'Perjalanan akademik sebagai mahasiswa Teknik Informatika yang membangun kemampuan di bidang teknologi, desain, dan pemecahan masalah digital.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    imm:{title:'<span class="journey-category academic-item">IMM FKI</span> UMS',year:'2022–2024',description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    mentor:{title:'<span class="journey-category academic-item">Mentor UMS</span>',year:'2022–2024',description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    imm:{title:'IMM FKI UMS',year:'2022–2024',description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    mentor:{title:'Mentor UMS',year:'2022–2024',description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',images:['images1.jpg','images1.jpg','images1.jpg']},
     roblox:{title:'Item Roblox',year:'Jul 2025–Des 2025',description:'Pengalaman sebagai admin marketplace dengan fokus pada komunikasi pelanggan, negosiasi, transaksi, dan pengelolaan pesanan.',images:['images1.jpg','images1.jpg','images1.jpg']},
     udang:{title:'Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',description:'Pengalaman sebagai content creator dan social media management yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',images:['images1.jpg','images1.jpg','images1.jpg']}
   };
@@ -1398,7 +1545,12 @@ body.light-mode .icon-btn{
     skillTitle.textContent = currentLang === 'en' ? data.titleEn : data.titleId;
     skillList.innerHTML = data.skills.map(function(item){
       return '<div class="skill-detail-item">' +
-        '<div class="skill-detail-name"><i data-lucide="'+item[1]+'"></i><span>'+item[0]+'</span></div>' +
+        '<div class="skill-detail-name">' +
+          (item[1] === 'figma'
+            ? '<i aria-hidden="true"><span class="figma-mark"><span></span><span></span><span></span><span></span><span></span></span></i>'
+            : '<i data-lucide="'+item[1]+'"></i>') +
+          '<span>'+item[0]+'</span>' +
+        '</div>' +
         '<div class="skill-level-row"><span class="skill-level-label">Level / Penguasaan</span><span class="skill-percent">'+item[2]+'%</span></div>' +
         '<div class="skill-level"><span style="--level:'+item[2]+'%"></span></div>' +
       '</div>';
@@ -1418,7 +1570,7 @@ body.light-mode .icon-btn{
   skillOverlay.addEventListener('click', function(e){ if(e.target === skillOverlay) closeSkillDetail(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeSkillDetail(); });
 
-  // translate: Indonesian is the default language, the button switches to English
+  // translate: Indonesian is the default language, ID and ENG are clickable rounded controls
   let currentLang = 'id';
   function applyLang(lang){
     document.querySelectorAll('[data-en]').forEach(function(el){
@@ -1432,34 +1584,47 @@ body.light-mode .icon-btn{
       skillTitle.textContent = lang === 'en' ? skillTitle.getAttribute('data-en') : skillTitle.getAttribute('data-id');
     }
   }
-  function toggleLang(){
-    applyLang(currentLang === 'id' ? 'en' : 'id');
+  const langIdButton = document.getElementById('lang-id');
+  const langEnButton = document.getElementById('lang-en');
+
+  function updateLangControl(){
+    if(langIdButton) langIdButton.classList.toggle('active', currentLang === 'id');
+    if(langEnButton) langEnButton.classList.toggle('active', currentLang === 'en');
   }
+
+  function setLang(lang){
+    applyLang(lang);
+    updateLangControl();
+  }
+
+  if(langIdButton) langIdButton.addEventListener('click', function(){ setLang('id'); });
+  if(langEnButton) langEnButton.addEventListener('click', function(){ setLang('en'); });
+
+  const themeSwitch = document.getElementById('theme-switch');
+  const themeIcon = document.getElementById('theme-icon');
+  const themeText = document.getElementById('theme-text');
+
+  function setTheme(mode){
+    const isLight = mode === 'light';
+    document.body.classList.toggle('light-mode', isLight);
+    if(themeIcon){
+      themeIcon.setAttribute('data-lucide', isLight ? 'sun' : 'moon');
+      themeIcon.outerHTML = '<i data-lucide="' + (isLight ? 'sun' : 'moon') + '" id="theme-icon"></i>';
+    }
+    if(themeText) themeText.textContent = isLight ? 'Light' : 'Dark';
+    localStorage.setItem('ys-theme', mode);
+    lucide.createIcons();
+  }
+
+  if(themeSwitch){
+    themeSwitch.addEventListener('click', function(){
+      setTheme(document.body.classList.contains('light-mode') ? 'dark' : 'light');
+    });
+  }
+
+  const savedTheme = localStorage.getItem('ys-theme') || 'dark';
+  setTheme(savedTheme);
+  updateLangControl();
 </script>
-
-<script>
-(function(){
-  const toggle = document.getElementById('theme-toggle');
-  if(!toggle) return;
-
-  const applyTheme = (light) => {
-    document.body.classList.toggle('light-mode', light);
-    const icon = toggle.querySelector('.theme-icon');
-    const text = toggle.querySelector('.theme-text');
-    if(icon) icon.setAttribute('data-lucide', light ? 'moon' : 'sun');
-    if(text) text.textContent = light ? 'DARK' : 'LIGHT';
-    if(window.lucide) lucide.createIcons();
-    localStorage.setItem('portfolio-theme', light ? 'light' : 'dark');
-  };
-
-  const saved = localStorage.getItem('portfolio-theme');
-  applyTheme(saved === 'light');
-
-  toggle.addEventListener('click', () => {
-    applyTheme(!document.body.classList.contains('light-mode'));
-  });
-})();
-</script>
-
 </body>
 </html>
