@@ -1,708 +1,756 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Halo, Welcome</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yudha Sanjaya — Portofolio</title>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#120821;
+    --panel:#1c1036;
+    --panel-2:#241442;
+    --line: rgba(183,156,255,0.14);
+    --violet:#8b5cf6;
+    --violet-soft:#b79cff;
+    --orange:#ff7a45;
+    --text:#f5f0ff;
+    --muted:#a79bc7;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    transition:background .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+  }
+  header.scrolled{
+    background:rgba(28,16,54,0.18);
+    border-color:rgba(183,156,255,0.06);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:0.4px;
+  }
+  .logo span{color:var(--orange);}
+  .header-actions{display:flex; align-items:center; gap:10px;}
+  .icon-btn{
+    width:42px; height:42px;
+    border-radius:50%;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    color:var(--text);
+    transition:background .25s ease, transform .25s ease, border-color .25s ease;
+    position:relative;
+  }
+  .icon-btn:hover{background:var(--violet); border-color:var(--violet); transform:translateY(-2px);}
+  .icon-btn svg{width:19px; height:19px; pointer-events:none;}
+  .translate-icon{
+    font-size:19px;
+    font-weight:700;
+    line-height:1;
+    font-family:'Inter',sans-serif;
+    pointer-events:none;
+  }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(180deg, #000, #0d0014);
-      color: #eee;
-      overflow-x: hidden;
-      text-align: center;
-      padding: 40px 20px 60px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  /* ---------- Mega menu (full screen) ---------- */
+  #menu-toggle{display:none;}
+  .mega-menu{
+    position:fixed;
+    inset:0;
+    z-index:150;
+    background:var(--void);
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(-12px);
+    transition:opacity .4s ease, transform .4s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  #menu-toggle:checked ~ .mega-menu{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+  .mega-menu-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    border-bottom:1px solid var(--line);
+  }
+  .mega-menu-inner{
+    flex:1;
+    max-width:720px;
+    width:100%;
+    margin:0 auto;
+    padding:10px 28px 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .menu-row{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:22px 4px;
+    border-bottom:1px solid var(--line);
+    cursor:pointer;
+    transition:padding-left .25s ease, color .25s ease;
+  }
+  .menu-row:last-child{border-bottom:none;}
+  .menu-row:hover{padding-left:14px; color:var(--orange);}
+  .menu-row .m-icon{
+    width:48px; height:48px; border-radius:50%;
+    background:var(--panel-2);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    color:var(--violet-soft);
+  }
+  .menu-row .m-icon svg{width:22px; height:22px;}
+  .menu-row span{font-size:20px; font-weight:600; font-family:'Space Grotesk',sans-serif;}
 
-    .tabs {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:150px 0 90px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    position:relative;
+  }
+  .photo-wrap{
+    position:relative;
+    width:230px; height:230px;
+    margin-bottom:56px;
+    cursor:pointer;
+  }
+  .photo-wrap::before{
+    content:'';
+    position:absolute; inset:-14px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(139,92,246,0.55), transparent 70%);
+    filter:blur(6px);
+    opacity:.65;
+    transform:scale(1);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .photo-wrap.lit::before{
+    opacity:1;
+    transform:scale(1.18);
+    background:radial-gradient(circle, rgba(255,122,69,0.65), rgba(139,92,246,0.55) 55%, transparent 75%);
+  }
+  .photo-wrap img{
+    position:relative;
+    width:230px; height:230px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid rgba(255,255,255,0.15);
+    transition:transform .4s ease, border-color .4s ease;
+  }
+  .photo-wrap.lit img{
+    transform:scale(1.06);
+    border-color:rgba(255,255,255,0.4);
+  }
 
-    .lang-toggle {
-      background: linear-gradient(135deg, #6a0dad, #8a2be2);
-      padding: 10px;
-      border-radius: 50%;
-      color: white;
-      font-weight: 600;
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      min-height: 44px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 3px 10px rgba(138, 43, 226, 0.5);
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .lang-toggle:hover {
-      background: #bb86fc;
-      color: #1d003d;
-      box-shadow: 0 0 20px #a970f7;
-      transform: translateY(-2px);
-    }
-    .lang-toggle::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -25px;
-      background: #6a0dad;
-      color: #fff;
-      padding: 4px 8px;
-      font-size: 10px;
-      border-radius: 6px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .lang-toggle:hover::after,
-    .lang-toggle:active::after,
-    .lang-toggle:focus::after {
-      opacity: 1;
-    }
-    .lang-toggle i {
-      width: 20px;
-      height: 20px;
-      pointer-events: none;
-    }
+  /* Full-screen running icon + text ticker, sits below the photo with clear space */
+  .marquee-bar{
+    position:relative;
+    width:100vw;
+    left:50%;
+    margin-left:-50vw;
+    overflow:hidden;
+    background:var(--white);
+    padding:16px 0;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    z-index:2;
+  }
+  .marquee-track{
+    display:flex;
+    align-items:center;
+    width:max-content;
+    animation:marqueeRun 24s linear infinite;
+  }
+  .marquee-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    white-space:nowrap;
+    padding-right:100vw;
+  }
+  .marquee-item svg{
+    width:20px; height:20px;
+    color:var(--orange);
+    flex-shrink:0;
+  }
+  .marquee-item span{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:0.3px;
+    color:var(--void);
+  }
+  @keyframes marqueeRun{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-50%); }
+  }
 
-    .translate-icon {
-      position: relative;
-      width: 20px;
-      height: 20px;
-      pointer-events: none;
-    }
-    .translate-icon .char-jp {
-      position: absolute;
-      top: -3px;
-      left: -2px;
-      font-size: 14px;
-      line-height: 1;
-      font-weight: 700;
-      font-family: 'Segoe UI', sans-serif;
-      color: #ffffff;
-    }
-    .translate-icon .char-en {
-      position: absolute;
-      bottom: -4px;
-      right: -4px;
-      font-size: 12px;
-      line-height: 1;
-      font-weight: 800;
-      font-family: 'Segoe UI', sans-serif;
-      color: #ffffff;
-    }
+  .hero h1{
+    margin-top:40px;
+    padding:0 24px;
+    font-size:clamp(26px, 4vw, 38px);
+    font-weight:700;
+    max-width:640px;
+    line-height:1.25;
+  }
+  .hero p.tagline{
+    margin-top:16px;
+    padding:0 24px;
+    max-width:560px;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.7;
+  }
+  .hero-ctas{
+    margin-top:34px;
+    padding:0 24px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .btn{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.5px;
+    padding:15px 26px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    display:inline-block;
+  }
+  .btn-orange{ background:var(--orange); color:#2a0f00; }
+  .btn-orange:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,122,69,0.35); }
+  .btn-ghost{ background:var(--white); color:var(--void); }
+  .btn-ghost:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,255,255,0.2); }
 
-    input[type="radio"],
-    input[type="checkbox"] {
-      display: none;
-    }
+  /* ---------- Sections generic ---------- */
+  section.block{
+    padding:90px 24px;
+    max-width:880px;
+    margin:0 auto;
+  }
+  section.block.panel-bg{ background:var(--panel); max-width:100%; }
+  section.block.panel-bg > .inner{ max-width:880px; margin:0 auto; }
+  .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--orange);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .block h2{
+    font-size:clamp(24px,3.4vw,32px);
+    margin-bottom:22px;
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
 
-    label.tab-link {
-      background: linear-gradient(135deg, #6a0dad, #8a2be2);
-      padding: 10px;
-      border-radius: 50%;
-      color: white;
-      font-weight: 600;
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      min-height: 44px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 3px 10px rgba(138, 43, 226, 0.5);
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    label.tab-link:hover {
-      background: #bb86fc;
-      color: #1d003d;
-      box-shadow: 0 0 20px #a970f7;
-      transform: translateY(-2px);
-    }
-    label.tab-link::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -25px;
-      background: #6a0dad;
-      color: #fff;
-      padding: 4px 8px;
-      font-size: 10px;
-      border-radius: 6px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    label.tab-link:hover::after {
-      opacity: 1;
-    }
+  /* About */
+  #about p{ color:var(--muted); font-size:16px; line-height:1.85; margin-bottom:16px; max-width:680px; }
 
-    label.tab-link i {
-      pointer-events: none;
-    }
+  /* Skills */
+  .skill-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+  .skill-tag{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    padding:10px 18px;
+    border-radius:24px;
+    font-size:14px;
+    color:var(--text);
+    transition:border-color .25s ease, color .25s ease, transform .25s ease;
+  }
+  .skill-tag:hover{ border-color:var(--orange); color:var(--orange); transform:translateY(-2px); }
 
-    section.tab-content {
-      display: none;
-      animation: fadeIn 0.5s ease forwards;
-    }
+  /* Timeline */
+  .timeline{ position:relative; padding-left:32px; margin-top:10px; }
+  .timeline-track{ position:absolute; top:6px; bottom:6px; left:5px; width:2px; background:rgba(183,156,255,0.18); }
+  .timeline-fill{ position:absolute; top:6px; left:5px; width:2px; height:0%; background:linear-gradient(180deg,var(--violet),var(--orange)); box-shadow:0 0 8px rgba(139,92,246,.6); transition:height 1.8s ease; }
+  .timeline.in-view .timeline-fill{ height:100%; }
+  .t-item{ position:relative; padding-bottom:34px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-dot{
+    position:absolute; left:-32px; top:4px;
+    width:12px; height:12px; border-radius:50%;
+    background:rgba(183,156,255,0.25);
+    transition:background .4s ease, box-shadow .4s ease, transform .4s ease;
+  }
+  .timeline.in-view .t-dot{ background:var(--violet); box-shadow:0 0 10px rgba(139,92,246,.7); transform:scale(1.15); }
+  .timeline.in-view .t-item:nth-child(2) .t-dot{ transition-delay:.3s; }
+  .timeline.in-view .t-item:nth-child(3) .t-dot{ transition-delay:.6s; }
+  .timeline.in-view .t-item:nth-child(4) .t-dot{ transition-delay:.9s; }
+  .timeline.in-view .t-item:nth-child(5) .t-dot{ transition-delay:1.2s; }
+  .timeline.in-view .t-item:nth-child(6) .t-dot{ transition-delay:1.5s; }
+  .t-date{ font-size:12px; letter-spacing:.5px; color:var(--orange); font-weight:700; margin-bottom:4px; font-family:'Space Grotesk',sans-serif;}
+  .t-org{ font-size:17px; font-weight:700; margin-bottom:2px; }
+  .t-role{ font-size:14px; color:var(--muted); }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+  /* Projects */
+  .project-card{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:20px;
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .project-card:hover{ transform:translateY(-4px); border-color:var(--violet); }
+  .photo-frame{ position:relative; height:180px; overflow:hidden; border-radius:12px; margin-bottom:16px; }
+  .photo-frame img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:kenBurns 8s ease-in-out infinite alternate; }
+  @keyframes kenBurns{ 0%{transform:scale(1);} 100%{transform:scale(1.1);} }
+  .project-problem{ font-style:italic; font-size:13px; color:var(--muted); border-left:2px solid var(--orange); padding-left:10px; margin-bottom:10px; }
+  .project-card p.desc{ font-size:15px; line-height:1.7; margin:0; }
+  .project-card p.desc strong{ color:var(--violet-soft); }
 
-    #tab-opening:checked ~ .tabs label[for="tab-opening"],
-    #tab-about:checked ~ .tabs label[for="tab-about"],
-    #tab-experience:checked ~ .tabs label[for="tab-experience"],
-    #tab-toplink:checked ~ .tabs label[for="tab-toplink"] {
-      background: #bb86fc;
-      color: #1d003d;
-      box-shadow: 0 0 25px #a970f7;
-      transform: translateY(-3px);
-    }
+  /* Education / Org */
+  .simple-item{ margin-bottom:26px; }
+  .simple-item:last-child{ margin-bottom:0; }
+  .simple-item .t-org{ margin-bottom:2px; }
+  .simple-item .t-role{ margin-bottom:6px; }
+  .simple-item p{ color:var(--muted); font-size:14.5px; line-height:1.7; margin:0; }
 
-    #tab-opening:checked ~ #opening,
-    #tab-about:checked ~ #about,
-    #tab-experience:checked ~ #experience,
-    #tab-toplink:checked ~ #toplink {
-      display: block;
-    }
+  /* Contact */
+  .contact-links{ display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; }
+  .contact-links a, .contact-links .link-btn{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    padding:14px 22px;
+    border-radius:26px;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    transition:background .25s ease, transform .25s ease, border-color .25s ease;
+  }
+  .contact-links a:hover, .contact-links .link-btn:hover{ background:var(--violet); border-color:var(--violet); transform:translateY(-2px); }
 
-    .profile-img {
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      border: 4px solid #ffffff33;
-      object-fit: cover;
-      box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
-      margin: 0 auto 25px;
-      transition: all 0.3s ease;
-    }
-    .profile-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(138, 43, 226, 0.9);
-    }
+  footer{
+    text-align:center;
+    padding:40px 24px 50px;
+    color:var(--muted);
+    font-size:13px;
+    letter-spacing:1px;
+  }
 
-    h1 {
-      font-size: 26px;
-      margin: 10px 0 5px;
-      text-shadow: 0 0 6px #6a0dadaa;
-    }
-    p.subtitle {
-      font-size: 16px;
-      color: #d8c4f7;
-      margin-top: 0;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
+  /* ---------- Resume Modal ---------- */
+  #resume-toggle{ display:none; }
+  .modal-overlay{
+    position:fixed; inset:0;
+    background:rgba(9,4,18,0.75);
+    backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center;
+    z-index:200;
+    opacity:0; pointer-events:none;
+    transition:opacity .3s ease;
+    padding:20px;
+  }
+  #resume-toggle:checked ~ .modal-overlay{ opacity:1; pointer-events:auto; }
+  .modal-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:20px;
+    width:min(380px, 100%);
+    padding:22px;
+    position:relative;
+    transform:scale(.92);
+    transition:transform .3s ease;
+  }
+  #resume-toggle:checked ~ .modal-overlay .modal-card{ transform:scale(1); }
+  .modal-close{
+    position:absolute; top:14px; right:14px;
+    width:34px; height:34px; border-radius:50%;
+    background:var(--panel-2);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition:background .25s ease;
+  }
+  .modal-close:hover{ background:var(--orange); }
+  .modal-close svg{ width:16px; height:16px; }
+  .modal-card h3{ font-size:18px; margin-bottom:14px; padding-right:30px; }
+  .cv-lang-tabs{ display:flex; gap:8px; margin-bottom:14px; }
+  .cv-lang-tab{
+    flex:1; text-align:center;
+    padding:8px 0;
+    border-radius:20px;
+    background:var(--panel-2);
+    font-size:13px; font-weight:700;
+    cursor:pointer;
+    border:1px solid var(--line);
+  }
+  #cv-lang-id:checked ~ .cv-lang-tabs label[for="cv-lang-id"],
+  #cv-lang-en:checked ~ .cv-lang-tabs label[for="cv-lang-en"]{
+    background:var(--violet); border-color:var(--violet);
+  }
+  .cv-preview-frame{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+    margin-bottom:16px;
+  }
+  .cv-preview-frame img{ width:100%; height:100%; object-fit:cover; object-position:top; }
+  #cv-preview-id-img, #cv-preview-en-img{ display:none; }
+  #cv-lang-id:checked ~ .cv-preview-frame #cv-preview-id-img{ display:block; }
+  #cv-lang-en:checked ~ .cv-preview-frame #cv-preview-en-img{ display:block; }
+  #cv-lang-id:not(:checked) ~ .cv-preview-frame #cv-preview-en-img{ display:none; }
+  .cv-download-row{ display:flex; gap:10px; }
+  .cv-download-row a{
+    flex:1; text-align:center;
+    background:var(--orange); color:#2a0f00;
+    padding:12px 0; border-radius:24px;
+    font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .cv-download-row a svg{ width:15px; height:15px; }
 
-    hr {
-      border: none;
-      border-top: 1px solid #4b006e;
-      margin: 40px auto 40px;
-      width: 60%;
-    }
-
-    h2 {
-      font-size: 20px;
-      color: #b08aff;
-      font-family: Georgia, serif;
-      text-shadow: 0 0 10px #6a0dadcc;
-      margin-bottom: 10px;
-    }
-
-    p.subtitle {
-      font-family: 'Opening', serif;
-      font-size: 16px;
-      text-shadow: 0 0 8px #bb99ff;
-    }
-
-    #about p {
-      text-align: center;
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    /* Timeline Experience */
-    .timeline {
-      position: relative;
-      max-width: 380px;
-      margin: 20px auto 0;
-      padding-left: 0;
-      text-align: center;
-    }
-
-    .timeline-track {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 2px;
-      background: rgba(138, 43, 226, 0.2);
-      transform: translateX(-50%);
-    }
-
-    .timeline-fill {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 2px;
-      height: 0%;
-      background: linear-gradient(180deg, #6a0dad, #bb86fc);
-      box-shadow: 0 0 8px #a970f7;
-      transform: translateX(-50%);
-      animation: growLine 3.2s ease forwards;
-    }
-
-    @keyframes growLine {
-      from { height: 0%; }
-      to   { height: 100%; }
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 0 34px;
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .timeline-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(187, 134, 252, 0.2);
-      box-shadow: none;
-      margin: 0 auto 10px;
-      position: relative;
-      z-index: 1;
-      animation: dotLight 0.6s ease forwards;
-    }
-
-    @keyframes dotLight {
-      0%   { background: rgba(187, 134, 252, 0.2); box-shadow: none; transform: scale(0.8); }
-      60%  { background: #bb86fc; box-shadow: 0 0 16px #d9b3ff; transform: scale(1.3); }
-      100% { background: #bb86fc; box-shadow: 0 0 10px #a970f7; transform: scale(1); }
-    }
-
-    .timeline-items .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0s; }
-    .timeline-items .timeline-item:nth-child(2) .timeline-dot { animation-delay: 0.55s; }
-    .timeline-items .timeline-item:nth-child(3) .timeline-dot { animation-delay: 1.1s; }
-    .timeline-items .timeline-item:nth-child(4) .timeline-dot { animation-delay: 1.65s; }
-    .timeline-items .timeline-item:nth-child(5) .timeline-dot { animation-delay: 2.2s; }
-    .timeline-items .timeline-item:nth-child(6) .timeline-dot { animation-delay: 2.75s; }
-
-    .timeline-date {
-      color: #bb99ff;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-
-    .timeline-org {
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .timeline-role {
-      color: #d8c4f7;
-      font-size: 14px;
-    }
-
-    .link {
-      display: block;
-      background: linear-gradient(135deg, #6a0dad, #8a2be2);
-      color: white;
-      margin: 16px auto;
-      padding: 22px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      box-shadow: 0 4px 14px rgba(138, 43, 226, 0.5);
-      width: 60%;
-      max-width: 400px;
-      transition: all 0.3s ease;
-      text-align: center;
-      position: relative;
-    }
-    .link:hover {
-      background: #c5a3f7;
-      color: #2a004d;
-      box-shadow: 0 0 20px #bb99ff;
-      transform: scale(1.03);
-    }
-
-    .footer {
-      font-size: 14px;
-      margin-top: 60px;
-      color: #bbb;
-      text-shadow: 0 0 4px #4a2f77;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-    .footer i {
-      width: 14px;
-      height: 14px;
-      color: #bb99ff;
-    }
-
-    .collab-line {
-      font-size: 15px;
-      color: #d8c4f7;
-      line-height: 1.6;
-      margin: 0 auto 24px;
-      max-width: 360px;
-    }
-
-    /* Data Project Accordion */
-    label.link[data-project]::after {
-      content: '▼';
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 14px;
-      transition: transform 0.3s ease;
-    }
-
-    #toggle-project:checked + label[data-project]::after {
-      transform: translateY(-50%) rotate(180deg);
-    }
-
-    #toggle-cv:checked + label[data-project]::after {
-      transform: translateY(-50%) rotate(180deg);
-    }
-
-    #project-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
-
-    #toggle-project:checked ~ #project-details {
-      max-height: 520px;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 10px 20px;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    #cv-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
-
-    #toggle-cv:checked ~ #cv-details {
-      max-height: 220px;
-      padding-top: 6px;
-    }
-
-    /* Scrollbar tipis & rapi untuk area project */
-    #project-details::-webkit-scrollbar {
-      width: 6px;
-    }
-    #project-details::-webkit-scrollbar-thumb {
-      background: #6a0dad;
-      border-radius: 10px;
-    }
-    #project-details {
-      scrollbar-width: thin;
-      scrollbar-color: #6a0dad transparent;
-    }
-
-    /* Setiap blok project */
-    .project-item {
-      text-align: left;
-      margin-bottom: 26px;
-    }
-    .project-item p {
-      font-size: 15px;
-      line-height: 1.6;
-      margin: 10px 4px 0;
-    }
-
-    .project-problem {
-      font-style: italic;
-      font-size: 13px !important;
-      color: #a58fce !important;
-      border-left: 2px solid #6a0dad;
-      padding-left: 10px;
-      margin-bottom: 4px !important;
-    }
-
-    /* Foto project: berganti otomatis tiap 2 detik + efek zoom in-out (Ken Burns) */
-    .photo-frame {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(138, 43, 226, 0.4);
-    }
-    .photo-frame img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      will-change: transform, opacity;
-      animation:
-        kenBurns 2.5s ease-in-out infinite alternate,
-        fadeCycle 4s ease-in-out infinite;
-    }
-    .photo-frame img.ph1 {
-      animation-delay: 0s, 0s;
-    }
-    .photo-frame img.ph2 {
-      animation-delay: 0.25s, 2s;
-    }
-
-    @keyframes fadeCycle {
-      0%, 15%   { opacity: 1; }
-      70%, 85%  { opacity: 0; }
-      100%      { opacity: 1; }
-    }
-
-    @keyframes kenBurns {
-      0%   { transform: scale(1); }
-      100% { transform: scale(1.12); }
-    }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      body {
-        padding: 40px 12px 60px;
-      }
-      .tabs {
-        gap: 10px;
-      }
-      h1 {
-        font-size: 20px;
-      }
-      .link {
-        font-size: 16px;
-        padding: 12px 18px;
-        width: 60%;
-        max-width: 260px;
-      }
-      /* White */
-    #project-details li span {
-      color: white !important;
-      }
-    #project-details {
-      max-width: 90%;
-      margin: 0 auto;
-      text-align: left;
-      padding: 10px 0 0;
-      }
-    #project-details ul {
-      padding-left: 15px;
-      margin: 0 auto;
-      max-width: 100%;
-      word-wrap: break-word;
-      white-space: normal;
-      }
-
-      /* Area project di-scroll di HP, bukan dipotong */
-      #toggle-project:checked ~ #project-details {
-        max-height: 440px;
-        overflow-y: auto;
-      }
-      .photo-frame {
-        height: 160px;
-      }
-    }
-  </style>
+  @media (max-width:600px){
+    header{ padding:14px 18px; }
+    .hero{ padding:130px 0 70px; }
+    section.block{ padding:70px 18px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Radio Tabs -->
-  <input type="radio" name="tabs" id="tab-opening" checked>
-  <input type="radio" name="tabs" id="tab-about">
-  <input type="radio" name="tabs" id="tab-experience">
-  <input type="radio" name="tabs" id="tab-toplink">
+<input type="checkbox" id="menu-toggle">
 
-  <!-- Tab Navigasi -->
-  <div class="tabs">
-    <label for="tab-opening" class="tab-link" title="Opening" data-title-en="Opening" data-title-id="Pembuka"><i data-lucide="book-open"></i></label>
-    <label for="tab-about" class="tab-link" title="About Me" data-title-en="About Me" data-title-id="Tentang Saya"><i data-lucide="user"></i></label>
-    <label for="tab-experience" class="tab-link" title="Experience" data-title-en="Experience" data-title-id="Pengalaman"><i data-lucide="briefcase"></i></label>
-    <label for="tab-toplink" class="tab-link" title="Top Link" data-title-en="Top Link" data-title-id="Tautan"><i data-lucide="link"></i></label>
-    <div class="lang-toggle" onclick="toggleLang()" title="Translate" data-title-en="Translate" data-title-id="Terjemahan" tabindex="0">
-      <span class="translate-icon">
-        <span class="char-jp">文</span>
-        <span class="char-en">A</span>
-      </span>
+<header id="site-header">
+  <div class="logo">YS<span>.</span></div>
+  <div class="header-actions">
+    <div class="icon-btn" onclick="toggleLang()" title="Terjemahan" data-title-en="Translate" data-title-id="Terjemahan">
+      <span class="translate-icon">译</span>
+    </div>
+    <label for="menu-toggle" class="icon-btn"><i data-lucide="menu"></i></label>
+  </div>
+</header>
+
+<div class="mega-menu">
+  <div class="mega-menu-top">
+    <div class="logo">YS<span>.</span></div>
+    <label for="menu-toggle" class="icon-btn"><i data-lucide="x"></i></label>
+  </div>
+  <div class="mega-menu-inner">
+    <a href="#about" class="menu-row"><span class="m-icon"><i data-lucide="user"></i></span><span data-en="About Me" data-id="Tentang Saya">Tentang Saya</span></a>
+    <a href="#skills" class="menu-row"><span class="m-icon"><i data-lucide="sparkles"></i></span><span data-en="Skills" data-id="Keahlian">Keahlian</span></a>
+    <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="Work Experience" data-id="Pengalaman Kerja">Pengalaman Kerja</span></a>
+    <a href="#project" class="menu-row"><span class="m-icon"><i data-lucide="layout-grid"></i></span><span data-en="Data Project" data-id="Proyek Data">Proyek Data</span></a>
+    <a href="#education" class="menu-row"><span class="m-icon"><i data-lucide="graduation-cap"></i></span><span data-en="Education" data-id="Pendidikan">Pendidikan</span></a>
+    <a href="#organization" class="menu-row"><span class="m-icon"><i data-lucide="users"></i></span><span data-en="Organization" data-id="Organisasi">Organisasi</span></a>
+    <a href="#contact" class="menu-row"><span class="m-icon"><i data-lucide="mail"></i></span><span data-en="Contact" data-id="Kontak">Kontak</span></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="photo-wrap" id="photo-wrap">
+    <img src="images1.jpg" alt="YS" />
+  </div>
+
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <div class="marquee-item"><i data-lucide="layout"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
+      <div class="marquee-item"><i data-lucide="share-2"></i><span data-en="Social Media Management" data-id="Manajemen Media Sosial">Manajemen Media Sosial</span></div>
+      <div class="marquee-item"><i data-lucide="video"></i><span data-en="Digital Content Creator" data-id="Kreator Konten Digital">Kreator Konten Digital</span></div>
+      <div class="marquee-item" aria-hidden="true"><i data-lucide="layout"></i><span data-en="UI/UX Designer" data-id="Desainer UI/UX">Desainer UI/UX</span></div>
+      <div class="marquee-item" aria-hidden="true"><i data-lucide="share-2"></i><span data-en="Social Media Management" data-id="Manajemen Media Sosial">Manajemen Media Sosial</span></div>
+      <div class="marquee-item" aria-hidden="true"><i data-lucide="video"></i><span data-en="Digital Content Creator" data-id="Kreator Konten Digital">Kreator Konten Digital</span></div>
     </div>
   </div>
 
-  <!-- Profil -->
-  <img src="images1.jpg" alt="Foto Profil" class="profile-img" />
-  <h1 data-en="UI/UX Designer | Social Media Management | Digital Content Creator" data-id="Desainer UI/UX | Manajemen Sosisal Media | Kreator Konten Digital">UI/UX Designer | Social Media Management | Digital Content Creator</h1>
-  <p class="subtitle" data-en="Looking to level up your UI/UX, scale your social media, and create high-converting digital content? you’re in the right place" data-id="Punya proyek UI/UX yang mau ditingkatkan, media sosial yang mau dirapikan, atau butuh konten digital yang menarik? kamu berada di tempat yang tepat.">Looking to level up your UI/UX, scale your social media, and create high-converting digital content? you’re in the right place</p>
-  <hr />
-
-  <!-- Konten Tab -->
-  <section id="opening" class="tab-content">
-    <h2 data-en="Opening" data-id="Pembuka">Opening</h2>
-    <p class="opening" data-en="UI/UX Designer, Social Media Management, and Digital Content Creator based in Sukoharjo, Indonesia. I help brands and organizations create seamless digital experiences and high-impact content." data-id="UI/UX Designer, Manajemen Media Sosial, dan Pembuat Konten Digital yang berdomisili di Sukoharjo, Indonesia. Saya membantu brand dan organisasi menghadirkan pengalaman digital yang responsif/nyaman serta konten berimpact tinggi.">UI/UX Designer, Social Media Management, and Digital Content Creator based in Sukoharjo, Indonesia. I help brands and organizations create seamless digital experiences and high-impact content.</p>
-  </section>
-
-  <section id="about" class="tab-content">
-    <h2 data-en="About Me" data-id="Tentang Saya">About Me</h2>
-    <p data-en="Hi, I’m Yudha Sanjaya, a UI/UX Designer, Social Media Management, and Digital Content Creator based in Indonesia. Currently, I’m pursuing an Informatics Engineering degree at Universitas Muhammadiyah Surakarta." data-id="Halo, saya Yudha Sanjaya, seorang UI/UX Designer, Manajemen Media Sosial, dan Pembuat Konten Digital berbasis di Indonesia. Saat ini saya sedang menempuh pendidikan Teknik Informatika di Universitas Muhammadiyah Surakarta.">Hi, I’m Yudha Sanjaya, a UI/UX Designer, Social Media Management, and Digital Content Creator based in Indonesia. Currently, I’m pursuing an Informatics Engineering degree at Universitas Muhammadiyah Surakarta.</p>
-
-    <p data-en="I craft intuitive digital interfaces, build engaging brand visuals, and produce content that delivers real engagement. Whether it's part-time roles, freelance gigs, or creative collaborations, I'm always ready to innovate and grow alongside your project" data-id="Saya ahli dalam merancang tampilan aplikasi/website yang gampang dipakai, membuat visual brand yang menarik, dan bikin konten yang bisa menaikkan interaksi. Saya terbuka untuk pekerjaan part-time, proyek freelance, maupun kolaborasi kreatif. Punya ide menarik? yuk, kita wujudkan bareng">I craft intuitive digital interfaces, build engaging brand visuals, and produce content that delivers real engagement. Whether it's part-time roles, freelance gigs, or creative collaborations, I'm always ready to innovate and grow alongside your project</p>
-  </section>
-
-  <section id="experience" class="tab-content">
-    <h2 data-en="Experience" data-id="Pengalaman">Experience</h2>
-    <div class="timeline">
-      <div class="timeline-track"></div>
-      <div class="timeline-fill"></div>
-      <div class="timeline-items">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2022–Present</div>
-          <div class="timeline-org" data-en="Muhammadiyah University of Surakarta" data-id="Universitas Muhammadiyah Surakarta">Muhammadiyah University of Surakarta</div>
-          <div class="timeline-role" data-en="Informatics Engineering Student" data-id="Mahasiswa Teknik Informatika">Informatics Engineering Student</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2022-2024</div>
-          <div class="timeline-org">IMM FKI UMS</div>
-          <div class="timeline-role" data-en="Member of the Organization Division" data-id="Anggota Divisi Organisasi">Member of the Organization Division</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2022-2024</div>
-          <div class="timeline-org">Mentor UMS</div>
-          <div class="timeline-role" data-en="Religious Guidance Mentor" data-id="Mentor Bimbingan Keagamaan">Religious Guidance Mentor</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">July 2025-December 2025</div>
-          <div class="timeline-org" data-en="Self Employed" data-id="Wirausaha Mandiri">Self Employed</div>
-          <div class="timeline-role" data-en="Game Trading Administrator" data-id="Admin Jual Beli Game">Game Trading Administrator</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">March 2026-August 2026</div>
-          <div class="timeline-org">Udang Kedjuu Indonesia</div>
-          <div class="timeline-role" data-en="Digital Content Creator & Social Media Management" data-id="Konten Kreator Digital & Manajemen Media Sosial">Digital Content Creator & Social Media Management</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="toplink" class="tab-content">
-    <input type="checkbox" id="toggle-project" hidden>
-    <label for="toggle-project" class="link" data-project data-en="Data Project" data-id="Proyek Data">Data Project</label>
-
-    <div id="project-details">
-      <h3 style="color:#bb99ff; text-align:center;" data-en="My Data Projects" data-id="Proyek Data Saya">My Data Projects</h3>
-
-      <div class="project-item">
-        <div class="photo-frame">
-          <img class="ph1" src="project-a-1.jpg" alt="Project A - foto 1" />
-          <img class="ph2" src="project-a-2.jpg" alt="Project A - foto 2" />
-        </div>
-        <p class="project-problem" data-en="Initial concern: The previous design was outdated and lacked visual engagement." data-id="Keluhan awal: Desain sebelumnya terlalu monoton dan kurang menarik secara visual.">Initial concern: The previous design was outdated and lacked visual engagement..</p>
-        <p><strong style="color:#bb99ff;" data-en="Project A:" data-id="Proyek A:">Project A:</strong> <span style="color:white;" data-en="Updating the website's appearance to be more dynamic and modern in line with current trends, and compiling the company profile and product catalog for PT Setiawan Jaya Usaha." data-id="Memperbarui tampilan website agar lebih dinamis dan modern sesuai tren terkini, serta menyusun company profile dan katalog produk untuk PT Setiawan Jaya Usaha.">Updating the website's appearance to be more dynamic and modern in line with current trends, and compiling the company profile and product catalog for PT Setiawan Jaya Usaha.</span></p>
-      </div>
-
-      <div class="project-item">
-        <div class="photo-frame">
-          <img class="ph1" src="project-b-1.jpg" alt="Project B - foto 1" />
-          <img class="ph2" src="project-b-2.jpg" alt="Project B - foto 2" />
-        </div>
-        <p class="project-problem" data-en="Project Goal: Building upon the existing social media presence and elevating content engagement." data-id="Tujuan: Melanjutkan fondasi media sosial yang ada dan menaikkan level interaksi konten.">Project Goal: Building upon the existing social media presence and elevating content engagement.</p>
-        <p><strong style="color:#bb99ff;" data-en="Project B:" data-id="Proyek B:">Project B:</strong> <span style="color:white;" data-en="Supporting the digital growth of Udang Kedjuu Indonesia, @udangkedjuu.official, a rapidly expanding F&B brand with over 20 branches across Java. Managed end-to-end social media production for Udang Kedjuu Indonesia, from ideation and filming to editing and scheduling. Over a 6-month period, drove brand visibility and local engagement in Surakarta through fresh, strategic content creation." data-id="Mendukung pertumbuhan digital Udang Kedjuu, brand F&B yang berkembang pesat dengan lebih dari 20 cabang di seluruh Pulau Jawa. Mengelola produksi media sosial secara menyeluruh untuk Udang Kedjuu Indonesia, mulai dari pengerjaan ide, proses syuting, editing, hingga penjadwalan konten. Selama periode 6 bulan, berhasil meningkatkan visibilitas brand dan interaksi lokal di area Surakarta melalui pembuatan konten yang fresh dan strategis.">Supporting the digital growth of Udang Kedjuu Indonesia, @udangkedjuu.official, a rapidly expanding F&B brand with over 20 branches across Java. Managed end-to-end social media production for Udang Kedjuu Indonesia, from ideation and filming to editing and scheduling. Over a 6-month period, drove brand visibility and local engagement in Surakarta through fresh, strategic content creation.</span></p>
-      </div>
-
-      <div class="project-item">
-        <div class="photo-frame">
-          <img class="ph1" src="project-c-1.jpg" alt="Project C - foto 1" />
-          <img class="ph2" src="project-c-2.jpg" alt="Project C - foto 2" />
-        </div>
-        <p class="project-problem" data-en="Background: Addressing the high risk of digital item fraud by building a secure, transparent trading environment for gamers." data-id="Latar Belakang: Mengatasi risiko tinggi penipuan item digital dengan membangun lingkungan transaksi yang aman dan transparan bagi para gamer.">Background: Addressing the high risk of digital item fraud by building a secure, transparent trading environment for gamers.</p>
-        <p><strong style="color:#bb99ff;" data-en="Project C:" data-id="Proyek C:">Project C:</strong> <span style="color:white;" data-en="Managed middleman and escrow services for Roblox virtual item trades over a 6-month period. Leveraged the SociaBuzz platform and interactive live streams to foster transparency, build buyer trust, and facilitate seamless digital transactions." data-id="Mengelola layanan perantara (escrow service) untuk transaksi item virtual Roblox selama periode 6 bulan. Memanfaatkan platform SociaBuzz dan live stream interaktif untuk meningkatkan transparansi, membangun kepercayaan pembeli, serta memfasilitasi transaksi digital yang lancar.">Managed middleman and escrow services for Roblox virtual item trades over a 6-month period. Leveraged the SociaBuzz platform and interactive live streams to foster transparency, build buyer trust, and facilitate seamless digital transactions.</span></p>
-      </div>
-
-      <a href="#" class="link" style="margin-top: 10px;" data-en="See All Projects" data-id="Lihat Semua Proyek">See All Projects</a>
-    </div>
-
-    <a href="https://www.instagram.com/yudhas4njaya" class="link" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="https://www.linkedin.com/in/yudha-sanjaya-3a76a0428/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <a href="https://wa.me/6282230725472" class="link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="mailto:yudhasanjaya411@gmail.com" class="link" data-en="Send Email" data-id="Kirim Email">Send Email</a>
-
-    <input type="checkbox" id="toggle-cv" hidden>
-    <label for="toggle-cv" class="link" data-project data-en="Download CV" data-id="Unduh CV">Download CV</label>
-    <div id="cv-details">
-      <a href="Yudha_Sanjaya_CV_ID.docx" download class="link">CV Indonesia</a>
-      <a href="Yudha_Sanjaya_CV_EN.docx" download class="link">CV English</a>
-    </div>
-  </section>
-
-  <div class="footer">
-    <span data-en="YUDHA SANJAYA PORTFOLIO" data-id="YUDHA SANJAYA PORTOFOLIO">YUDHA SANJAYA PORTOFOLIO</span>
+  <h1 data-en="Looking to level up your UI/UX, scale your social media, and create high-converting digital content? You're in the right place." data-id="Lagi cari cara upgrade UI/UX kamu, mengembangkan media sosial, dan bikin konten digital yang mampu mendongkrak konversi? Kamu ada di tempat yang tepat.">Lagi cari cara upgrade UI/UX kamu, mengembangkan media sosial, dan bikin konten digital yang mampu mendongkrak konversi? Kamu ada di tempat yang tepat.</h1>
+  <p class="tagline" data-en="Informatics Engineering student in Sukoharjo, Indonesia, helping brands design better digital experiences, grow their social presence, and produce content that actually converts." data-id="Mahasiswa Teknik Informatika di Sukoharjo, Indonesia, membantu brand merancang pengalaman digital yang lebih baik, mengembangkan media sosial, dan memproduksi konten yang benar-benar mendongkrak konversi.">Mahasiswa Teknik Informatika di Sukoharjo, Indonesia, membantu brand merancang pengalaman digital yang lebih baik, mengembangkan media sosial, dan memproduksi konten yang benar-benar mendongkrak konversi.</p>
+  <div class="hero-ctas">
+    <a href="#experience" class="btn btn-orange" data-en="EXPERIENCE" data-id="PENGALAMAN">PENGALAMAN</a>
+    <a href="#project" class="btn btn-orange" data-en="PROJECT" data-id="PROYEK">PROYEK</a>
+    <label for="resume-toggle" class="btn btn-ghost" data-en="RESUME" data-id="RESUME">RESUME</label>
   </div>
+</section>
 
-  <script>
-    lucide.createIcons();
+<!-- ABOUT -->
+<section class="block reveal" id="about">
+  <div class="eyebrow" data-en="About Me" data-id="Tentang Saya">Tentang Saya</div>
+  <h2 data-en="A little about who I am" data-id="Sedikit cerita tentang saya">Sedikit cerita tentang saya</h2>
+  <p data-en="Hi there, I'm Yudha Sanjaya, a UI/UX Designer, Social Media Management and also Digital Content Creator. I am currently a student of Informatics Engineering at Universitas Muhammadiyah Surakarta." data-id="Halo, saya Yudha Sanjaya, seorang Desainer UI/UX, Manajemen Media Sosial dan juga Kreator Konten Digital. Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.">Halo, saya Yudha Sanjaya, seorang Desainer UI/UX, Manajemen Media Sosial dan juga Kreator Konten Digital. Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.</p>
+  <p data-en="I'm good at designing interfaces that are easy to use and visually appealing, creating digital content for marketing, and boosting brand visibility." data-id="Saya mahir merancang antarmuka yang mudah digunakan dan menarik secara visual, serta membuat konten digital untuk marketing dan meningkatkan visibilitas brand.">Saya mahir merancang antarmuka yang mudah digunakan dan menarik secara visual, serta membuat konten digital untuk marketing dan meningkatkan visibilitas brand.</p>
+  <p data-en="I'm open to part time work, collaboration, and new projects. Ideas and visuals keep evolving with time, and I'm ready to grow with every project I take on." data-id="Saya terbuka untuk kerja part time, kolaborasi, dan proyek baru. Ide dan visualisasi terus berkembang seiring waktu, dan saya siap tumbuh bersama setiap proyek yang dijalani.">Saya terbuka untuk kerja part time, kolaborasi, dan proyek baru. Ide dan visualisasi terus berkembang seiring waktu, dan saya siap tumbuh bersama setiap proyek yang dijalani.</p>
+</section>
 
-    let currentLang = 'en';
+<!-- SKILLS -->
+<section class="block panel-bg reveal" id="skills">
+  <div class="inner">
+    <div class="eyebrow" data-en="Skills" data-id="Keahlian">Keahlian</div>
+    <h2 data-en="What I bring to the table" data-id="Apa yang saya kuasai">Apa yang saya kuasai</h2>
+    <div class="skill-grid">
+      <span class="skill-tag">UI/UX Design</span>
+      <span class="skill-tag" data-en="Social Media Management" data-id="Manajemen Media Sosial">Manajemen Media Sosial</span>
+      <span class="skill-tag" data-en="Content Planning" data-id="Perencanaan Konten">Perencanaan Konten</span>
+      <span class="skill-tag" data-en="Graphic Design" data-id="Desain Grafis">Desain Grafis</span>
+      <span class="skill-tag" data-en="Video Editing" data-id="Editing Video">Editing Video</span>
+      <span class="skill-tag">Copywriting</span>
+      <span class="skill-tag" data-en="Website Management" data-id="Manajemen Website">Manajemen Website</span>
+      <span class="skill-tag" data-en="Catalog Design" data-id="Desain Katalog">Desain Katalog</span>
+      <span class="skill-tag" data-en="Customer Service" data-id="Layanan Pelanggan">Layanan Pelanggan</span>
+      <span class="skill-tag" data-en="Negotiation" data-id="Negosiasi">Negosiasi</span>
+      <span class="skill-tag" data-en="Online Sales" data-id="Penjualan Online">Penjualan Online</span>
+      <span class="skill-tag" data-en="Teamwork" data-id="Kerja Tim">Kerja Tim</span>
+    </div>
+  </div>
+</section>
 
-    function applyLang(lang) {
-      document.querySelectorAll('[data-en]').forEach(function (el) {
-        el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+<!-- EXPERIENCE -->
+<section class="block reveal" id="experience">
+  <div class="eyebrow" data-en="Work Experience" data-id="Pengalaman Kerja">Pengalaman Kerja</div>
+  <h2 data-en="Where I've grown" data-id="Perjalanan saya sejauh ini">Perjalanan saya sejauh ini</h2>
+  <div class="timeline">
+    <div class="timeline-track"></div>
+    <div class="timeline-fill"></div>
+
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-date">2022–Sekarang</div>
+      <div class="t-org" data-en="Universitas Muhammadiyah Surakarta" data-id="Universitas Muhammadiyah Surakarta">Universitas Muhammadiyah Surakarta</div>
+      <div class="t-role" data-en="Informatics Engineering Student" data-id="Mahasiswa Teknik Informatika">Mahasiswa Teknik Informatika</div>
+    </div>
+
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-date">2022–2024</div>
+      <div class="t-org">IMM FKI UMS</div>
+      <div class="t-role" data-en="Member of the Organization Division" data-id="Anggota Divisi Organisasi">Anggota Divisi Organisasi</div>
+    </div>
+
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-date">2022–2024</div>
+      <div class="t-org">Mentor UMS</div>
+      <div class="t-role" data-en="Religious Guidance Mentor" data-id="Mentor Bimbingan Keagamaan">Mentor Bimbingan Keagamaan</div>
+    </div>
+
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-date">Jul 2025–Des 2025</div>
+      <div class="t-org" data-en="Roblox Items" data-id="Item Roblox">Item Roblox</div>
+      <div class="t-role" data-en="Marketplace Admin" data-id="Admin Marketplace">Admin Marketplace</div>
+    </div>
+
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-date">Mar 2026–Agu 2026</div>
+      <div class="t-org">Udang Kedjuu Indonesia</div>
+      <div class="t-role" data-en="Content Creator & Social Media Management" data-id="Content Creator & Manajemen Media Sosial">Content Creator & Manajemen Media Sosial</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section class="block panel-bg reveal" id="project">
+  <div class="inner">
+    <div class="eyebrow" data-en="Data Project" data-id="Proyek Data">Proyek Data</div>
+    <h2 data-en="Recent work" data-id="Proyek terbaru">Proyek terbaru</h2>
+
+    <div class="project-card">
+      <div class="photo-frame"><img src="project-a-1.jpg" alt="Proyek A" /></div>
+      <p class="project-problem" data-en="The previous design was outdated and lacked visual engagement." data-id="Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.">Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.</p>
+      <p class="desc"><strong data-en="Project A — Company Profile: " data-id="Proyek A — Company Profile: ">Proyek A — Company Profile: </strong><span data-en="Designed a company profile from scratch in Canva without templates, using a fully custom layout to introduce the client's business with modern, eye-catching visuals for PT Setiawan Jaya Usaha." data-id="Merancang company profile dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.">Merancang company profile dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.</span></p>
+    </div>
+
+    <div class="project-card">
+      <div class="photo-frame"><img src="project-b-1.jpg" alt="Proyek B" /></div>
+      <p class="project-problem" data-en="Content was unplanned and the feed looked messy." data-id="Konten tidak terencana dan feed terlihat berantakan.">Konten tidak terencana dan feed terlihat berantakan.</p>
+      <p class="desc"><strong data-en="Project B — Udang Kedjuu: " data-id="Proyek B — Udang Kedjuu: ">Proyek B — Udang Kedjuu: </strong><span data-en="Grew the brand's following from 3,000 to 8,000 in 6 months, producing content end to end from ideation and filming to editing and content planning, plus KOL collaborations that drove viral content and a sales spike." data-id="Menumbuhkan followers brand dari 3.000 menjadi 8.000 dalam 6 bulan, memproduksi konten secara menyeluruh dari ide hingga editing, serta kerja sama KOL yang membuat konten viral dan mendongkrak penjualan.">Menumbuhkan followers brand dari 3.000 menjadi 8.000 dalam 6 bulan, memproduksi konten secara menyeluruh dari ide hingga editing, serta kerja sama KOL yang membuat konten viral dan mendongkrak penjualan.</span></p>
+    </div>
+
+    <div class="project-card">
+      <div class="photo-frame"><img src="project-c-1.jpg" alt="Proyek C" /></div>
+      <p class="project-problem" data-en="Many buyers had fallen victim to fraud in this marketplace." data-id="Banyak pembeli menjadi korban penipuan di marketplace ini.">Banyak pembeli menjadi korban penipuan di marketplace ini.</p>
+      <p class="desc"><strong data-en="Project C — Roblox Marketplace: " data-id="Proyek C — Roblox Marketplace: ">Proyek C — Roblox Marketplace: </strong><span data-en="Conducted live streams on TikTok and YouTube to build buyer trust, managing the full transaction flow from negotiation to delivery, which helped increase sales revenue." data-id="Melakukan live streaming di TikTok dan YouTube untuk membangun kepercayaan pembeli, mengelola alur transaksi dari negosiasi hingga pengiriman, yang membantu menaikkan omset penjualan.">Melakukan live streaming di TikTok dan YouTube untuk membangun kepercayaan pembeli, mengelola alur transaksi dari negosiasi hingga pengiriman, yang membantu menaikkan omset penjualan.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="block reveal" id="education">
+  <div class="eyebrow" data-en="Education" data-id="Pendidikan">Pendidikan</div>
+  <h2 data-en="My academic background" data-id="Latar belakang pendidikan">Latar belakang pendidikan</h2>
+  <div class="simple-item">
+    <div class="t-org" data-en="Bachelor of Science, Informatics Engineering" data-id="Sarjana Teknik Informatika">Sarjana Teknik Informatika</div>
+    <div class="t-role">Universitas Muhammadiyah Surakarta | IPK 3.05</div>
+    <p data-en="Aug 2022 – Aug 2028 (Expected). I am currently a student of Informatics Engineering at Universitas Muhammadiyah Surakarta." data-id="Agu 2022 – Agu 2028 (Perkiraan). Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.">Agu 2022 – Agu 2028 (Perkiraan). Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.</p>
+  </div>
+</section>
+
+<!-- ORGANIZATION -->
+<section class="block panel-bg reveal" id="organization">
+  <div class="inner">
+    <div class="eyebrow" data-en="Organization" data-id="Organisasi">Organisasi</div>
+    <h2 data-en="Beyond academics" data-id="Di luar akademik">Di luar akademik</h2>
+    <div class="simple-item">
+      <div class="t-org" data-en="Organizational Affairs Member" data-id="Anggota Bidang Organisasi">Anggota Bidang Organisasi</div>
+      <div class="t-role">Ikatan Mahasiswa Muhammadiyah (IMM) | 2022–2024</div>
+      <p data-en="Involved in organizational division activities, helping plan and execute work programs." data-id="Terlibat dalam kegiatan divisi organisasi, membantu merencanakan dan menjalankan program kerja.">Terlibat dalam kegiatan divisi organisasi, membantu merencanakan dan menjalankan program kerja.</p>
+    </div>
+    <div class="simple-item">
+      <div class="t-org" data-en="Religious Mentor (Pementor Agama)" data-id="Pementor Agama">Pementor Agama</div>
+      <div class="t-role">Universitas Muhammadiyah Surakarta | 2022–2024</div>
+      <p data-en="Guided fellow students in regular religious activities and mentoring sessions." data-id="Membimbing sesama mahasiswa dalam kegiatan keagamaan rutin dan sesi mentoring.">Membimbing sesama mahasiswa dalam kegiatan keagamaan rutin dan sesi mentoring.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block reveal" id="contact">
+  <div class="eyebrow" data-en="Contact" data-id="Kontak">Kontak</div>
+  <h2 data-en="Let's build something together" data-id="Yuk wujudkan sesuatu bersama">Yuk wujudkan sesuatu bersama</h2>
+  <p style="color:var(--muted); margin-bottom:6px;" data-en="Sukoharjo, Nguter, Central Java, Indonesia" data-id="Sukoharjo, Nguter, Jawa Tengah, Indonesia">Sukoharjo, Nguter, Jawa Tengah, Indonesia</p>
+  <div class="contact-links">
+    <a href="https://www.instagram.com/yudhas4njaya" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.linkedin.com/in/yudha-sanjaya-3a76a0428/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://wa.me/6282230725472" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="mailto:yudhasanjaya411@gmail.com" data-en="Send Email" data-id="Kirim Email">Kirim Email</a>
+    <label for="resume-toggle" class="link-btn" data-en="Download CV" data-id="Unduh CV">Unduh CV</label>
+  </div>
+</section>
+
+<footer>
+  <span data-en="YS PORTFOLIO" data-id="YS PORTOFOLIO">YS PORTOFOLIO</span>
+</footer>
+
+<!-- RESUME MODAL -->
+<input type="checkbox" id="resume-toggle">
+<div class="modal-overlay">
+  <div class="modal-card">
+    <label for="resume-toggle" class="modal-close"><i data-lucide="x"></i></label>
+    <h3 data-en="Resume Preview" data-id="Pratinjau CV">Pratinjau CV</h3>
+
+    <input type="radio" name="cv-lang" id="cv-lang-id" checked hidden>
+    <input type="radio" name="cv-lang" id="cv-lang-en" hidden>
+    <div class="cv-lang-tabs">
+      <label for="cv-lang-id" class="cv-lang-tab">ID</label>
+      <label for="cv-lang-en" class="cv-lang-tab">EN</label>
+    </div>
+
+    <div class="cv-preview-frame">
+      <img id="cv-preview-id-img" src="cv-preview-id.jpg" alt="Pratinjau CV Indonesia" />
+      <img id="cv-preview-en-img" src="cv-preview-en.jpg" alt="Pratinjau CV Inggris" />
+    </div>
+
+    <div class="cv-download-row">
+      <a href="Yudha_Sanjaya_CV_ID.docx" download><i data-lucide="download"></i> CV Indonesia</a>
+      <a href="Yudha_Sanjaya_CV_EN.docx" download><i data-lucide="download"></i> CV Inggris</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  lucide.createIcons();
+
+  // header transparent on scroll, solid at top
+  const header = document.getElementById('site-header');
+  function onScroll(){
+    if(window.scrollY > 8){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // close mega menu when a link is clicked
+  document.querySelectorAll('.menu-row').forEach(function(row){
+    row.addEventListener('click', function(){
+      document.getElementById('menu-toggle').checked = false;
+    });
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in-view'); }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  // timeline scroll trigger
+  const timeline = document.querySelector('.timeline');
+  if(timeline){
+    const tIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ timeline.classList.add('in-view'); tIo.disconnect(); }
       });
-      document.querySelectorAll('[data-title-en]').forEach(function (el) {
-        el.setAttribute('title', lang === 'en' ? el.getAttribute('data-title-en') : el.getAttribute('data-title-id'));
-      });
-      currentLang = lang;
-    }
+    }, { threshold: 0.25 });
+    tIo.observe(timeline);
+  }
 
-    function toggleLang() {
-      applyLang(currentLang === 'en' ? 'id' : 'en');
-    }
-  </script>
+  // profile photo: click to light up and zoom, click again to reset
+  const photoWrap = document.getElementById('photo-wrap');
+  if(photoWrap){
+    photoWrap.addEventListener('click', function(){
+      this.classList.toggle('lit');
+    });
+  }
+
+  // translate: Indonesian is the default language, the button switches to English
+  let currentLang = 'id';
+  function applyLang(lang){
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+    });
+    document.querySelectorAll('[data-title-en]').forEach(function(el){
+      el.setAttribute('title', lang === 'en' ? el.getAttribute('data-title-en') : el.getAttribute('data-title-id'));
+    });
+    currentLang = lang;
+  }
+  function toggleLang(){
+    applyLang(currentLang === 'id' ? 'en' : 'id');
+  }
+</script>
 </body>
 </html>
