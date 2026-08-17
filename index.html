@@ -262,7 +262,8 @@
     background:var(--orange);
     color:#2a0f00;
     border-radius:18px;
-    box-shadow:0 0 18px rgba(255,255,255,0.70), 0 0 40px rgba(255,255,255,0.45), 0 14px 34px rgba(0,0,0,0.28);
+    border:3px solid #ffffff;
+    box-shadow:none;
     font-size:clamp(22px, 3.5vw, 34px);
     font-weight:700;
     line-height:1.25;
@@ -284,149 +285,6 @@
   .hero h1{
     position:relative;
     isolation:isolate;
-  }
-
-  /* The trail stays on the box perimeter. The dot leads the trail. */
-  .hero h1::before{
-    content:'';
-    position:absolute;
-    width:46px;
-    height:3px;
-    border-radius:999px;
-    background:linear-gradient(90deg, transparent, rgba(255,122,69,.2), var(--orange));
-    box-shadow:0 0 5px rgba(255,122,69,.45);
-    pointer-events:none;
-    z-index:2;
-    top:0;
-    left:0;
-    transform-origin:left center;
-    animation:heroTrail 5.2s linear infinite;
-  }
-
-  .hero h1::after{
-    content:'';
-    position:absolute;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--orange);
-    box-shadow:
-      0 0 5px rgba(255,122,69,.95),
-      0 0 12px rgba(255,255,255,.5);
-    pointer-events:none;
-    z-index:3;
-    top:0;
-    left:0;
-    transform:translate(-50%,-50%);
-    animation:heroDot 5.2s linear infinite;
-  }
-
-  @keyframes heroDot{
-    0%{
-      top:0;
-      left:0;
-      opacity:0;
-    }
-    4%{
-      opacity:1;
-    }
-    24%{
-      top:0;
-      left:100%;
-    }
-    25%{
-      top:0;
-      left:100%;
-    }
-    49%{
-      top:100%;
-      left:100%;
-    }
-    50%{
-      top:100%;
-      left:100%;
-    }
-    74%{
-      top:100%;
-      left:0;
-    }
-    75%{
-      top:100%;
-      left:0;
-    }
-    96%{
-      top:0;
-      left:0;
-      opacity:1;
-    }
-    100%{
-      top:0;
-      left:0;
-      opacity:0;
-    }
-  }
-
-  @keyframes heroTrail{
-    0%{
-      top:0;
-      left:0;
-      width:46px;
-      transform:rotate(0deg) translateX(0);
-      opacity:0;
-    }
-    4%{
-      opacity:1;
-    }
-    24%{
-      top:0;
-      left:100%;
-      width:46px;
-      transform:rotate(0deg) translateX(-46px);
-    }
-    25%{
-      top:0;
-      left:100%;
-      width:46px;
-      transform:rotate(90deg) translateX(-46px);
-    }
-    49%{
-      top:100%;
-      left:100%;
-      width:46px;
-      transform:rotate(90deg) translateX(-46px);
-    }
-    50%{
-      top:100%;
-      left:100%;
-      width:46px;
-      transform:rotate(180deg) translateX(-46px);
-    }
-    74%{
-      top:100%;
-      left:0;
-      width:46px;
-      transform:rotate(180deg) translateX(-46px);
-    }
-    75%{
-      top:100%;
-      left:0;
-      width:46px;
-      transform:rotate(270deg) translateX(-46px);
-    }
-    96%{
-      top:0;
-      left:0;
-      width:46px;
-      transform:rotate(270deg) translateX(-46px);
-      opacity:1;
-    }
-    100%{
-      top:0;
-      left:0;
-      width:46px;
-      transform:rotate(0deg) translateX(0);
-      opacity:0;
-    }
   }
 
   .hero h1 > *{
