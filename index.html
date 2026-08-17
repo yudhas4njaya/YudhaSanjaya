@@ -82,7 +82,6 @@
     font-size:19px;
     font-weight:700;
     line-height:1;
-    font-family:'Inter',sans-serif;
     pointer-events:none;
   }
 
@@ -232,13 +231,13 @@
     background:var(--orange);
     color:#2a0f00;
     border-radius:18px;
-    box-shadow:0 14px 34px rgba(0,0,0,0.28);
+    box-shadow:0 0 18px rgba(255,255,255,0.16), 0 14px 34px rgba(0,0,0,0.28);
     font-size:clamp(25px, 4vw, 38px);
     font-weight:700;
     line-height:1.25;
     opacity:0;
     transform:scale(1.08);
-    transition:opacity .75s ease, transform .75s cubic-bezier(.2,.8,.2,1);
+    transition:opacity 1.35s ease, transform 1.35s cubic-bezier(.2,.8,.2,1);
   }
 
   .hero h1.hero-title-visible{
@@ -283,6 +282,7 @@
   .btn-orange:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,122,69,0.35); }
   .btn-ghost{ background:var(--white); color:var(--void); }
   .btn-ghost:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,255,255,0.2); }
+  .btn svg{ width:16px; height:16px; margin-right:6px; flex-shrink:0; }
 
   /* ---------- Sections generic ---------- */
   section.block{
@@ -493,6 +493,7 @@
       font-size:11px;
       border-radius:12px;
     }
+    .btn svg{ width:14px; height:14px; margin-right:5px; }
     section.block{ padding:70px 18px; }
   }
   @media (max-width:400px){
@@ -515,6 +516,7 @@
       padding-left:3px;
       padding-right:3px;
     }
+    .btn svg{ width:13px; height:13px; margin-right:4px; }
   }
 </style>
 </head>
@@ -526,7 +528,7 @@
   <div class="logo">YS<span>.</span></div>
   <div class="header-actions">
     <div class="icon-btn" onclick="toggleLang()" title="Terjemahan" data-title-en="Translate" data-title-id="Terjemahan">
-      <span class="translate-icon">译</span>
+      <i data-lucide="globe-2"></i>
     </div>
     <label for="menu-toggle" class="icon-btn"><i data-lucide="menu"></i></label>
   </div>
@@ -568,9 +570,9 @@
   <h1 data-en="Looking to level up your UI/UX, scale your social media, and create high-converting digital content? You're in the right place." data-id="Lagi cari cara upgrade UI/UX kamu, mengembangkan media sosial, dan bikin konten digital yang mampu mendongkrak konversi? Kamu ada di tempat yang tepat.">Lagi cari cara upgrade UI/UX kamu, mengembangkan media sosial, dan bikin konten digital yang mampu mendongkrak konversi? Kamu ada di tempat yang tepat.</h1>
   <p class="tagline" data-en="Informatics Engineering student in Sukoharjo, Indonesia, helping brands design better digital experiences, grow their social presence, and produce content that actually converts." data-id="Mahasiswa Teknik Informatika di Sukoharjo, Indonesia, membantu brand merancang pengalaman digital yang lebih baik, mengembangkan media sosial, dan memproduksi konten yang benar-benar mendongkrak konversi.">Mahasiswa Teknik Informatika di Sukoharjo, Indonesia, membantu brand merancang pengalaman digital yang lebih baik, mengembangkan media sosial, dan memproduksi konten yang benar-benar mendongkrak konversi.</p>
   <div class="hero-ctas">
-    <a href="#experience" class="btn btn-orange" data-en="EXPERIENCE" data-id="PENGALAMAN">PENGALAMAN</a>
-    <a href="#project" class="btn btn-orange" data-en="PROJECT" data-id="PROYEK">PROYEK</a>
-    <label for="resume-toggle" class="btn btn-ghost" data-en="RESUME" data-id="RESUME">RESUME</label>
+    <a href="#experience" class="btn btn-orange" data-en="EXPERIENCE" data-id="PENGALAMAN"><i data-lucide="briefcase"></i><span>PENGALAMAN</span></a>
+    <a href="#project" class="btn btn-orange" data-en="PROJECT" data-id="PROYEK"><i data-lucide="layout-grid"></i><span>PROYEK</span></a>
+    <label for="resume-toggle" class="btn btn-ghost" data-en="RESUME" data-id="RESUME"><i data-lucide="file-text"></i><span>RESUME</span></label>
   </div>
 </section>
 
