@@ -9,16 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-  /* Dark alternative (kept in palette family) */
-  --light-void: #112250;      /* Navy as dark background */
-  --light-panel: #0F2546;     /* deep navy / sapphire */
-  --light-panel-2: #1B3B63;   /* darker sapphire */
-  --light-line: rgba(255,255,255,0.06);
-  --light-violet: #3B507D;    /* Sapphire */
-  --light-violet-soft: #BEB7A7;/* Warm Taupe */
-  --light-orange: #E7E2CE;    /* Champagne */
-  --light-text: #F5F4F0;      /* Ivory text on dark bg */
-  --light-muted: #9aa3b3;
+  /* Light / default (navy-based palette) */
+  --void: #F5F4F0;        /* Ivory - page background */
+  --panel: #E7E2CE;       /* Champagne - panel background */
+  --panel-2: #BEB7A7;     /* Warm Taupe - secondary panels */
+  --line: rgba(17,34,80,0.06); /* subtle navy divider */
+  --violet: #112250;      /* Navy Blue - primary accent (used where --violet used) */
+  --violet-soft: #3B507D; /* Sapphire - soft accent */
+  --orange: #BEB7A7;      /* Warm Taupe used as accent where original code used --orange */
+  --text: #112250;        /* Navy text on light bg */
+  --muted: #596276;       /* muted text */
+  --white: #ffffff;
 }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
@@ -985,17 +986,16 @@
 
   /* Theme system */
   :root{
-  /* Light / default (navy-based palette) */
-  --void: #F5F4F0;        /* Ivory - page background */
-  --panel: #E7E2CE;       /* Champagne - panel background */
-  --panel-2: #BEB7A7;     /* Warm Taupe - secondary panels */
-  --line: rgba(17,34,80,0.06); /* subtle navy divider */
-  --violet: #112250;      /* Navy Blue - primary accent (used where --violet used) */
-  --violet-soft: #3B507D; /* Sapphire - soft accent */
-  --orange: #BEB7A7;      /* Warm Taupe used as accent where original code used --orange */
-  --text: #112250;        /* Navy text on light bg */
-  --muted: #596276;       /* muted text */
-  --white: #ffffff;
+  /* Dark alternative (kept in palette family) */
+  --light-void: #112250;      /* Navy as dark background */
+  --light-panel: #0F2546;     /* deep navy / sapphire */
+  --light-panel-2: #1B3B63;   /* darker sapphire */
+  --light-line: rgba(255,255,255,0.06);
+  --light-violet: #3B507D;    /* Sapphire */
+  --light-violet-soft: #BEB7A7;/* Warm Taupe */
+  --light-orange: #E7E2CE;    /* Champagne */
+  --light-text: #F5F4F0;      /* Ivory text on dark bg */
+  --light-muted: #9aa3b3;
 }
 
   body.light-mode{
