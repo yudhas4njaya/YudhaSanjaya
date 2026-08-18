@@ -37,7 +37,7 @@
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
 
-  /* ---------- Header ---------- */
+  /* Header */
   header{
     position:fixed;
     top:0; left:0; right:0;
@@ -85,7 +85,7 @@
     pointer-events:none;
   }
 
-  /* ---------- Mega menu (full screen) ---------- */
+  /* Mega menu (full layar) */
   #menu-toggle{display:none;}
   .mega-menu{
     position:fixed;
@@ -150,7 +150,7 @@
   .menu-row .m-icon svg{width:22px; height:22px;}
   .menu-row span{font-size:20px; font-weight:600; font-family:'Space Grotesk',sans-serif;}
 
-  /* ---------- Hero ---------- */
+  /* Hero */
   .hero{
     padding:150px 0 90px;
     display:flex;
@@ -223,7 +223,7 @@
     border-color:rgba(255,255,255,0.4);
   }
 
-  /* Full-width running icon + text ticker, sits below the photo with clear space */
+  /* Teks berjalan dibawah foto profil */
   .marquee-bar{
     position:relative;
     width:100%;
@@ -301,7 +301,7 @@
   }
 
 
-  /* Moving square border around the hero statement */
+  /* Border animasi pernyataan saya */
   .hero h1{
   }
 .hero h1{
@@ -346,7 +346,7 @@
   .btn-ghost:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,255,255,0.2); }
   .btn svg{ width:16px; height:16px; margin-right:6px; flex-shrink:0; }
 
-  /* ---------- Sections generic ---------- */
+  /* Sections generic */
   section.block{
     padding:90px 24px;
     max-width:880px;
@@ -374,7 +374,7 @@
   }
   .reveal.in-view{ opacity:1; transform:translateY(0); }
 
-  /* About */
+  /* About me */
   #about{ max-width:920px; }
   .about-box{
     margin-top:28px;
@@ -489,7 +489,7 @@
   .project-card p.desc{ font-size:15px; line-height:1.7; margin:0; }
   .project-card p.desc strong{ color:var(--violet-soft); }
 
-  /* Education / Org */
+  /* Education */
   .simple-item{ margin-bottom:26px; }
   .simple-item:last-child{ margin-bottom:0; }
   .simple-item .t-org{ margin-bottom:2px; }
@@ -510,7 +510,7 @@
   }
   .contact-links a:hover, .contact-links .link-btn:hover{ background:var(--violet); border-color:var(--violet); transform:translateY(-2px); }
 
-  /* New contact layout: title, then 3 divider lines with centered rows between them */
+  /* Animasi kontak */
   #contact{ max-width:100%; padding-left:0; padding-right:0; }
   .contact-inner{ max-width:880px; margin:0 auto; padding:0 24px; text-align:center; }
   .contact-title{ margin-bottom:34px; }
@@ -578,7 +578,7 @@
     letter-spacing:1px;
   }
 
-  /* ---------- Skill Detail Modal ---------- */
+  /* Skill Detail Model */
   .skill-detail-overlay{
     position:fixed; inset:0;
     background:rgba(9,4,18,0.78);
@@ -640,7 +640,7 @@
   .skill-level span{ display:block; height:100%; width:0; background:var(--orange); border-radius:inherit; transition:width .8s cubic-bezier(.2,.8,.2,1); }
   .skill-detail-overlay.open .skill-level span{ width:var(--level); }
 
-  /* ---------- Resume Modal ---------- */
+  /* Resume Model */
   #resume-toggle{ display:none; }
   .modal-overlay{
     position:fixed; inset:0;
@@ -812,13 +812,13 @@
       color: #ffffff !important;
     }
 
-    /* Recommended typography: modern, clean, suitable for a portfolio */
+    /* Typography portofolio */
     body {
       font-family: "Plus Jakarta Sans", "Inter", "Segoe UI", Arial, sans-serif;
     }
     
 
-  /* Bree Serif for descriptive text */
+  /* Bree Serif untuk font teks deskripsi  */
   body p,
   .tagline,
   .skill-card p,
@@ -833,7 +833,7 @@
     font-family:'Codec Pro','CodecPro','Arial',sans-serif;
   }
 
-  /* Re-triggerable section animations */
+  /* Retriggerable section animations */
   .reveal{ opacity:0; transform:translateY(26px); }
   .reveal.in-view{ opacity:1; transform:translateY(0); transition:opacity .7s ease, transform .7s ease; }
 
@@ -865,7 +865,7 @@
   .journey-card p{display:none;}
   .journey-more{position:absolute;right:20px;bottom:18px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:#2a0f00;letter-spacing:.4px;}
 
-  /* Project card photo thumbnail: photo, then title, then work period */
+  /* Project card photo thumbnail: photo, title, then work period */
   .project-stack .journey-card{ padding:16px; }
   .project-thumb{
     width:100%;
@@ -879,7 +879,7 @@
   .project-stack .journey-card h3{ padding-right:70px; margin-bottom:6px; }
   .project-stack .journey-card .journey-year{ margin-bottom:0; }
 
-  /* Journey modal */
+  /* Journey model */
   .journey-overlay{position:fixed;inset:0;background:rgba(9,4,18,.82);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;z-index:220;opacity:0;pointer-events:none;transition:opacity .35s ease;padding:18px;}
   .journey-overlay.open{opacity:1;pointer-events:auto;}
   .journey-modal{width:min(680px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:18px;position:relative;transform:translateY(22px) scale(.96);transition:transform .4s cubic-bezier(.2,.8,.2,1);}
@@ -899,7 +899,7 @@
   .journey-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .3s ease;}
   .journey-dot.active{width:22px;border-radius:10px;background:var(--orange);}
 
-  /* Project modal extras: initial concern, skill pills, review link */
+  /* Project model extras: initial concern, skill pills, review link */
   .journey-problem{
     font-style:italic;
     font-size:13px;
@@ -966,7 +966,7 @@
   }
 
 
-  /* Codec Pro is used for descriptive/body copy */
+  /* Codec Pro sebagai font teks seluruh deskripsi */
   p,
   .tagline,
   .about-box p,
@@ -1232,7 +1232,7 @@
   <div class="mega-menu-inner">
     <a href="#about" class="menu-row"><span class="m-icon"><i data-lucide="user"></i></span><span data-en="About Me" data-id="Tentang Saya">Tentang Saya</span></a>
     <a href="#skills" class="menu-row"><span class="m-icon"><i data-lucide="sparkles"></i></span><span data-en="Skills" data-id="Keahlian">Keahlian</span></a>
-    <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="My Journey" data-id="Perjalanan Saya">Perjalanan Saya</span></a>
+    <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="Journey" data-id="Perjalanan Saya">Perjalanan Saya</span></a>
     <a href="#project" class="menu-row"><span class="m-icon"><i data-lucide="layout-grid"></i></span><span data-en="Data Project" data-id="Proyek Data">Proyek Data</span></a>
     
     
@@ -1257,8 +1257,8 @@
     </div>
   </div>
 
-  <h1 data-en="Looking to level up your UI/UX, scale your social media, and create high-converting digital content? You're in the right place." data-id="Lagi cari cara upgrade UI/UX kamu, mengembangkan media sosial, dan bikin konten digital yang mampu mendongkrak konversi? Kamu ada di tempat yang tepat.">Lagi cari cara upgrade UI/UX kamu, mengembangkan media sosial, dan bikin konten digital yang mampu mendongkrak konversi? Kamu ada di tempat yang tepat.</h1>
-  <p class="tagline" data-en="Informatics Engineering student in Sukoharjo, Indonesia, helping brands design better digital experiences, grow their social presence, and produce content that actually converts." data-id="Mahasiswa Teknik Informatika di Sukoharjo, Indonesia, membantu brand merancang pengalaman digital yang lebih baik, mengembangkan media sosial, dan memproduksi konten yang benar-benar mendongkrak konversi.">Mahasiswa Teknik Informatika di Sukoharjo, Indonesia, membantu brand merancang pengalaman digital yang lebih baik, mengembangkan media sosial, dan memproduksi konten yang benar-benar mendongkrak konversi.</p>
+  <h1 data-en="Looking to level up your UI/UX, scale your social media, and create high-converting digital content? You’re in the right place." data-id="Punya proyek UI/UX yang mau ditingkatkan, media sosial yang mau dirapikan, atau butuh konten digital yang menarik? Kamu berada di tempat yang tepat.">Punya proyek UI/UX yang mau ditingkatkan, media sosial yang mau dirapikan, atau butuh konten digital yang menarik? Kamu berada di tempat yang tepat.</h1>
+  <p class="tagline" data-en="Ideas and visuals keep evolving with time, and I'm ready to grow with every project I take on." data-id="Ide dan visualisasi terus berkembang seiring waktu, dan saya siap tumbuh bersama setiap proyek yang dijalani.">Ide dan visualisasi terus berkembang seiring waktu, dan saya siap tumbuh bersama setiap proyek yang dijalani.</p>
   <div class="hero-ctas">
     <a href="#experience" class="btn btn-orange" data-en="EXPERIENCE" data-id="PENGALAMAN"><i data-lucide="briefcase"></i><span>PENGALAMAN</span></a>
     <a href="#project" class="btn btn-orange" data-en="PROJECT" data-id="PROYEK"><i data-lucide="layout-grid"></i><span>PROYEK</span></a>
@@ -1271,9 +1271,8 @@
   <div class="eyebrow" data-en="About Me" data-id="Tentang Saya">Tentang Saya</div>
   <h2 data-en="A little about who I am" data-id="Sedikit cerita tentang saya">Sedikit cerita tentang saya</h2>
   <div class="about-box" id="about-box">
-    <p data-en="Hi there, I'm Yudha Sanjaya, a UI/UX Designer, Social Media Management and also Digital Content Creator. I am currently a student of Informatics Engineering at Universitas Muhammadiyah Surakarta." data-id="Halo, saya Yudha Sanjaya, seorang Desainer UI/UX, Manajemen Media Sosial dan juga Kreator Konten Digital. Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.">Halo, saya Yudha Sanjaya, seorang Desainer UI/UX, Manajemen Media Sosial dan juga Kreator Konten Digital. Saat ini aku adalah seorang mahasiswa Teknik Informatika, di Universitas Muhammadiyah Surakarta.</p>
-    <p data-en="I'm good at designing interfaces that are easy to use and visually appealing, creating digital content for marketing, and boosting brand visibility." data-id="Saya mahir merancang antarmuka yang mudah digunakan dan menarik secara visual, serta membuat konten digital untuk marketing dan meningkatkan visibilitas brand.">Saya mahir merancang antarmuka yang mudah digunakan dan menarik secara visual, serta membuat konten digital untuk marketing dan meningkatkan visibilitas brand.</p>
-    <p data-en="I'm open to part time work, collaboration, and new projects. Ideas and visuals keep evolving with time, and I'm ready to grow with every project I take on." data-id="Saya terbuka untuk kerja part time, kolaborasi, dan proyek baru. Ide dan visualisasi terus berkembang seiring waktu, dan saya siap tumbuh bersama setiap proyek yang dijalani.">Saya terbuka untuk kerja part time, kolaborasi, dan proyek baru. Ide dan visualisasi terus berkembang seiring waktu, dan saya siap tumbuh bersama setiap proyek yang dijalani.</p>
+    <p data-en="Hi, I’m Yudha Sanjaya, a UI/UX Designer, Social Media Management, and Digital Content Creator based in Indonesia. Currently, I’m pursuing an Informatics Engineering degree at Universitas Muhammadiyah Surakarta." data-id="Halo, saya Yudha Sanjaya, seorang UI/UX Designer, Manajemen Media Sosial, dan Pembuat Konten Digital berbasis di Indonesia. Saat ini saya sedang menempuh pendidikan Teknik Informatika di Universitas Muhammadiyah Surakarta.">Halo, saya Yudha Sanjaya, seorang UI/UX Designer, Spesialis Media Sosial, dan Pembuat Konten Digital berbasis di Indonesia. Saat ini saya sedang menempuh pendidikan Teknik Informatika di Universitas Muhammadiyah Surakarta.</p>
+    <p data-en="I craft intuitive digital interfaces, build engaging brand visuals, and produce content that delivers real engagement. Whether it's part-time roles, freelance gigs, or creative collaborations, I'm always ready to innovate and grow alongside your project." data-id="Saya ahli dalam merancang tampilan aplikasi/website yang mudah dipakai, membuat visual brand yang menarik, dan bikin konten yang bisa menaikkan interaksi. Saya terbuka untuk pekerjaan part-time, proyek freelance, maupun kolaborasi kreatif. Punya ide menarik? Yuk, kita wujudkan bareng">Saya ahli dalam merancang tampilan aplikasi/website yang mudah dipakai, membuat visual brand yang menarik, dan bikin konten yang bisa menaikkan interaksi. Saya terbuka untuk pekerjaan part-time, proyek freelance, maupun kolaborasi kreatif. Punya ide menarik? Yuk, kita wujudkan bareng</p>
   </div>
 </section>
 
