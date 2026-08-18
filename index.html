@@ -271,7 +271,7 @@
     color:#2a0f00;
     border-radius:18px;
     border:3px solid #ffffff;
-    box-shadow:none;
+    box-shadow:6px 6px 0 var(--void);
     font-size:clamp(22px, 3.5vw, 34px);
     font-weight:700;
     line-height:1.25;
@@ -386,7 +386,7 @@
     padding:28px 30px;
     overflow:hidden;
     position:relative;
-    box-shadow:none;
+    box-shadow:6px 6px 0 var(--void);
   }
   .about-box p{color:#ffffff;
     color:#2a0f00;
@@ -741,7 +741,7 @@
     .skills-card h3,
     .skill-box h3,
     .skill-item h3 {
-      color: #F1E4D1 !important;
+      color: var(--orange) !important;
     }
 
     /* Skill card descriptions */
@@ -796,13 +796,14 @@
   .journey-tab.active{background:var(--orange);color:#2a0f00;border-color:var(--orange);}
   .journey-panel{display:none;}
   .journey-panel.active{display:grid;gap:14px;}
-  .journey-card{width:100%;min-height:112px;background:var(--panel-2);border:1px solid var(--line);border-radius:17px;padding:20px 22px;text-align:left;cursor:pointer;position:relative;overflow:hidden;transition:transform .3s ease,border-color .3s ease,background .3s ease;}
-  .journey-card::after{content:'';position:absolute;inset:auto 0 0;height:2px;background:linear-gradient(90deg,transparent,var(--violet),var(--orange),transparent);opacity:.75;}
-  .journey-card:hover{transform:translateX(5px);border-color:var(--orange);}
-  .journey-card .journey-year{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--orange);margin-bottom:6px;}
-  .journey-card h3{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 7px;color:var(--text);}
-  .journey-card p{font-size:14px;line-height:1.55;color:#fff;margin:0;padding-right:55px;}
-  .journey-more{position:absolute;right:20px;bottom:18px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--orange);letter-spacing:.4px;}
+  .project-stack{display:grid;gap:14px;margin-top:26px;}
+  .journey-card{width:100%;min-height:96px;background:var(--orange);border:3px solid #ffffff;border-radius:18px;padding:20px 22px;text-align:left;cursor:pointer;position:relative;overflow:hidden;box-shadow:6px 6px 0 var(--void);transition:transform .3s ease,box-shadow .3s ease;}
+  .journey-card::after{display:none;}
+  .journey-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--void);}
+  .journey-card .journey-year{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;color:#2a0f00;margin-bottom:6px;}
+  .journey-card h3{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0;color:#2a0f00;padding-right:70px;}
+  .journey-card p{display:none;}
+  .journey-more{position:absolute;right:20px;bottom:18px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:#2a0f00;letter-spacing:.4px;}
 
   /* Journey modal */
   .journey-overlay{position:fixed;inset:0;background:rgba(9,4,18,.82);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;z-index:220;opacity:0;pointer-events:none;transition:opacity .35s ease;padding:18px;}
@@ -826,12 +827,12 @@
 
   /* Flowing journey line */
   .journey-flow{position:relative;padding-left:32px;}
-  .journey-flow::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--violet),var(--orange),var(--violet),transparent);opacity:.35;}
-  .journey-flow::after{content:'';position:absolute;left:2px;top:0;width:10px;height:72px;border-radius:20px;background:linear-gradient(180deg,transparent,var(--orange),rgba(255,255,255,.95),transparent);filter:blur(1px);animation:journeyWater 3.8s ease-in-out infinite alternate;}
+  .journey-flow::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--orange) 12%,var(--orange) 88%,transparent);opacity:.4;}
+  .journey-flow::after{content:'';position:absolute;left:2px;top:0;width:10px;height:72px;border-radius:20px;background:linear-gradient(180deg,transparent,rgba(255,122,69,.35),#ffcda8,rgba(255,122,69,.35),transparent);filter:blur(1px) drop-shadow(0 0 8px rgba(255,122,69,.85));animation:journeyWater 3.8s ease-in-out infinite alternate;}
   @keyframes journeyWater{0%{top:0;opacity:.2;}45%{opacity:1;}100%{top:calc(100% - 72px);opacity:.18;}}
-  .journey-card::before{content:'';position:absolute;left:-32px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--panel-2);border:2px solid rgba(255,255,255,.22);box-shadow:none;transition:background .25s ease,box-shadow .25s ease,opacity .5s ease;}
-  .journey-card.flow-active::before{background:#fff;border-color:#fff;box-shadow:0 0 6px #fff,0 0 14px var(--orange);}
-  .journey-card.flow-dim::before{opacity:.16;}
+  .journey-flow .journey-card::before{content:'';position:absolute;left:-32px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--panel-2);border:2px solid rgba(255,122,69,.35);box-shadow:none;transition:background .25s ease,box-shadow .25s ease,opacity .5s ease,border-color .25s ease;}
+  .journey-flow .journey-card.flow-active::before{background:var(--orange);border-color:#ffcda8;box-shadow:0 0 8px var(--orange),0 0 18px rgba(255,122,69,.9);}
+  .journey-flow .journey-card.flow-dim::before{opacity:.18;}
 
   @media(max-width:600px){
     .journey-tabs{gap:9px;}
@@ -965,6 +966,12 @@
   body.light-mode .modal-overlay{
     background:rgba(24,32,51,.48);
   }
+  body.light-mode .photo-wrap{
+    filter:drop-shadow(0 0 22px rgba(239,117,66,0.65)) drop-shadow(0 0 48px rgba(239,117,66,0.40));
+  }
+  body.light-mode .photo-wrap::before{
+    filter:drop-shadow(0 0 12px rgba(239,117,66,0.65)) drop-shadow(0 0 28px rgba(239,117,66,0.40));
+  }
   body.light-mode .cv-lang-tab{
     background:var(--light-panel);
     color:var(--light-text);
@@ -1065,24 +1072,6 @@
     .theme-switch .theme-label span{min-width:0;height:auto;background:none !important;color:inherit !important;}
   }
 
-
-  /* Figma skill icon: same clean white treatment as other skill icons */
-  .skill-detail-name .skill-icon-white,
-  .skill-detail-name i[data-lucide="layout-grid"]{
-    width:18px;
-    height:18px;
-    color:#ffffff !important;
-    background:transparent !important;
-    border:0 !important;
-    box-shadow:none !important;
-    padding:0 !important;
-    border-radius:0 !important;
-  }
-  .skill-detail-name .skill-icon-white svg,
-  .skill-detail-name i[data-lucide="layout-grid"] svg{
-    color:#ffffff !important;
-    stroke:#ffffff !important;
-  }
 
 </style>
 </head>
@@ -1247,22 +1236,22 @@
     <div class="eyebrow" data-en="Data Project" data-id="Proyek Data">Proyek Data</div>
     <h2 data-en="Recent work" data-id="Proyek terbaru">Proyek terbaru</h2>
 
-    <div class="project-card">
-      <div class="photo-frame"><img src="project-a-1.jpg" alt="Proyek A" /></div>
-      <p class="project-problem" data-en="The previous design was outdated and lacked visual engagement." data-id="Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.">Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.</p>
-      <p class="desc"><strong data-en="Project A — Company Profile: " data-id="Proyek A — Company Profile: ">Proyek A — Company Profile: </strong><span data-en="Designed a company profile from scratch in Canva without templates, using a fully custom layout to introduce the client's business with modern, eye-catching visuals for PT Setiawan Jaya Usaha." data-id="Merancang company profile dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.">Merancang company profile dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.</span></p>
-    </div>
-
-    <div class="project-card">
-      <div class="photo-frame"><img src="project-b-1.jpg" alt="Proyek B" /></div>
-      <p class="project-problem" data-en="Content was unplanned and the feed looked messy." data-id="Konten tidak terencana dan feed terlihat berantakan.">Konten tidak terencana dan feed terlihat berantakan.</p>
-      <p class="desc"><strong data-en="Project B — Udang Kedjuu: " data-id="Proyek B — Udang Kedjuu: ">Proyek B — Udang Kedjuu: </strong><span data-en="Grew the brand's following from 3,000 to 8,000 in 6 months, producing content end to end from ideation and filming to editing and content planning, plus KOL collaborations that drove viral content and a sales spike." data-id="Menumbuhkan followers brand dari 3.000 menjadi 8.000 dalam 6 bulan, memproduksi konten secara menyeluruh dari ide hingga editing, serta kerja sama KOL yang membuat konten viral dan mendongkrak penjualan.">Menumbuhkan followers brand dari 3.000 menjadi 8.000 dalam 6 bulan, memproduksi konten secara menyeluruh dari ide hingga editing, serta kerja sama KOL yang membuat konten viral dan mendongkrak penjualan.</span></p>
-    </div>
-
-    <div class="project-card">
-      <div class="photo-frame"><img src="project-c-1.jpg" alt="Proyek C" /></div>
-      <p class="project-problem" data-en="Many buyers had fallen victim to fraud in this marketplace." data-id="Banyak pembeli menjadi korban penipuan di marketplace ini.">Banyak pembeli menjadi korban penipuan di marketplace ini.</p>
-      <p class="desc"><strong data-en="Project C — Roblox Marketplace: " data-id="Proyek C — Roblox Marketplace: ">Proyek C — Roblox Marketplace: </strong><span data-en="Conducted live streams on TikTok and YouTube to build buyer trust, managing the full transaction flow from negotiation to delivery, which helped increase sales revenue." data-id="Melakukan live streaming di TikTok dan YouTube untuk membangun kepercayaan pembeli, mengelola alur transaksi dari negosiasi hingga pengiriman, yang membantu menaikkan omset penjualan.">Melakukan live streaming di TikTok dan YouTube untuk membangun kepercayaan pembeli, mengelola alur transaksi dari negosiasi hingga pengiriman, yang membantu menaikkan omset penjualan.</span></p>
+    <div class="project-stack">
+      <button class="journey-card" type="button" data-journey="proja">
+        <span class="journey-year">2025</span>
+        <h3 data-en="Company Profile — PT Setiawan Jaya Usaha" data-id="Company Profile — PT Setiawan Jaya Usaha">Company Profile — PT Setiawan Jaya Usaha</h3>
+        <span class="journey-more">MORE...</span>
+      </button>
+      <button class="journey-card" type="button" data-journey="projb">
+        <span class="journey-year">Mar 2026–Agu 2026</span>
+        <h3 data-en="Udang Kedjuu — Content &amp; Social Media" data-id="Udang Kedjuu — Konten &amp; Media Sosial">Udang Kedjuu — Konten &amp; Media Sosial</h3>
+        <span class="journey-more">MORE...</span>
+      </button>
+      <button class="journey-card" type="button" data-journey="projc">
+        <span class="journey-year">Jul 2025–Des 2025</span>
+        <h3 data-en="Roblox Marketplace — Live Selling" data-id="Roblox Marketplace — Live Selling">Roblox Marketplace — Live Selling</h3>
+        <span class="journey-more">MORE...</span>
+      </button>
     </div>
   </div>
 </section>
@@ -1424,7 +1413,10 @@
     imm:{title:'IMM FKI UMS',year:'2022–2024',description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',images:['images1.jpg','images1.jpg','images1.jpg']},
     mentor:{title:'Mentor UMS',year:'2022–2024',description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',images:['images1.jpg','images1.jpg','images1.jpg']},
     roblox:{title:'Item Roblox',year:'Jul 2025–Des 2025',description:'Pengalaman sebagai admin marketplace dengan fokus pada komunikasi pelanggan, negosiasi, transaksi, dan pengelolaan pesanan.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    udang:{title:'Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',description:'Pengalaman sebagai content creator dan social media management yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',images:['images1.jpg','images1.jpg','images1.jpg']}
+    udang:{title:'Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',description:'Pengalaman sebagai content creator dan social media management yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    proja:{title:'Company Profile — PT Setiawan Jaya Usaha',year:'2025',description:'Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual. Merancang company profile dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.',images:['project-a-1.jpg','project-a-1.jpg','project-a-1.jpg']},
+    projb:{title:'Udang Kedjuu — Konten & Media Sosial',year:'Mar 2026–Agu 2026',description:'Konten tidak terencana dan feed terlihat berantakan. Menumbuhkan followers brand dari 3.000 menjadi 8.000 dalam 6 bulan, memproduksi konten secara menyeluruh dari ide hingga editing, serta kerja sama KOL yang membuat konten viral dan mendongkrak penjualan.',images:['project-b-1.jpg','project-b-1.jpg','project-b-1.jpg']},
+    projc:{title:'Roblox Marketplace — Live Selling',year:'Jul 2025–Des 2025',description:'Banyak pembeli menjadi korban penipuan di marketplace ini. Melakukan live streaming di TikTok dan YouTube untuk membangun kepercayaan pembeli, mengelola alur transaksi dari negosiasi hingga pengiriman, yang membantu menaikkan omset penjualan.',images:['project-c-1.jpg','project-c-1.jpg','project-c-1.jpg']}
   };
   const journeyOverlay=document.getElementById('journey-overlay');
   const journeySlideshow=document.getElementById('journey-slideshow');
@@ -1524,7 +1516,7 @@
       return '<div class="skill-detail-item">' +
         '<div class="skill-detail-name">' +
           (item[1] === 'figma'
-            ? '<i data-lucide="layout-grid" class="skill-icon-white"></i>'
+            ? '<i data-lucide="layout-grid"></i>'
             : '<i data-lucide="'+item[1]+'"></i>') +
           '<span>'+item[0]+'</span>' +
         '</div>' +
@@ -1585,8 +1577,8 @@
     const isLight = mode === 'light';
     document.body.classList.toggle('light-mode', isLight);
     if(themeIcon){
-      themeIcon.setAttribute('data-lucide', isLight ? 'sun' : 'moon');
-      themeIcon.outerHTML = '<i data-lucide="' + (isLight ? 'sun' : 'moon') + '" id="theme-icon"></i>';
+      themeIcon.setAttribute('data-lucide', isLight ? 'lightbulb' : 'moon');
+      themeIcon.outerHTML = '<i data-lucide="' + (isLight ? 'lightbulb' : 'moon') + '" id="theme-icon"></i>';
     }
     if(themeText) themeText.textContent = isLight ? 'Light' : 'Dark';
     localStorage.setItem('ys-theme', mode);
