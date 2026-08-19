@@ -1139,12 +1139,12 @@
 
 <!-- EXPERIENCE / JOURNEY -->
 <section class="block reveal" id="experience">
-  <div class="eyebrow" data-en="Journey" data-id="Perjalanan Saya">Perjalanan Saya</div>
-  <h2 data-en="Academic and Professional Work" data-id="Akademik dan Pekerjaan Profesional">Akademik dan Pekerjaan Profesional</h2>
+  <div class="eyebrow" data-en="Education" data-id="Pendidikan">Pendidikan</div>
+  <h2 data-en="Academic and Organization" data-id="Akademik dan Organisasi">Akademik dan Organisasi</h2>
 
   <div class="journey-tabs" role="tablist">
     <button class="journey-tab active" type="button" data-panel="academic" data-en="Academic" data-id="Akademik">Akademik</button>
-    <button class="journey-tab" type="button" data-panel="work" data-en="Work Experience" data-id="Pengalaman Kerja">Pengalaman Kerja</button>
+    <button class="journey-tab" type="button" data-panel="work" data-en="Organization" data-id="Organisasi">Organisasi</button>
   </div>
 
   <div class="journey-flow">
@@ -1154,7 +1154,9 @@
         <h3>Universitas Muhammadiyah Surakarta</h3>
         <span class="journey-more">MORE...</span>
       </button>
+    </div>
 
+    <div class="journey-panel" id="journey-work">
       <button class="journey-card" type="button" data-journey="imm">
         <span class="journey-year">2022–2024</span>
         <h3>IMM FKI UMS</h3>
@@ -1164,19 +1166,6 @@
       <button class="journey-card" type="button" data-journey="mentor">
         <span class="journey-year">2022–2024</span>
         <h3>Mentor AIK UMS</h3>
-        <span class="journey-more">MORE...</span>
-      </button>
-    </div>
-
-    <div class="journey-panel" id="journey-work">
-      <button class="journey-card" type="button" data-journey="roblox">
-        <span class="journey-year">Jul 2025–Des 2025</span>
-        <h3>Wirausaha Mandiri</h3>
-        <span class="journey-more">MORE...</span>
-      </button>
-      <button class="journey-card" type="button" data-journey="udang">
-        <span class="journey-year">Mar 2026–Agu 2026</span>
-        <h3>Udang Kedjuu Indonesia</h3>
         <span class="journey-more">MORE...</span>
       </button>
     </div>
@@ -1401,12 +1390,12 @@
   const journeyData = {
     academic:{title:'Universitas Muhammadiyah Surakarta',year:'2022–Sekarang',description:'Perjalanan akademik sebagai mahasiswa Teknik Informatika yang membangun kemampuan di bidang teknologi, desain, dan pemecahan masalah digital.',images:['images1.jpg','images1.jpg','images1.jpg']},
     imm:{title:'IMM FKI UMS',year:'2022–2024',description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    mentor:{title:'Mentor UMS',year:'2022–2024',description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    roblox:{title:'Item Roblox',year:'Jul 2025–Des 2025',description:'Pengalaman sebagai admin marketplace dengan fokus pada komunikasi pelanggan, negosiasi, transaksi, dan pengelolaan pesanan.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    udang:{title:'Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',description:'Pengalaman sebagai content creator dan social media management yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    proja:{title:'Company Profile — PT Setiawan Jaya Usaha',year:'2025',problem:'Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.',description:'Merancang company profile dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.',images:['project-a-1.jpg','project-a-1.jpg','project-a-1.jpg'],skills:['Graphic Design','Visual Branding','Layout & Composition','Canva Proficiency','Client Needs Analysis'],reviewLink:'https://www.instagram.com/yudhas4njaya'},
-    projb:{title:'Udang Kedjuu — Konten & Media Sosial',year:'Mar 2026–Agu 2026',problem:'Konten tidak terencana dan feed terlihat berantakan.',description:'Menumbuhkan followers brand dari 3.000 menjadi 8.000 dalam 6 bulan, memproduksi konten secara menyeluruh dari ide hingga editing, serta kerja sama KOL yang membuat konten viral dan mendongkrak penjualan.',images:['project-b-1.jpg','project-b-1.jpg','project-b-1.jpg'],skills:['Content Ideation','Video Editing','Social Media Management','Copywriting','KOL Collaboration'],reviewLink:'https://www.instagram.com/yudhas4njaya'},
-    projc:{title:'Roblox Marketplace — Live Selling',year:'Jul 2025–Des 2025',problem:'Banyak pembeli menjadi korban penipuan di marketplace ini.',description:'Melakukan live streaming di TikTok dan YouTube untuk membangun kepercayaan pembeli, mengelola alur transaksi dari negosiasi hingga pengiriman, yang membantu menaikkan omset penjualan.',images:['project-c-1.jpg','project-c-1.jpg','project-c-1.jpg'],skills:['Live Streaming','Trust Building','Negotiation','Customer Service','Transaction Management'],reviewLink:'https://www.instagram.com/yudhas4njaya'}
+    mentor:{title:'Mentor AIK UMS',year:'2022–2024',description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    roblox:{title:'Wirausaha Mandri',year:'Jul 2025–Des 2025',description:'Pengalaman sebagai admin marketplace yang berfokus pada komunikasi pelanggan, negosiasi, transaksi, dan pengelolaan pesanan.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    udang:{title:'Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',description:'Pengalaman sebagai Konten Kreator Digital dan Manajemen Sosial Media yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',images:['images1.jpg','images1.jpg','images1.jpg']},
+    proja:{title:'Profil Perusahaan & Katalog Produk — PT Setiawan Jaya Usaha',year:'2025',problem:'Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.',description:'Merancang profil perusahaan dan katalog produk dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.',images:['project-a-1.jpg','project-a-1.jpg','project-a-1.jpg'],skills:['Graphic Design','Visual Branding','Layout & Composition','Canva Proficiency','Client Needs Analysis'],reviewLink:'https://www.instagram.com/yudhas4njaya'},
+    projb:{title:'Konten Kreator Digital & Manajemen Sosial Media — Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',problem:'Melanjutkan fondasi media sosial yang ada dan menaikkan level interaksi konten.',description:'Mendukung pertumbuhan digital Udang Kedjuu, brand F&B yang berkembang pesat dengan lebih dari 20 cabang di seluruh Pulau Jawa. Mengelola produksi media sosial secara menyeluruh untuk Udang Kedjuu Indonesia, mulai dari pengerjaan ide, proses syuting, editing, hingga penjadwalan konten. Selama periode 6 bulan, berhasil meningkatkan visibilitas brand dan interaksi lokal di area Surakarta melalui pembuatan konten yang fresh dan strategis.',images:['project-b-1.jpg','project-b-1.jpg','project-b-1.jpg'],skills:['Content Ideation','Video Editing','Social Media Management','Copywriting','KOL Collaboration'],reviewLink:'https://www.instagram.com/yudhas4njaya'},
+    projc:{title:'Wirausaha Mandri — Pasar Roblox (Growtopia, Fish It & Grow A Garden)',year:'Jul 2025–Des 2025',problem:'Mengatasi risiko tinggi penipuan item digital dengan membangun lingkungan transaksi yang aman dan transparan bagi para gamer.',description:'Mengelola layanan perantara (escrow service) untuk transaksi item virtual Roblox selama periode 6 bulan. Memanfaatkan platform SociaBuzz dan live stream interaktif untuk meningkatkan transparansi, membangun kepercayaan pembeli, serta memfasilitasi transaksi digital yang lancar.',images:['project-c-1.jpg','project-c-1.jpg','project-c-1.jpg'],skills:['Live Streaming','Trust Building','Negotiation','Customer Service','Transaction Management'],reviewLink:'https://www.instagram.com/yudhas4njaya'}
   };
   const journeyOverlay=document.getElementById('journey-overlay');
   const journeySlideshow=document.getElementById('journey-slideshow');
