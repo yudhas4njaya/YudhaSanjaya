@@ -556,6 +556,27 @@
   }
   .contact-panel label.link-btn:hover{ transform:translateY(-2px); }
   .contact-panel label.link-btn svg{ width:18px; height:18px; }
+  .contact-static{
+    max-width:880px;
+    margin:16px auto 0;
+    padding:0 24px;
+  }
+  .contact-static .link-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    background:var(--orange);
+    color:var(--on-accent);
+    padding:15px 20px;
+    border-radius:20px;
+    font-weight:700;
+    font-size:14px;
+    font-family:'Space Grotesk',sans-serif;
+    cursor:pointer;
+    width:100%;
+  }
+  .contact-static .link-btn svg{ width:18px; height:18px; }
 
   footer{
     text-align:center;
@@ -1209,12 +1230,15 @@
     <div class="contact-panel from-left">
       <a href="https://www.instagram.com/yudhas4njaya" target="_blank" rel="noopener noreferrer"><i data-lucide="instagram"></i>Instagram</a>
       <a href="https://www.linkedin.com/in/yudha-sanjaya-3a76a0428/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin"></i>LinkedIn</a>
-      <a href="https://wa.me/6282230725472" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle"></i>WhatsApp</a>
     </div>
     <div class="contact-panel from-right">
       <a href="mailto:yudhasanjaya411@gmail.com"><i data-lucide="mail"></i><span data-en="Send Email" data-id="Kirim Email">Kirim Email</span></a>
-      <label for="resume-toggle" class="link-btn"><i data-lucide="file-text"></i><span data-en="Download CV/Resume" data-id="Unduh CV/Resume">Unduh CV/Resume</span></label>
+      <a href="https://wa.me/6282230725472" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle"></i>WhatsApp</a>
     </div>
+  </div>
+
+  <div class="contact-static">
+    <label for="resume-toggle" class="link-btn"><i data-lucide="file-text"></i><span data-en="Download CV/Resume" data-id="Unduh CV/Resume">Unduh CV/Resume</span></label>
   </div>
 </section>
 
