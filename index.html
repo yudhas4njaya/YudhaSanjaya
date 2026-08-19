@@ -248,7 +248,7 @@
   }
   .marquee-item svg{
     width:20px; height:20px;
-    color:var(--orange);
+    color:#112250;
     flex-shrink:0;
   }
   .marquee-item span{
@@ -256,7 +256,7 @@
     font-weight:700;
     font-size:16px;
     letter-spacing:0.3px;
-    color:var(--void);
+    color:#112250;
   }
   @keyframes marqueeRun{
     0%{ transform:translateX(0); }
@@ -268,10 +268,10 @@
     padding:23px 20px;
     width:min(640px, calc(100% - 36px));
     background:var(--orange);
-    color:#2a0f00;
+    color:var(--on-accent);
     border-radius:18px;
     border:3px solid #ffffff;
-    box-shadow:6px 6px 0 var(--void);
+    box-shadow:6px 6px 0 var(--pop-shadow);
     font-size:clamp(22px, 3.5vw, 34px);
     font-weight:700;
     line-height:1.25;
@@ -288,24 +288,11 @@
     position:relative;
     isolation:isolate;
   }
-
-
-  .hero h1{
-    position:relative;
-    isolation:isolate;
-  }
-
   .hero h1 > *{
     position:relative;
     z-index:1;
   }
 
-
-  /* Border animasi pernyataan saya */
-  .hero h1{
-  }
-.hero h1{
-  }
 .hero p.tagline{
     margin-top:16px;
     padding:0 24px;
@@ -340,9 +327,9 @@
     white-space:nowrap;
     text-align:center;
   }
-  .btn-orange{ background:var(--orange); color:#2a0f00; }
-  .btn-orange:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,122,69,0.35); }
-  .btn-ghost{ background:var(--white); color:var(--void); }
+  .btn-orange{ background:var(--orange); color:var(--on-accent); }
+  .btn-orange:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(var(--accent-rgb),0.35); }
+  .btn-ghost{ background:var(--white); color:#112250; }
   .btn-ghost:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(255,255,255,0.2); }
   .btn svg{ width:16px; height:16px; margin-right:6px; flex-shrink:0; }
 
@@ -380,16 +367,16 @@
     margin-top:28px;
     width:100%;
     background:var(--orange);
-    color:#2a0f00;
+    color:var(--on-accent);
     border:3px solid #ffffff;
     border-radius:18px;
     padding:28px 30px;
     overflow:hidden;
     position:relative;
-    box-shadow:6px 6px 0 var(--void);
+    box-shadow:6px 6px 0 var(--pop-shadow);
   }
-  .about-box p{color:#ffffff;
-    color:#2a0f00;
+  .about-box p{
+    color:var(--on-accent);
     font-size:16px;
     line-height:1.85;
     margin:0;
@@ -435,19 +422,19 @@
   .skill-card:hover{
     transform:translateY(-5px);
     border-color:var(--orange);
-    background:linear-gradient(145deg,var(--panel-2),rgba(255,122,69,0.08));
+    background:linear-gradient(145deg,var(--panel-2),rgba(var(--accent-rgb),0.08));
   }
   .skill-card-icon{
     width:58px; height:58px;
     border-radius:16px;
     background:var(--orange);
-    color:#2a0f00;
+    color:var(--on-accent);
     display:flex; align-items:center; justify-content:center;
     margin-bottom:18px;
   }
   .skill-card-icon svg{ width:27px; height:27px; }
   .skill-card h3{ font-size:20px; line-height:1.2; margin-bottom:9px; color:var(--orange); }
-  .skill-card p{ color:#ffffff; font-size:13px; line-height:1.55; margin:0; }
+  .skill-card p{ color:var(--text); font-size:13px; line-height:1.55; margin:0; }
 
   /* Timeline */
   .timeline{ position:relative; padding-left:32px; margin-top:10px; }
@@ -559,7 +546,7 @@
     align-items:center;
     gap:12px;
     background:var(--orange);
-    color:#2a0f00;
+    color:var(--on-accent);
     padding:15px 20px;
     border-radius:20px;
     font-weight:700;
@@ -612,7 +599,7 @@
     display:flex; align-items:center; justify-content:center;
     cursor:pointer; color:var(--text);
   }
-  .skill-detail-close:hover{ background:var(--orange); color:#2a0f00; }
+  .skill-detail-close:hover{ background:var(--orange); color:var(--on-accent); }
   .skill-detail-head{ padding-right:48px; margin-bottom:24px; }
   .skill-detail-head .eyebrow{ margin-bottom:7px; }
   .skill-detail-head h3{ font-size:26px; margin:0; }
@@ -628,7 +615,7 @@
     width:34px; height:34px;
     border-radius:10px;
     background:var(--orange);
-    color:#2a0f00;
+    color:var(--on-accent);
     display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
   }
@@ -705,7 +692,7 @@
   .cv-download-row{ display:flex; gap:10px; }
   .cv-download-row a{
     flex:1; text-align:center;
-    background:var(--orange); color:#2a0f00;
+    background:var(--orange); color:var(--on-accent);
     padding:12px 0; border-radius:24px;
     font-weight:700; font-size:13px;
     display:flex; align-items:center; justify-content:center; gap:6px;
@@ -725,13 +712,6 @@
       border-radius:16px;
       font-size:22px;
     }
-    .hero h1::before{
-      width:34px;
-    }
-@keyframes heroBoxDotMobile{
-      from{transform:rotate(0deg) translateX(150px);}
-      to{transform:rotate(360deg) translateX(150px);}
-    }
     .hero-ctas{
       margin-top:22px;
       padding:0 16px;
@@ -746,7 +726,7 @@
     .btn svg{ width:14px; height:14px; margin-right:5px; }
     section.block{ padding:70px 18px; }
     .about-box{ padding:22px 20px; border-radius:16px; }
-    .about-box p{color:#ffffff; font-size:14.5px; line-height:1.75; }
+    .about-box p{ font-size:14.5px; line-height:1.75; }
     .skill-grid{ gap:10px; }
     .skill-card{ padding:16px 12px; border-radius:15px; }
     .skill-card-icon{ width:48px; height:48px; margin-bottom:13px; border-radius:13px; }
@@ -766,13 +746,6 @@
       padding:19px 16px;
       font-size:20px;
     }
-    .hero h1::before{
-      width:28px;
-    }
-@keyframes heroBoxDotSmall{
-      from{transform:rotate(0deg) translateX(125px);}
-      to{transform:rotate(360deg) translateX(125px);}
-    }
     .hero-ctas{
       padding:0 12px;
       gap:6px;
@@ -787,16 +760,6 @@
     .skill-detail-head h3{ font-size:22px; }
   }
 
-    /* Final typography adjustments */
-    .about p,
-    .about-text,
-    .about-description,
-    .about-content p,
-    .about-box p {
-      color: #ffffff !important;
-    }
-
-    /* Skill card titles */
     .skill-card h3,
     .skills-card h3,
     .skill-box h3,
@@ -804,21 +767,18 @@
       color: var(--orange) !important;
     }
 
-    /* Skill card descriptions */
     .skill-card p,
     .skills-card p,
     .skill-box p,
     .skill-item p {
-      color: #ffffff !important;
+      color: var(--text) !important;
     }
 
-    /* Typography portofolio */
     body {
       font-family: "Plus Jakarta Sans", "Inter", "Segoe UI", Arial, sans-serif;
     }
     
 
-  /* Bree Serif untuk font teks deskripsi  */
   body p,
   .tagline,
   .skill-card p,
@@ -833,7 +793,6 @@
     font-family:'Codec Pro','CodecPro','Arial',sans-serif;
   }
 
-  /* Retriggerable section animations */
   .reveal{ opacity:0; transform:translateY(26px); }
   .reveal.in-view{ opacity:1; transform:translateY(0); transition:opacity .7s ease, transform .7s ease; }
 
@@ -844,28 +803,22 @@
     100%{opacity:1; transform:scale(1);}
   }
 
-  .about-box.in-view p{ animation:aboutParagraphIn 1.05s cubic-bezier(.2,.75,.25,1) forwards; }
-  .about-box.in-view p:nth-child(1){ animation-delay:.15s; }
-  .about-box.in-view p:nth-child(2){ animation-delay:1.25s; }
-  .about-box.in-view p:nth-child(3){ animation-delay:2.35s; }
-
   /* Journey tabs */
   .journey-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 22px;}
   .journey-tab{border:1px solid var(--line);background:var(--panel-2);color:var(--text);border-radius:16px;padding:18px 20px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:transform .25s ease,border-color .25s ease,background .25s ease,color .25s ease;}
   .journey-tab:hover{transform:translateY(-3px);border-color:var(--orange);}
-  .journey-tab.active{background:var(--orange);color:#2a0f00;border-color:var(--orange);}
+  .journey-tab.active{background:var(--orange);color:var(--on-accent);border-color:var(--orange);}
   .journey-panel{display:none;}
   .journey-panel.active{display:grid;gap:14px;}
   .project-stack{display:grid;gap:14px;margin-top:26px;}
-  .journey-card{width:100%;min-height:96px;background:var(--orange);border:3px solid #ffffff;border-radius:18px;padding:20px 22px;text-align:left;cursor:pointer;position:relative;overflow:hidden;box-shadow:6px 6px 0 var(--void);transition:transform .3s ease,box-shadow .3s ease;}
+  .journey-card{width:100%;min-height:96px;background:var(--orange);border:3px solid #ffffff;border-radius:18px;padding:20px 22px;text-align:left;cursor:pointer;position:relative;overflow:hidden;box-shadow:6px 6px 0 var(--pop-shadow);transition:transform .3s ease,box-shadow .3s ease;}
   .journey-card::after{display:none;}
-  .journey-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--void);}
-  .journey-card .journey-year{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;color:#2a0f00;margin-bottom:6px;}
-  .journey-card h3{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0;color:#2a0f00;padding-right:70px;}
+  .journey-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--pop-shadow);}
+  .journey-card .journey-year{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--on-accent);margin-bottom:6px;}
+  .journey-card h3{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0;color:var(--on-accent);padding-right:70px;}
   .journey-card p{display:none;}
-  .journey-more{position:absolute;right:20px;bottom:18px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:#2a0f00;letter-spacing:.4px;}
+  .journey-more{position:absolute;right:20px;bottom:18px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--on-accent);letter-spacing:.4px;}
 
-  /* Project card photo thumbnail: photo, title, then work period */
   .project-stack .journey-card{ padding:16px; }
   .project-thumb{
     width:100%;
@@ -879,13 +832,12 @@
   .project-stack .journey-card h3{ padding-right:70px; margin-bottom:6px; }
   .project-stack .journey-card .journey-year{ margin-bottom:0; }
 
-  /* Journey model */
   .journey-overlay{position:fixed;inset:0;background:rgba(9,4,18,.82);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;z-index:220;opacity:0;pointer-events:none;transition:opacity .35s ease;padding:18px;}
   .journey-overlay.open{opacity:1;pointer-events:auto;}
   .journey-modal{width:min(680px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:18px;position:relative;transform:translateY(22px) scale(.96);transition:transform .4s cubic-bezier(.2,.8,.2,1);}
   .journey-overlay.open .journey-modal{transform:translateY(0) scale(1);}
   .journey-close{position:absolute;top:13px;right:13px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--panel-2);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;}
-  .journey-close:hover{background:var(--orange);color:#2a0f00;}
+  .journey-close:hover{background:var(--orange);color:var(--on-accent);}
   .journey-slideshow{position:relative;height:310px;border-radius:16px;overflow:hidden;background:var(--panel-2);margin-bottom:20px;}
   .journey-slide{position:absolute;inset:0;opacity:0;transform:scale(1.025);transition:opacity .8s ease,transform 4.5s ease;}
   .journey-slide.active{opacity:1;transform:scale(1);}
@@ -894,12 +846,11 @@
   .journey-slide-count{position:absolute;left:16px;bottom:14px;z-index:2;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:#fff;letter-spacing:.7px;}
   .journey-modal-year{font-family:'Space Grotesk',sans-serif;color:var(--orange);font-size:12px;font-weight:700;letter-spacing:.7px;margin-bottom:5px;}
   .journey-modal h3{font-family:'Space Grotesk',sans-serif;font-size:27px;margin:0 0 10px;padding-right:45px;}
-  .journey-modal-description{font-size:15px;line-height:1.75;color:#fff;margin:0;}
+  .journey-modal-description{font-size:15px;line-height:1.75;color:var(--text);margin:0;}
   .journey-dots{display:flex;gap:6px;justify-content:center;margin-top:13px;}
   .journey-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .3s ease;}
   .journey-dot.active{width:22px;border-radius:10px;background:var(--orange);}
 
-  /* Project model extras: initial concern, skill pills, review link */
   .journey-problem{
     font-style:italic;
     font-size:13px;
@@ -934,7 +885,7 @@
     gap:8px;
     margin-top:18px;
     background:var(--orange);
-    color:#2a0f00;
+    color:var(--on-accent);
     font-weight:700;
     font-size:14px;
     padding:14px 20px;
@@ -948,10 +899,10 @@
   /* Flowing journey line */
   .journey-flow{position:relative;padding-left:32px;}
   .journey-flow::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--orange) 12%,var(--orange) 88%,transparent);opacity:.4;}
-  .journey-flow::after{content:'';position:absolute;left:2px;top:0;width:10px;height:72px;border-radius:20px;background:linear-gradient(180deg,transparent,rgba(255,122,69,.35),#ffcda8,rgba(255,122,69,.35),transparent);filter:blur(1px) drop-shadow(0 0 8px rgba(255,122,69,.85));animation:journeyWater 3.8s ease-in-out infinite alternate;}
+  .journey-flow::after{content:'';position:absolute;left:2px;top:0;width:10px;height:72px;border-radius:20px;background:linear-gradient(180deg,transparent,rgba(var(--accent-rgb),.35),rgba(var(--accent-rgb),1),rgba(var(--accent-rgb),.35),transparent);filter:blur(1px) drop-shadow(0 0 8px rgba(var(--accent-rgb),.85));animation:journeyWater 3.8s ease-in-out infinite alternate;}
   @keyframes journeyWater{0%{top:0;opacity:.2;}45%{opacity:1;}100%{top:calc(100% - 72px);opacity:.18;}}
-  .journey-flow .journey-card::before{content:'';position:absolute;left:-32px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--panel-2);border:2px solid rgba(255,122,69,.35);box-shadow:none;transition:background .25s ease,box-shadow .25s ease,opacity .5s ease,border-color .25s ease;}
-  .journey-flow .journey-card.flow-active::before{background:var(--orange);border-color:#ffcda8;box-shadow:0 0 8px var(--orange),0 0 18px rgba(255,122,69,.9);}
+  .journey-flow .journey-card::before{content:'';position:absolute;left:-32px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--panel-2);border:2px solid rgba(var(--accent-rgb),.35);box-shadow:none;transition:background .25s ease,box-shadow .25s ease,opacity .5s ease,border-color .25s ease;}
+  .journey-flow .journey-card.flow-active::before{background:var(--orange);border-color:rgba(var(--accent-rgb),.6);box-shadow:0 0 8px var(--orange),0 0 18px rgba(var(--accent-rgb),.9);}
   .journey-flow .journey-card.flow-dim::before{opacity:.18;}
 
   @media(max-width:600px){
@@ -959,14 +910,11 @@
     .journey-tab{padding:15px 10px;font-size:13px;}
     .journey-card{padding:17px 16px;min-height:105px;}
     .journey-card h3{font-size:17px;}
-    .journey-card p{font-size:13px;padding-right:40px;}
     .journey-slideshow{height:230px;}
     .journey-modal h3{font-size:23px;}
     .journey-modal-description{font-size:14px;}
   }
 
-
-  /* Codec Pro sebagai font teks seluruh deskripsi */
   p,
   .tagline,
   .about-box p,
@@ -982,225 +930,87 @@
     font-family:'Codec Pro','CodecPro','Arial',sans-serif;
   }
 
-
-  /* Theme system */
+  /* ===== PALET WARNA: Ivory (light, default) & Navy Blue (dark) ===== */
   :root{
-    --light-void:#f3f0eb;
-    --light-panel:#ffffff;
-    --light-panel-2:#e9e4dc;
-    --light-line:rgba(24,32,51,0.14);
-    --light-violet:#6f5ce7;
-    --light-violet-soft:#6552d5;
-    --light-orange:#ef7542;
-    --light-text:#182033;
-    --light-muted:#596276;
+    --void:#F5F4F0;
+    --panel:#E7E2CE;
+    --panel-2:#BEB7A7;
+    --line: rgba(17,34,80,0.18);
+    --violet:#3B507D;
+    --violet-soft:#6d84ac;
+    --violet-rgb:59,80,125;
+    --orange:#112250;
+    --accent-rgb:17,34,80;
+    --on-accent:#F5F4F0;
+    --pop-shadow:#112250;
+    --text:#112250;
+    --muted:#5b6b86;
+    --white:#ffffff;
   }
+  body.dark-mode{
+    --void:#0d1730;
+    --panel:#16264a;
+    --panel-2:#1f3660;
+    --line: rgba(231,226,206,0.16);
+    --violet:#6d84ac;
+    --violet-soft:#94a8c9;
+    --violet-rgb:109,132,172;
+    --orange:#E7E2CE;
+    --accent-rgb:231,226,206;
+    --on-accent:#112250;
+    --pop-shadow:#05070f;
+    --text:#F5F4F0;
+    --muted:#9fb0c9;
+  }
+  header.scrolled{
+    background:rgba(245,244,240,0.75);
+    border-color:rgba(17,34,80,0.08);
+  }
+  body.dark-mode header.scrolled{
+    background:rgba(13,23,48,0.78);
+    border-color:rgba(231,226,206,0.10);
+  }
+  .photo-wrap{
+    filter:drop-shadow(0 0 22px rgba(var(--violet-rgb),0.55)) drop-shadow(0 0 48px rgba(var(--violet-rgb),0.35));
+  }
+  .photo-wrap::before{
+    border:2px solid rgba(var(--accent-rgb),0.5);
+    border-left-color:transparent;
+    border-bottom-color:rgba(255,255,255,0.18);
+    filter:drop-shadow(0 0 12px rgba(var(--violet-rgb),0.55)) drop-shadow(0 0 28px rgba(var(--violet-rgb),0.35));
+  }
+  .photo-wrap.lit::before{
+    border-color:rgba(var(--accent-rgb),0.8);
+    border-left-color:transparent;
+    filter:drop-shadow(0 0 8px rgba(var(--accent-rgb),0.5));
+  }
+  .theme-switch svg{ color:#ffd27a; filter:drop-shadow(0 0 4px #ffb347) drop-shadow(0 0 9px rgba(255,179,71,0.85)); }
+  body.dark-mode .theme-switch svg{ color:var(--muted); filter:none; }
 
-  body.light-mode{
-    background:var(--light-void);
-    color:var(--light-text);
-  }
-  body.light-mode header{
-    background:var(--light-panel);
-    border-bottom-color:var(--light-line);
-  }
-  body.light-mode header.scrolled{
-    background:rgba(243,240,235,.78);
-    border-color:rgba(24,32,51,.08);
-  }
-  body.light-mode .mega-menu,
-  body.light-mode .modal-card,
-  body.light-mode .skill-detail-card,
-  body.light-mode .journey-modal{
-    background:var(--light-void);
-    color:var(--light-text);
-  }
-  body.light-mode .mega-menu-top{
-    border-bottom-color:var(--light-line);
-  }
-  body.light-mode .icon-btn,
-  body.light-mode .journey-tab,
-  body.light-mode .journey-card,
-  body.light-mode .skill-card,
-  body.light-mode .skill-detail-item,
-  body.light-mode .project-card,
-  body.light-mode .contact-links a,
-  body.light-mode .contact-links .link-btn,
-  body.light-mode .modal-close,
-  body.light-mode .skill-detail-close{
-    background:var(--light-panel);
-    color:var(--light-text);
-    border-color:var(--light-line);
-  }
-  body.light-mode .panel-bg{
-    background:var(--light-panel-2);
-  }
-  body.light-mode .skill-card:hover,
-  body.light-mode .journey-card:hover{
-    border-color:var(--light-orange);
-    background:linear-gradient(145deg,var(--light-panel),rgba(239,117,66,.08));
-  }
-  body.light-mode .skill-card-icon,
-  body.light-mode .skill-detail-name i{
-    background:var(--light-orange);
-    color:#ffffff;
-  }
-  body.light-mode .skill-card h3,
-  body.light-mode .skill-detail-head h3,
-  body.light-mode .journey-card h3,
-  body.light-mode .modal-card h3,
-  body.light-mode .journey-modal h3{
-    color:var(--light-text);
-  }
-  body.light-mode .skill-card p,
-  body.light-mode .journey-card p,
-  body.light-mode .journey-modal-description,
-  body.light-mode .project-card p.desc,
-  body.light-mode .simple-item p,
-  body.light-mode .tagline,
-  body.light-mode .about-box p{
-    color:var(--light-text) !important;
-  }
-  body.light-mode .skill-level-label,
-  body.light-mode .t-role,
-  body.light-mode footer{
-    color:var(--light-muted);
-  }
-  body.light-mode .journey-tab.active{
-    background:var(--light-orange);
-    color:#ffffff;
-    border-color:var(--light-orange);
-  }
-  body.light-mode .logo span,
-  body.light-mode .journey-year,
-  body.light-mode .t-date,
-  body.light-mode .journey-more,
-  body.light-mode .skill-percent{
-    color:var(--light-orange);
-  }
-  body.light-mode .skill-level span{
-    background:var(--light-orange);
-  }
-  body.light-mode .skill-detail-overlay,
-  body.light-mode .journey-overlay,
-  body.light-mode .modal-overlay{
-    background:rgba(24,32,51,.48);
-  }
-  body.light-mode .photo-wrap{
-    filter:drop-shadow(0 0 22px rgba(239,117,66,0.65)) drop-shadow(0 0 48px rgba(239,117,66,0.40));
-  }
-  body.light-mode .photo-wrap::before{
-    filter:drop-shadow(0 0 12px rgba(239,117,66,0.65)) drop-shadow(0 0 28px rgba(239,117,66,0.40));
-  }
-  body.light-mode .cv-lang-tab{
-    background:var(--light-panel);
-    color:var(--light-text);
-    border-color:var(--light-line);
-  }
-  body.light-mode #cv-lang-id:checked ~ .cv-lang-tabs label[for="cv-lang-id"],
-  body.light-mode #cv-lang-en:checked ~ .cv-lang-tabs label[for="cv-lang-en"]{
-    background:var(--light-orange);
-    border-color:var(--light-orange);
-    color:#ffffff;
-  }
-
-  /* Header language and theme controls */
-  .header-actions{
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
+  .header-actions{ display:flex; align-items:center; gap:8px; }
   .header-control{
-    height:42px;
-    min-width:76px;
-    padding:0 11px;
-    border-radius:12px;
-    background:var(--panel-2);
-    border:1px solid var(--line);
-    color:var(--text);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    cursor:pointer;
-    font-family:'Space Grotesk',sans-serif;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.3px;
+    height:42px; min-width:76px; padding:0 11px; border-radius:12px;
+    background:var(--panel-2); border:1px solid var(--line); color:var(--text);
+    display:flex; align-items:center; justify-content:center; gap:7px; cursor:pointer;
+    font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; letter-spacing:.3px;
     transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s ease;
   }
-  .header-control:hover{
-    transform:translateY(-2px);
-    border-color:var(--orange);
-  }
-  .header-control svg{
-    width:16px;
-    height:16px;
-    pointer-events:none;
-    transition:filter .3s ease, color .3s ease;
-  }
-  .theme-switch #theme-icon{
-    color:var(--muted);
-  }
-  body.light-mode .theme-switch #theme-icon{
-    color:#ffd27a;
-    filter:drop-shadow(0 0 4px #ffb347) drop-shadow(0 0 9px rgba(255,179,71,0.85));
-  }
-  .lang-switch{
-    min-width:92px;
-    justify-content:space-between;
-    padding:4px 7px;
-  }
-  .lang-switch span{
-    min-width:35px;
-    height:32px;
-    border-radius:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:background .25s ease,color .25s ease;
-  }
-  .lang-switch span.active{
-    background:var(--orange);
-    color:#ffffff;
-  }
-  .theme-switch{
-    min-width:112px;
-  }
-  .theme-switch .theme-label{
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-  }
-  body.light-mode .header-control{
-    background:var(--light-panel);
-    color:var(--light-text);
-    border-color:var(--light-line);
-  }
-  body.light-mode .lang-switch span.active{
-    background:var(--light-orange);
-    color:#ffffff;
-  }
-  body.light-mode .theme-switch svg{
-    color:var(--light-orange);
-  }
+  .header-control:hover{ transform:translateY(-2px); border-color:var(--orange); }
+  .header-control svg{ width:16px; height:16px; pointer-events:none; }
+  .lang-switch{ min-width:92px; justify-content:space-between; padding:4px 7px; }
+  .lang-switch span{ min-width:35px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center; transition:background .25s ease,color .25s ease; }
+  .lang-switch span.active{ background:var(--orange); color:var(--on-accent); }
+  .theme-switch{ min-width:112px; }
+  .theme-switch .theme-label{ display:inline-flex; align-items:center; gap:5px; }
 
   @media(max-width:600px){
     .header-actions{gap:5px;}
-    .header-control{
-      height:38px;
-      min-width:0;
-      padding:0 8px;
-      font-size:10px;
-    }
+    .header-control{ height:38px; min-width:0; padding:0 8px; font-size:10px; }
     .lang-switch{min-width:78px;}
     .lang-switch span{min-width:29px;height:28px;}
     .theme-switch{min-width:92px;}
     .theme-switch .theme-label{gap:3px;}
-    .theme-switch .theme-label span{min-width:0;height:auto;background:none !important;color:inherit !important;}
   }
-
-
 </style>
 </head>
 <body>
@@ -1216,8 +1026,8 @@
     </button>
 
     <button class="header-control theme-switch" id="theme-switch" type="button" aria-label="Ganti mode tampilan">
-      <i data-lucide="moon" id="theme-icon"></i>
-      <span class="theme-label"><span id="theme-text">Dark</span></span>
+      <span id="theme-icon-wrap"><i data-lucide="lightbulb"></i></span>
+      <span class="theme-label"><span id="theme-text">Light</span></span>
     </button>
 
     <label for="menu-toggle" class="icon-btn"><i data-lucide="menu"></i></label>
@@ -1234,8 +1044,6 @@
     <a href="#skills" class="menu-row"><span class="m-icon"><i data-lucide="sparkles"></i></span><span data-en="Skills" data-id="Keahlian">Keahlian</span></a>
     <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="Journey" data-id="Perjalanan Saya">Perjalanan Saya</span></a>
     <a href="#project" class="menu-row"><span class="m-icon"><i data-lucide="layout-grid"></i></span><span data-en="Data Project" data-id="Proyek Data">Proyek Data</span></a>
-    
-    
     <a href="#contact" class="menu-row"><span class="m-icon"><i data-lucide="mail"></i></span><span data-en="Contact" data-id="Kontak">Kontak</span></a>
   </div>
 </div>
@@ -1321,21 +1129,18 @@
       <button class="journey-card" type="button" data-journey="academic">
         <span class="journey-year">2022–Sekarang</span>
         <h3>Universitas Muhammadiyah Surakarta</h3>
-        <p data-en="Informatics Engineering student building a foundation in technology, design, and digital problem solving." data-id="Mahasiswa Teknik Informatika yang membangun dasar di bidang teknologi, desain, dan pemecahan masalah digital.">Mahasiswa Teknik Informatika yang membangun dasar di bidang teknologi, desain, dan pemecahan masalah digital.</p>
         <span class="journey-more">MORE...</span>
       </button>
 
       <button class="journey-card" type="button" data-journey="imm">
         <span class="journey-year">2022–2024</span>
         <h3>IMM FKI UMS</h3>
-        <p data-en="Organization division experience focused on teamwork, program execution, and organizational communication." data-id="Pengalaman di divisi organisasi yang berfokus pada kerja sama tim, pelaksanaan program, dan komunikasi organisasi.">Pengalaman di divisi organisasi yang berfokus pada kerja sama tim, pelaksanaan program, dan komunikasi organisasi.</p>
         <span class="journey-more">MORE...</span>
       </button>
 
       <button class="journey-card" type="button" data-journey="mentor">
         <span class="journey-year">2022–2024</span>
         <h3>Mentor AIK UMS</h3>
-        <p data-en="Mentoring experience that strengthened communication, presentation, and guidance skills." data-id="Pengalaman mentoring yang mengembangkan kemampuan komunikasi, presentasi, dan pendampingan.">Pengalaman mentoring yang mengembangkan kemampuan komunikasi, presentasi, dan pendampingan.</p>
         <span class="journey-more">MORE...</span>
       </button>
     </div>
@@ -1344,13 +1149,11 @@
       <button class="journey-card" type="button" data-journey="roblox">
         <span class="journey-year">Jul 2025–Des 2025</span>
         <h3>Wirausaha Mandiri</h3>
-        <p data-en="Marketplace administration experience covering customer communication, negotiation, and transaction flow." data-id="Pengalaman administrasi marketplace yang mencakup komunikasi pelanggan, negosiasi, dan alur transaksi.">Pengalaman administrasi marketplace yang mencakup komunikasi pelanggan, negosiasi, dan alur transaksi.</p>
         <span class="journey-more">MORE...</span>
       </button>
       <button class="journey-card" type="button" data-journey="udang">
         <span class="journey-year">Mar 2026–Agu 2026</span>
         <h3>Udang Kedjuu Indonesia</h3>
-        <p data-en="Content creation and social media management experience from planning and production to audience growth." data-id="Pengalaman sebagai content creator dan manajemen media sosial dari perencanaan hingga produksi dan pertumbuhan audiens.">Pengalaman sebagai content creator dan manajemen media sosial dari perencanaan hingga produksi dan pertumbuhan audiens.</p>
         <span class="journey-more">MORE...</span>
       </button>
     </div>
@@ -1406,10 +1209,10 @@
     <div class="contact-panel from-left">
       <a href="https://www.instagram.com/yudhas4njaya" target="_blank" rel="noopener noreferrer"><i data-lucide="instagram"></i>Instagram</a>
       <a href="https://www.linkedin.com/in/yudha-sanjaya-3a76a0428/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin"></i>LinkedIn</a>
+      <a href="https://github.com/yudhas4njaya" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>GitHub</a>
       <a href="https://wa.me/6282230725472" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle"></i>WhatsApp</a>
     </div>
     <div class="contact-panel from-right">
-      <a href="https://github.com/yudhas4njaya" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>GitHub</a>
       <a href="mailto:yudhasanjaya411@gmail.com"><i data-lucide="mail"></i><span data-en="Send Email" data-id="Kirim Email">Kirim Email</span></a>
       <label for="resume-toggle" class="link-btn"><i data-lucide="file-text"></i><span data-en="Download CV/Resume" data-id="Unduh CV/Resume">Unduh CV/Resume</span></label>
     </div>
@@ -1482,7 +1285,6 @@
 <script>
   lucide.createIcons();
 
-  // header transparent on scroll, solid at top
   const header = document.getElementById('site-header');
   function onScroll(){
     if(window.scrollY > 8){ header.classList.add('scrolled'); }
@@ -1491,14 +1293,12 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  // close mega menu when a link is clicked
   document.querySelectorAll('.menu-row').forEach(function(row){
     row.addEventListener('click', function(){
       document.getElementById('menu-toggle').checked = false;
     });
   });
 
-  // Repeatable reveal: animate when entering the viewport, reset when leaving.
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
@@ -1508,7 +1308,6 @@
   }, { threshold: 0.15 });
   revealEls.forEach(function(el){ io.observe(el); });
 
-  // Hero hook zooms in every time the hero hook is revisited.
   const heroTitle = document.querySelector('.hero h1');
   if(heroTitle){
     const heroTitleIo = new IntersectionObserver(function(entries){
@@ -1525,7 +1324,6 @@
     heroTitleIo.observe(heroTitle);
   }
 
-  // profile photo: lit and zoomed by default, turns off once scrolled out of view
   const photoWrap = document.getElementById('photo-wrap');
   if(photoWrap){
     const photoIo = new IntersectionObserver(function(entries){
@@ -1537,7 +1335,6 @@
     photoIo.observe(photoWrap);
   }
 
-  // About paragraphs replay their right-to-left entrance whenever the box is revisited.
   const aboutBox = document.getElementById('about-box');
   if(aboutBox){
     const aboutIo = new IntersectionObserver(function(entries){
@@ -1556,7 +1353,6 @@
     aboutIo.observe(aboutBox);
   }
 
-  // Journey tabs and detail modal with an automatic three-slide gallery.
   const journeyData = {
     academic:{title:'Universitas Muhammadiyah Surakarta',year:'2022–Sekarang',description:'Perjalanan akademik sebagai mahasiswa Teknik Informatika yang membangun kemampuan di bidang teknologi, desain, dan pemecahan masalah digital.',images:['images1.jpg','images1.jpg','images1.jpg']},
     imm:{title:'IMM FKI UMS',year:'2022–2024',description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',images:['images1.jpg','images1.jpg','images1.jpg']},
@@ -1633,7 +1429,6 @@
   journeyOverlay.addEventListener('click',function(e){if(e.target===journeyOverlay)closeJourney();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeJourney();});
 
-  // The journey light travels up and down. Dots dim after the light passes them.
   const journeyFlow=document.querySelector('.journey-flow');
   function animateJourneyDots(){
     if(!journeyFlow) return;
@@ -1650,7 +1445,6 @@
   animateJourneyDots();
   setInterval(animateJourneyDots,4300);
 
-  // Skill detail data. Percentages are presentation levels and can be edited easily.
   const skillData = {
     uiux:{
       titleId:'Desainer UI/UX', titleEn:'UI/UX Designer',
@@ -1714,7 +1508,6 @@
   skillOverlay.addEventListener('click', function(e){ if(e.target === skillOverlay) closeSkillDetail(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeSkillDetail(); });
 
-  // translate: Indonesian is the default language, ID and ENG are clickable rounded controls
   let currentLang = 'id';
   function applyLang(lang){
     document.querySelectorAll('[data-en]').forEach(function(el){
@@ -1745,28 +1538,27 @@
   if(langEnButton) langEnButton.addEventListener('click', function(){ setLang('en'); });
 
   const themeSwitch = document.getElementById('theme-switch');
-  const themeIcon = document.getElementById('theme-icon');
   const themeText = document.getElementById('theme-text');
 
   function setTheme(mode){
-    const isLight = mode === 'light';
-    document.body.classList.toggle('light-mode', isLight);
-    if(themeIcon){
-      themeIcon.setAttribute('data-lucide', isLight ? 'lightbulb' : 'moon');
-      themeIcon.outerHTML = '<i data-lucide="' + (isLight ? 'lightbulb' : 'moon') + '" id="theme-icon"></i>';
+    const isDark = mode === 'dark';
+    document.body.classList.toggle('dark-mode', isDark);
+    const iconWrap = document.getElementById('theme-icon-wrap');
+    if(iconWrap){
+      iconWrap.innerHTML = '<i data-lucide="' + (isDark ? 'moon' : 'lightbulb') + '"></i>';
     }
-    if(themeText) themeText.textContent = isLight ? 'Light' : 'Dark';
+    if(themeText) themeText.textContent = isDark ? 'Dark' : 'Light';
     localStorage.setItem('ys-theme', mode);
     lucide.createIcons();
   }
 
   if(themeSwitch){
     themeSwitch.addEventListener('click', function(){
-      setTheme(document.body.classList.contains('light-mode') ? 'dark' : 'light');
+      setTheme(document.body.classList.contains('dark-mode') ? 'light' : 'dark');
     });
   }
 
-  const savedTheme = localStorage.getItem('ys-theme') || 'dark';
+  const savedTheme = localStorage.getItem('ys-theme') || 'light';
   setTheme(savedTheme);
   updateLangControl();
 </script>
