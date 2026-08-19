@@ -1065,7 +1065,7 @@
   <div class="mega-menu-inner">
     <a href="#about" class="menu-row"><span class="m-icon"><i data-lucide="user"></i></span><span data-en="About Me" data-id="Tentang Saya">Tentang Saya</span></a>
     <a href="#skills" class="menu-row"><span class="m-icon"><i data-lucide="sparkles"></i></span><span data-en="Skills" data-id="Keahlian">Keahlian</span></a>
-    <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="briefcase"></i></span><span data-en="Education" data-id="Pendidikan">Pendidikan</span></a>
+    <a href="#experience" class="menu-row"><span class="m-icon"><i data-lucide="graduation-cap"></i></span><span data-en="Education" data-id="Pendidikan">Pendidikan</span></a>
     <a href="#project" class="menu-row"><span class="m-icon"><i data-lucide="layout-grid"></i></span><span data-en="Data Project" data-id="Proyek Data">Proyek Data</span></a>
     <a href="#contact" class="menu-row"><span class="m-icon"><i data-lucide="mail"></i></span><span data-en="Contact" data-id="Kontak">Kontak</span></a>
   </div>
@@ -1388,14 +1388,78 @@
   }
 
   const journeyData = {
-    academic:{title:'Universitas Muhammadiyah Surakarta',year:'2022–Sekarang',description:'Perjalanan akademik sebagai mahasiswa Teknik Informatika yang membangun kemampuan di bidang teknologi, desain, dan pemecahan masalah digital.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    imm:{title:'IMM FKI UMS',year:'2022–2024',description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    mentor:{title:'Mentor AIK UMS',year:'2022–2024',description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    roblox:{title:'Wirausaha Mandri',year:'Jul 2025–Des 2025',description:'Pengalaman sebagai admin marketplace yang berfokus pada komunikasi pelanggan, negosiasi, transaksi, dan pengelolaan pesanan.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    udang:{title:'Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',description:'Pengalaman sebagai Konten Kreator Digital dan Manajemen Sosial Media yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',images:['images1.jpg','images1.jpg','images1.jpg']},
-    proja:{title:'Profil Perusahaan & Katalog Produk — PT Setiawan Jaya Usaha',year:'2025',problem:'Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.',description:'Merancang profil perusahaan dan katalog produk dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.',images:['project-a-1.jpg','project-a-1.jpg','project-a-1.jpg'],skills:['Graphic Design','Visual Branding','Layout & Composition','Canva Proficiency','Client Needs Analysis'],reviewLink:'https://www.instagram.com/yudhas4njaya'},
-    projb:{title:'Konten Kreator Digital & Manajemen Sosial Media — Udang Kedjuu Indonesia',year:'Mar 2026–Agu 2026',problem:'Melanjutkan fondasi media sosial yang ada dan menaikkan level interaksi konten.',description:'Mendukung pertumbuhan digital Udang Kedjuu, brand F&B yang berkembang pesat dengan lebih dari 20 cabang di seluruh Pulau Jawa. Mengelola produksi media sosial secara menyeluruh untuk Udang Kedjuu Indonesia, mulai dari pengerjaan ide, proses syuting, editing, hingga penjadwalan konten. Selama periode 6 bulan, berhasil meningkatkan visibilitas brand dan interaksi lokal di area Surakarta melalui pembuatan konten yang fresh dan strategis.',images:['project-b-1.jpg','project-b-1.jpg','project-b-1.jpg'],skills:['Content Ideation','Video Editing','Social Media Management','Copywriting','KOL Collaboration'],reviewLink:'https://www.instagram.com/yudhas4njaya'},
-    projc:{title:'Wirausaha Mandri — Pasar Roblox (Growtopia, Fish It & Grow A Garden)',year:'Jul 2025–Des 2025',problem:'Mengatasi risiko tinggi penipuan item digital dengan membangun lingkungan transaksi yang aman dan transparan bagi para gamer.',description:'Mengelola layanan perantara (escrow service) untuk transaksi item virtual Roblox selama periode 6 bulan. Memanfaatkan platform SociaBuzz dan live stream interaktif untuk meningkatkan transparansi, membangun kepercayaan pembeli, serta memfasilitasi transaksi digital yang lancar.',images:['project-c-1.jpg','project-c-1.jpg','project-c-1.jpg'],skills:['Live Streaming','Trust Building','Negotiation','Customer Service','Transaction Management'],reviewLink:'https://www.instagram.com/yudhas4njaya'}
+    academic:{
+      title:'Universitas Muhammadiyah Surakarta',
+      titleEn:'Universitas Muhammadiyah Surakarta',
+      year:'2022–Sekarang',
+      yearEn:'2022–Present',
+      description:'Perjalanan akademik sebagai mahasiswa Teknik Informatika yang membangun kemampuan di bidang teknologi, desain, dan pemecahan masalah digital.',
+      descriptionEn:'My academic journey as an Informatics Engineering student, developing skills in technology, design, and digital problem-solving.',
+      images:['images1.jpg','images1.jpg','images1.jpg']
+    },
+    imm:{
+      title:'IMM FKI UMS',
+      year:'2022–2024',
+      description:'Pengalaman di divisi organisasi yang melatih kerja sama tim, komunikasi, perencanaan, dan pelaksanaan program kerja.',
+      images:['images1.jpg','images1.jpg','images1.jpg']
+    },
+    mentor:{
+      title:'Mentor AIK UMS',
+      year:'2022–2024',
+      description:'Pengalaman mentoring yang memperkuat kemampuan komunikasi, presentasi, pendampingan, dan interaksi dengan mahasiswa lain.',
+      images:['images1.jpg','images1.jpg','images1.jpg']
+    },
+    roblox:{
+      title:'Wirausaha Mandri',
+      year:'Jul 2025–Des 2025',
+      description:'Pengalaman sebagai admin marketplace yang berfokus pada komunikasi pelanggan, negosiasi, transaksi, dan pengelolaan pesanan.',
+      images:['images1.jpg','images1.jpg','images1.jpg']
+    },
+    udang:{
+      title:'Udang Kedjuu Indonesia',
+      year:'Mar 2026–Agu 2026',
+      description:'Pengalaman sebagai Konten Kreator Digital dan Manajemen Sosial Media yang mencakup ideasi, produksi konten, editing, perencanaan, dan pengembangan audiens.',
+      images:['images1.jpg','images1.jpg','images1.jpg']
+    },
+    proja:{
+      title:'Profil Perusahaan & Katalog Produk — PT Setiawan Jaya Usaha',
+      titleEn:'Company Profile & Product Catalog — PT Setiawan Jaya Usaha',
+      year:'2025',
+      yearEn:'2025',
+      problem:'Desain sebelumnya sudah ketinggalan zaman dan kurang menarik secara visual.',
+      problemEn:'The previous design was outdated and lacked visual appeal.',
+      description:'Merancang profil perusahaan dan katalog produk dari nol menggunakan Canva tanpa template, dengan layout custom yang menampilkan visualisasi modern dan menarik untuk PT Setiawan Jaya Usaha.',
+      descriptionEn:'Designed a company profile and product catalog from scratch using Canva without templates, creating a custom layout with a modern and engaging visual presentation for PT Setiawan Jaya Usaha.',
+      images:['project-a-1.jpg','project-a-1.jpg','project-a-1.jpg'],
+      skills:['Graphic Design','Visual Branding','Layout & Composition','Canva Proficiency','Client Needs Analysis'],
+      reviewLink:'https://www.instagram.com/yudhas4njaya'
+    },
+    projb:{
+      title:'Konten Kreator Digital & Manajemen Sosial Media — Udang Kedjuu Indonesia',
+      titleEn:'Digital Content Creator & Social Media Management — Udang Kedjuu Indonesia',
+      year:'Mar 2026–Agu 2026',
+      yearEn:'Mar 2026–Aug 2026',
+      problem:'Melanjutkan fondasi media sosial yang ada dan menaikkan level interaksi konten.',
+      problemEn:'Building on the existing social media foundation and increasing content engagement.',
+      description:'Mendukung pertumbuhan digital Udang Kedjuu, brand F&B yang berkembang pesat dengan lebih dari 20 cabang di seluruh Pulau Jawa. Mengelola produksi media sosial secara menyeluruh untuk Udang Kedjuu Indonesia, mulai dari pengerjaan ide, proses syuting, editing, hingga penjadwalan konten. Selama periode 6 bulan, berhasil meningkatkan visibilitas brand dan interaksi lokal di area Surakarta melalui pembuatan konten yang fresh dan strategis.',
+      descriptionEn:'Supported the digital growth of Udang Kedjuu, a rapidly growing F&B brand with more than 20 branches across Java. Managed the complete social media production process, from content ideation and shooting to editing and scheduling. During the 6-month period, successfully increased brand visibility and local engagement in the Surakarta area through fresh and strategic content.',
+      images:['project-b-1.jpg','project-b-1.jpg','project-b-1.jpg'],
+      skills:['Content Ideation','Video Editing','Social Media Management','Copywriting','KOL Collaboration'],
+      reviewLink:'https://www.instagram.com/yudhas4njaya'
+    },
+    projc:{
+      title:'Wirausaha Mandri — Pasar Roblox (Growtopia, Fish It & Grow A Garden)',
+      titleEn:'Self Employed — Roblox Marketplace (Growtopia, Fish It & Grow A Garden)',
+      year:'Jul 2025–Des 2025',
+      yearEn:'Jul 2025–Dec 2025',
+      problem:'Mengatasi risiko tinggi penipuan item digital dengan membangun lingkungan transaksi yang aman dan transparan bagi para gamer.',
+      problemEn:'Reducing the risk of digital item scams by creating a safe and transparent transaction environment for gamers.',
+      description:'Mengelola layanan perantara (escrow service) untuk transaksi item virtual Roblox selama periode 6 bulan. Memanfaatkan platform SociaBuzz dan live stream interaktif untuk meningkatkan transparansi, membangun kepercayaan pembeli, serta memfasilitasi transaksi digital yang lancar.',
+      descriptionEn:'Managed an escrow service for virtual item transactions on Roblox for 6 months. Utilized SociaBuzz and interactive live streams to improve transaction transparency, build buyer trust, and facilitate smooth digital transactions.',
+      images:['project-c-1.jpg','project-c-1.jpg','project-c-1.jpg'],
+      skills:['Live Streaming','Trust Building','Negotiation','Customer Service','Transaction Management'],
+      reviewLink:'https://www.instagram.com/yudhas4njaya'
+    }
   };
   const journeyOverlay=document.getElementById('journey-overlay');
   const journeySlideshow=document.getElementById('journey-slideshow');
@@ -1408,7 +1472,7 @@
   const journeySkillsEl=document.getElementById('journey-modal-skills');
   const journeyReview=document.getElementById('journey-modal-review');
   const journeyClose=document.getElementById('journey-close');
-  let journeyTimer=null, journeyIndex=0;
+  let journeyTimer=null, journeyIndex=0, currentJourneyKey=null;
 
   document.querySelectorAll('.journey-tab').forEach(function(tab){
     tab.addEventListener('click',function(){
@@ -1425,19 +1489,50 @@
     slides.forEach(function(slide,i){slide.classList.toggle('active',i===index);});
     dots.forEach(function(dot,i){dot.classList.toggle('active',i===index);});
   }
-  function openJourney(key){
-    const data=journeyData[key]; if(!data) return;
-    clearInterval(journeyTimer); journeyIndex=0;
-    journeySlideshow.innerHTML=data.images.map(function(src,i){return '<div class="journey-slide '+(i===0?'active':'')+'"><img src="'+src+'" alt="'+data.title+' slide '+(i+1)+'"></div>';}).join('')+'<span class="journey-slide-count">01 / 03</span>';
-    journeyDots.innerHTML=data.images.map(function(_,i){return '<span class="journey-dot '+(i===0?'active':'')+'"></span>';}).join('');
-    journeyYear.textContent=data.year; journeyTitle.textContent=data.title; journeyDescription.textContent=data.description;
+  function updateJourneyLanguage(){
+    if(!currentJourneyKey) return;
+    const data=journeyData[currentJourneyKey];
+    if(!data) return;
 
-    if(data.problem){
-      journeyProblem.textContent=data.problem;
+    const isEnglish=currentLang === 'en';
+    const title=isEnglish && data.titleEn ? data.titleEn : data.title;
+    const year=isEnglish && data.yearEn ? data.yearEn : data.year;
+    const description=isEnglish && data.descriptionEn ? data.descriptionEn : data.description;
+    const problem=isEnglish && data.problemEn ? data.problemEn : data.problem;
+
+    journeyYear.textContent=year;
+    journeyTitle.textContent=title;
+    journeyDescription.textContent=description;
+
+    if(problem){
+      journeyProblem.textContent=problem;
       journeyProblem.style.display='block';
     } else {
       journeyProblem.style.display='none';
     }
+
+    journeySlideshow.querySelectorAll('.journey-slide img').forEach(function(img,i){
+      img.alt=title+' slide '+(i+1);
+    });
+  }
+
+  function openJourney(key){
+    const data=journeyData[key]; if(!data) return;
+    currentJourneyKey=key;
+    clearInterval(journeyTimer); journeyIndex=0;
+
+    const isEnglish=currentLang === 'en';
+    const title=isEnglish && data.titleEn ? data.titleEn : data.title;
+
+    journeySlideshow.innerHTML=data.images.map(function(src,i){
+      return '<div class="journey-slide '+(i===0?'active':'')+'"><img src="'+src+'" alt="'+title+' slide '+(i+1)+'"></div>';
+    }).join('')+'<span class="journey-slide-count">01 / 03</span>';
+
+    journeyDots.innerHTML=data.images.map(function(_,i){
+      return '<span class="journey-dot '+(i===0?'active':'')+'"></span>';
+    }).join('');
+
+    updateJourneyLanguage();
 
     if(data.skills && data.skills.length){
       journeySkillsEl.innerHTML=data.skills.map(function(s){return '<span class="journey-skill-pill">'+s+'</span>';}).join('');
@@ -1455,9 +1550,13 @@
 
     journeyOverlay.classList.add('open'); journeyOverlay.setAttribute('aria-hidden','false');
     lucide.createIcons();
-    journeyTimer=setInterval(function(){journeyIndex=(journeyIndex+1)%3;renderJourneySlide(journeyIndex);journeySlideshow.querySelector('.journey-slide-count').textContent=String(journeyIndex+1).padStart(2,'0')+' / 03';},4200);
+    journeyTimer=setInterval(function(){
+      journeyIndex=(journeyIndex+1)%3;
+      renderJourneySlide(journeyIndex);
+      journeySlideshow.querySelector('.journey-slide-count').textContent=String(journeyIndex+1).padStart(2,'0')+' / 03';
+    },4200);
   }
-  function closeJourney(){clearInterval(journeyTimer);journeyOverlay.classList.remove('open');journeyOverlay.setAttribute('aria-hidden','true');}
+  function closeJourney(){clearInterval(journeyTimer);currentJourneyKey=null;journeyOverlay.classList.remove('open');journeyOverlay.setAttribute('aria-hidden','true');}
   document.querySelectorAll('.journey-card').forEach(function(card){card.addEventListener('click',function(){openJourney(card.getAttribute('data-journey'));});});
   journeyClose.addEventListener('click',closeJourney);
   journeyOverlay.addEventListener('click',function(e){if(e.target===journeyOverlay)closeJourney();});
@@ -1553,6 +1652,9 @@
     currentLang = lang;
     if(skillOverlay && skillOverlay.classList.contains('open') && skillTitle){
       skillTitle.textContent = lang === 'en' ? skillTitle.getAttribute('data-en') : skillTitle.getAttribute('data-id');
+    }
+    if(journeyOverlay && journeyOverlay.classList.contains('open') && currentJourneyKey){
+      updateJourneyLanguage();
     }
   }
   const langIdButton = document.getElementById('lang-id');
